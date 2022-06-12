@@ -1,1 +1,1 @@
-# Study 8)
+# Study 8) 
