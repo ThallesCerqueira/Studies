@@ -27,5 +27,3 @@ int main(){
 
     return 0;
 }
-
-//codigo com erro para achar o termo, pois as variaveis ultimo e atual foram inicializadas antes

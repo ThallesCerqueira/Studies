@@ -22,9 +22,3 @@ int main(void) {
   
   return 0;
 }
-
-
-
-
-
-//consertar, dará erro se o usuario digitar 0

@@ -9,6 +9,5 @@ int main(){
 
     printf("%c\n", entrada);
 
-
     return 0; 
 }

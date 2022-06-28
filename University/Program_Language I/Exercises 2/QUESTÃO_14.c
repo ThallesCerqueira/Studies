@@ -2,10 +2,6 @@
 
 int main(){
 
-    /*Este programa só vai até o fatorial de 12 pois o valor maximo para um int é 2.147.483.647
-     se colocarmos 13 como entrada vai exceder tal valor
-    */
-
     long int entrada, valor_entrada, fatorial = 1;
 
     do{

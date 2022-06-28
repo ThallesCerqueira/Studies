@@ -5,7 +5,6 @@ int main(){
     int aux = 0, resto, divisao, entrada;
 
     do{
-
         printf("Digite um inteiro positivo: ");
         scanf("%d", &entrada);
 
