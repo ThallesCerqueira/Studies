@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 double calcPi(int n);
+double result;
 
 int main(){
 
@@ -10,16 +12,23 @@ int main(){
 
     seed = time(NULL);
     srand(seed);
-
     termo = 5 + rand()%21;
 
-    printf("%d\n", termo);
-
-
+    calcPi(termo);
 
     return 0;
 }
 
-double calcPi(termo){
+double calcPi(int termo){
+    
+    double somatorio;
+    double result_somatorio = 0;
+    for(int i = 0; i <= termo; i++){
+        somatorio = pow(-1, i) / (2 * i + 1);
+        result_somatorio += somatorio;
+    }
 
+    result = result_somatorio * 4;
+
+    return result;
 }
