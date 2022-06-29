@@ -16,6 +16,8 @@ int main(){
 
     calcPi(termo);
 
+    printf("%lf", result);
+
     return 0;
 }
 
@@ -23,7 +25,8 @@ double calcPi(int termo){
     
     double somatorio;
     double result_somatorio = 0;
-    for(int i = 0; i <= termo; i++){
+    
+    for(int i = 0; i < termo; i++){
         somatorio = pow(-1, i) / (2 * i + 1);
         result_somatorio += somatorio;
     }
