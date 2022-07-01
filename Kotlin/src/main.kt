@@ -1,10 +1,27 @@
 fun main(){
+
+    /* FIRST IMPLEMENTACION
+    var idade = 20 * 365
+    var name = "Thalles"
+
     println("Happy Birthday!")
-<<<<<<< HEAD
-    println("Thalles,")
-    println("You are 20!")
-=======
-    println("Thalles")
-    println("you are 20!")
->>>>>>> 73d9493a88729d10c9ded89cfbb85633df87aa99
+    println("${name},")
+    println("You are ${idade} days old, ${name}!")
+
+    println("   ,,,,,   ")
+    println("   |||||   ")
+    println(" =========")
+    println("@@@@@@@@@@@")
+    println("{~@~@~@~@~}")
+    println("@@@@@@@@@@@")
+    println("") 
+    */
+    
+    printBorder()
+    println("Happy Birthday, Jhansi!")
+    printBorder()
+}
+
+fun printBorder(){
+    println("=====================")
 }
