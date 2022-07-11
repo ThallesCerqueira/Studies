@@ -41,7 +41,10 @@ float calculadora(){
       printf("Operação inválida, b precisa ser diferente de zero!\n");
       control = 0;
     }
+  }else {
+    printf("Operação inválida!\n");
+    control = 0;
   }
-  
+
   return resultado;
 }
