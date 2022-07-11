@@ -22,7 +22,6 @@ float calculadora(){
   
   printf("Infome a operação a ser feita (+, -, *, /): ");
   scanf("%c", &operacao);
-  
   printf("Entre com o valor de a: ");
   scanf("%f", &a);
   printf("Entre com o valor de b: ");
@@ -44,7 +43,9 @@ float calculadora(){
   }else {
     printf("Operação inválida!\n");
     control = 0;
-  }
-
+  }else {
+    printf("Operação inválida!\n");
+    control = 0;
+  }  
   return resultado;
 }
