@@ -43,9 +43,6 @@ float calculadora(){
   }else {
     printf("Operação inválida!\n");
     control = 0;
-  }else {
-    printf("Operação inválida!\n");
-    control = 0;
-  }  
+  } 
   return resultado;
 }
