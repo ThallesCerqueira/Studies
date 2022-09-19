@@ -1,8 +1,8 @@
-#include <stdio.h> #it's just a exercise that start the second semester at the university
+#include <stdio.h>
 
 int main(){
 
-    qtdAlunos = 10;
+    int qtdAlunos = 10;
     float notasTurma[qtdAlunos];
     float media = 0;
 
