@@ -6,20 +6,20 @@ int funcao(char *string, char letra, int *posicoes, int *tamanho);
 int main(){
 
     //Declaração e inicializacao das variaveis
-    int *posicoes;
-
-    //posicoes = (int*) malloc(sizeof(int));
+    int *posicoes, *tamanho, tamam = 0;
     char *string = "raaba";
-    char letra = 'a';
-    int *tamanho, tamam = 0;
+    char letra = 'b';
     tamanho = &tamam;
-
 
     //chamada da função 
     funcao(string, letra, posicoes, tamanho);
 
-    //TESTE PARA VETOR DE POSICOES
-    printf("Tamanho: %d\n", *tamanho);
+    //Output dos resultados
+    printf("Tamanho do novo VETOR: %d\n", *tamanho);
+    printf("Posições da letra '%c' na frase: ", letra);
+    for(int i = 0; i < *tamanho; i++){
+        printf("%i ", posicoes[i]);
+    }
 
     return 0;
 }
