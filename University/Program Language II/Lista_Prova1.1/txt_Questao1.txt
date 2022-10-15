@@ -1,0 +1,5 @@
+a) A variável p deve receber "&" para que seja atribuída a ela o endereço de memória da variável x.
+
+b) O ponteiro temp não está apontando para nenhuma variável, portanto, na linha 5 (*temp = *i) não é possivel realizar esta operação.
+
+c) memória não foi alocada para as variaveis 'a' e 'b'. OU, simplesmente trocar ondem das variaveis no print.
