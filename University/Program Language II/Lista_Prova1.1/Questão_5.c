@@ -5,7 +5,6 @@ void ordenar(float *ponteiroA, float *ponteiroB, float *ponteiroC, float *pontei
 int main(){
 
     //Declaracao e inicializacao das variaveis
-
     float a, b, c, d,*ponteiroA, *ponteiroB, *ponteiroC, *ponteiroD, *vetor;
     vetor = (float*) malloc(4 * sizeof(float));
     ponteiroA = &a;

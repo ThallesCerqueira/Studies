@@ -1,31 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *strcopy(char *str, char *copia);
+char *strcopy(char *str);
 
 int main(){
 
-    //Declaração das variaveis
+    //Declaração das variáveis
     char *ponteiroDaCopia;
-    char copia[2];
-    char *string = "la";
+    char string[] = "Copiando";
 
-    //Chamada da funcao strcopy
-    ponteiroDaCopia = strcopy(string, copia);
+    //chamada da funcao 
+    ponteiroDaCopia = strcopy(string);
 
-    //Output da copia
-    printf("A cópia é: %c\n", ponteiroDaCopia[0]);
+    for(int i = 0; ponteiroDaCopia[i] != '\0'; i++){
+        printf("%c", ponteiroDaCopia[i]);
+    }
 
     return 0;
 }
 
-char *strcopy(char *str, char *copia){
+char *strcopy(char *str){
+
+    char *copia;
+    copia = &str[0];
 
     //copia dos valores
-    while(*str != '\0'){
-        *copia = *str;
-        copia++;
-        str++;
+    for(int i = 0; str[i] != '\0'; i++){
+        copia[i] = str[i];
     }
+
     return copia;
 }
