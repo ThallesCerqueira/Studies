@@ -40,7 +40,7 @@ void ordenar(float *ponteiroA, float *ponteiroB, float *ponteiroC, float *pontei
 
     //ordenando
     for(int cont = 0; cont < 4; cont++){
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < 3; i++){
             if(vetor[i] > vetor[i+1]){
                 aux = vetor[i];
                 vetor[i] = vetor[i+1];
