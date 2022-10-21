@@ -2,7 +2,8 @@
 
 //Menus
 void menu_Principal(); //Funcionando
-void menu_cadastro_cliente();
+void menu_cadastro_cliente(); //Funcionando
+void menu_incluir_cliente();
 
 //basics
 int opcao_Menu(); //Funcionando
@@ -55,8 +56,20 @@ int opcao_Menu(){
 }
 
 void cadastro_cliente(){
+    //Declaração de variáveis
+    int opcao;
+
+    //chamada de funcoes
     menu_cadastro_cliente();
-    opcao_Menu();
+    opcao = opcao_Menu();
+
+    //Decidindo chamada de funcoes
+    switch(opcao){
+        case 1:
+            incluir_cliente();
+    }
+
+
 }
 
 void menu_cadastro_cliente(){
@@ -67,4 +80,13 @@ void menu_cadastro_cliente(){
     printf("3 - Alterar cliente\n");
     printf("4 - Retornar");
 
+}
+
+void incluir_cliente(){
+    menu_incluir_cliente();
+}
+
+void menu_incluir_cliente(){
+    printf("\nINCLUIR CLIENTE \n");
+    
 }
