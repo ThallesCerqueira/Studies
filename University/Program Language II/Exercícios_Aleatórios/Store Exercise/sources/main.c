@@ -3,16 +3,26 @@
 //Menus
 void menu_Principal(); //Funcionando
 void menu_cadastro_cliente(); //Funcionando
-void menu_incluir_cliente();
 
 //basics
 int opcao_Menu(); //Funcionando
-void cadastro_cliente();
+void cadastro_cliente(int posicaoCliente);
+void incluir_cliente(int posicaoCliente);
+
+//Declaração da estrutura
+struct cadastro {
+    int codigoCliente;
+    nomeCliente[100];
+};
+struct cadastro cliente[50];
 
 int main(){
 
     //Declaração das variaveis
-    int opcao;
+    int opcao, posicaoCliente;
+
+    //Inicialização de variáveis
+    posicaoCliente = 0;
 
     while(1){
         //Chamada de funcoes
@@ -22,7 +32,7 @@ int main(){
         //Decidindo chamada de funcoes
         switch(opcao){
             case 1:
-                cadastro_cliente();
+                cadastro_cliente(posicaoCliente);
         }
         
     }
@@ -55,7 +65,7 @@ int opcao_Menu(){
     return opcao;
 }
 
-void cadastro_cliente(){
+void cadastro_cliente(int posicaoCliente){
     //Declaração de variáveis
     int opcao;
 
@@ -66,7 +76,7 @@ void cadastro_cliente(){
     //Decidindo chamada de funcoes
     switch(opcao){
         case 1:
-            incluir_cliente();
+            incluir_cliente(posicaoCliente);
     }
 
 
@@ -82,11 +92,18 @@ void menu_cadastro_cliente(){
 
 }
 
-void incluir_cliente(){
-    menu_incluir_cliente();
-}
+void incluir_cliente(int posicaoCliente){
+    int aux;
 
-void menu_incluir_cliente(){
-    printf("\nINCLUIR CLIENTE \n");
+    printf("\nINCLUIR CLIENTE \n\n");
+
+    //Leitura e atribuição à posicao corrente na Struct, codigo
+    printf("Código do cliente: ");
+    scanf("%d", &aux);
+    cliente[posicaoCliente].codigoCliente = aux;
+
+    //Leitura e atribuição à posicao corrente na Struct, nome
+    printf("Nome do cliente: ");
+    gets(cliente[posicaoCliente].nomeCliente);
     
 }
