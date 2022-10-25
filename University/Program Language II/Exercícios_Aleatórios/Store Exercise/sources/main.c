@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 //Menus
 void menu_Principal(); //Funcionando
@@ -12,9 +14,9 @@ void incluir_cliente(int posicaoCliente);
 //Declaração da estrutura
 struct cadastro {
     int codigoCliente;
-    nomeCliente[100];
+    char nomeCliente[100];
 };
-struct cadastro cliente[50];
+struct cadastro cliente[100];
 
 int main(){
 
@@ -94,6 +96,7 @@ void menu_cadastro_cliente(){
 
 void incluir_cliente(int posicaoCliente){
     int aux;
+    char nome[50];
 
     printf("\nINCLUIR CLIENTE \n\n");
 
@@ -105,5 +108,8 @@ void incluir_cliente(int posicaoCliente){
     //Leitura e atribuição à posicao corrente na Struct, nome
     printf("Nome do cliente: ");
     gets(cliente[posicaoCliente].nomeCliente);
+    
+    //scanf("%s", nome);
+    //cliente[posicaoCliente].nomeCliente
     
 }
