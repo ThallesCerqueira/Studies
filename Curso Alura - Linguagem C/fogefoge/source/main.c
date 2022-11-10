@@ -4,10 +4,12 @@
 #include "main.h"
 
 MAPA m;
+POSICAO heroi;
 
 int main(){
     
     lerMapa(&m);
+    encontraMapa(&m, &heroi, '@');
 
     do{
         imprimeMapa(&m);
@@ -23,39 +25,31 @@ int main(){
 }
 
 void move(char direcao){
-    int x, y;
-
-    //Localiza o personagem
-    for(int i = 0; i < m.linhas; i++){
-        for(int j = 0; j < m.colunas; j++){
-            if(m.matriz[i][j] == '@'){
-                x = i;
-                y = j;
-                break;
-            }
-        }
-    }
+    
+    m.matriz[heroi.x][heroi.y] = '.';
 
     switch (direcao)
     {
     case 'a':
-        m.matriz[x][y-1] = '@';
+        m.matriz[heroi.x][heroi.y-1] = '@';
+        heroi.y--;
         break;
     
     case 'w':
-        m.matriz[x-1][y] = '@';
+        m.matriz[heroi.x-1][heroi.y] = '@';
+        heroi.x--;
         break;
 
     case 's':
-        m.matriz[x+1][y] = '@';
+        m.matriz[heroi.x+1][heroi.y] = '@';
+        heroi.x++;
         break;
 
     case 'd':
-        m.matriz[x][y+1] = '@';
+        m.matriz[heroi.x][heroi.y+1] = '@';
+        heroi.y++;
         break;
     }
-
-    m.matriz[x][y] = '.';
 
 }
 
