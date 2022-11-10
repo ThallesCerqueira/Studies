@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "mapa.h"
-#include "main.h"
+#include "./main.h"
+#include "./mapa.h"
 
 MAPA m;
 POSICAO heroi;
@@ -25,34 +25,47 @@ int main(){
 }
 
 void move(char direcao){
-    
-    m.matriz[heroi.x][heroi.y] = '.';
+
+    if(isDirecao(direcao)){
+        return;
+    }
+
+    int proximox = heroi.x;
+    int proximoy = heroi.y;
 
     switch (direcao)
     {
     case 'a':
-        m.matriz[heroi.x][heroi.y-1] = '@';
-        heroi.y--;
+        proximoy--;
         break;
-    
     case 'w':
-        m.matriz[heroi.x-1][heroi.y] = '@';
-        heroi.x--;
+        proximox--;
         break;
-
     case 's':
-        m.matriz[heroi.x+1][heroi.y] = '@';
-        heroi.x++;
+        proximox++;
         break;
-
     case 'd':
-        m.matriz[heroi.x][heroi.y+1] = '@';
-        heroi.y++;
+        proximoy++;
         break;
     }
+
+    if(!isValida(&m, proximox, proximoy)) return;
+    if(isVazia(&m, proximox, proximoy)) return;
+
+    andaNoMapa(&m, heroi.x, heroi.y, proximox, proximoy);
+    heroi.x = proximox;
+    heroi.y = proximoy;
 
 }
 
 int acabou(){
     return 0;
+}
+
+int isDirecao(char direcao){
+    if(direcao != 'a' && direcao != 's' && direcao != 'd'&& direcao != 'w'){
+        return 1;
+    }else{
+        return 0;
+    }
 }

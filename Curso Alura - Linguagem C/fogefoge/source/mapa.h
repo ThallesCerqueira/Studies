@@ -17,3 +17,7 @@ void lerMapa(MAPA* m);
 void alocaMapa(MAPA* m);
 void imprimeMapa(MAPA* m);
 void  encontraMapa(MAPA* m, POSICAO* p, char c);
+void andaNoMapa(MAPA* m, int xOrigigem, int yOrigem, int xDestino, int yDestino);
+int isValida(MAPA* m, int x, int y);
+int isVazia(MAPA* m, int x, int y);
+

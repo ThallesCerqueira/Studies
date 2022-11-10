@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "mapa.h"
-#include "main.h"
+#include "./main.h"
+#include "./mapa.h"
 
 void liberaMapa(MAPA* m){
     for(int i = 0; i < m->linhas; i++){
@@ -56,4 +56,29 @@ void  encontraMapa(MAPA* m, POSICAO* p, char c){
             }
         }
     }
+}
+
+int isValida(MAPA* m, int x, int y){
+
+    if(x >= m->linhas) return 0;
+    if(y >= m->colunas) return 0;
+
+    return 1;
+}
+
+int isVazia(MAPA* m, int x, int y){
+
+    if(m->matriz[x][y] != '.') return 1;
+
+    return 0;
+
+
+}
+
+void andaNoMapa(MAPA* m, int xOrigem, int yOrigem, int xDestino, int yDestino){
+    char personagem = m->matriz[xOrigem, yOrigem];
+    m->matriz[xDestino][yDestino] = personagem;
+
+    m->matriz[xOrigem][yOrigem] = '.';
+
 }
