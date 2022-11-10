@@ -3,4 +3,5 @@ public class conta {
     int agencia;
     int numero;
     String titular;
+    int agora;
 }
