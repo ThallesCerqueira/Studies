@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+char **mapa;
+int linhas;
+int colunas;
+
 int main(){
-
-    char mapa[5][11];
-
-    mapa[0][0] = '|';
-    mapa[4][9] = '@';
 
     FILE* f;
 
@@ -17,6 +16,17 @@ int main(){
         exit(1);
     }
 
+    fscanf(f, "%d %d", &linhas, &colunas);
+
+////////////////////
+    int** mapa = malloc(sizeof(char*) * linhas);
+
+    for(int i = 0; i < linhas; i++){
+        mapa[i] = malloc(sizeof(char) * (colunas+1));
+    }
+
+///////////////////
+
     for(int i = 0; i < 5; i++){
         fscanf(f, "%s", mapa[i]);
     }
@@ -25,6 +35,11 @@ int main(){
         printf("%s\n", mapa[i]);
     }
 
+    for(int i = 0; i < linhas; i++){
+        free(mapa[i]);
+    }
+
+    free(mapa);
     fclose(f);
 
     return 0;
