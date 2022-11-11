@@ -7,4 +7,5 @@ void fantasmas();
 void move(char direcao);
 int acabou();
 int isDirecao(char direcao);
+int paraOndeFantasmaVai(int xAtual, int yAtual, int* xDestino, int* yDestino);
 

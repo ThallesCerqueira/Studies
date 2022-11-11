@@ -22,11 +22,12 @@ void liberaMapa(MAPA* m);
 void lerMapa(MAPA* m);
 void alocaMapa(MAPA* m);
 void imprimeMapa(MAPA* m);
-void encontraMapa(MAPA* m, POSICAO* p, char c);
+int encontraMapa(MAPA* m, POSICAO* p, char c);
 void copiaMapa(MAPA* destino, MAPA* origem);
 void andaNoMapa(MAPA* m, int xOrigigem, int yOrigem, int xDestino, int yDestino);
 int isValida(MAPA* m, int x, int y);
 int isVazia(MAPA* m, int x, int y);
+int podeAndar(MAPA* m, int x, int y);
 
 
 

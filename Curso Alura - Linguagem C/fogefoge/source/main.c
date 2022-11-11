@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "./main.h"
 #include "./mapa.h"
 
@@ -60,7 +61,9 @@ void move(char direcao){
 }
 
 int acabou(){
-    return 0;
+    POSICAO pos;
+    int fogeFogeNoMapa = encontraMapa(&m, &pos, HEROI);
+    return !fogeFogeNoMapa;
 }
 
 int isDirecao(char direcao){
@@ -76,13 +79,44 @@ void fantasmas(){
     for(int i = 0; i < m.linhas; i++){
         for(int j = 0; j < m.colunas; j++){
             if(copia.matriz[i][j] == FANTASMA && isVazia(&m, i, j+1)){
-                if(isValida(&m, i, j+1)){
-                    andaNoMapa(&m, i, j, i, j+1);
+
+                int xDestino;
+                int yDestino;
+
+                int encontrou = paraOndeFantasmaVai(i, j, &xDestino, &yDestino);
+
+                if(encontrou){
+                    if(isValida(&m, i, j+1)) andaNoMapa(&m, i, j, i, j+1); //esse if pode sair..
+                
                 }
             }
         }
     }
 
     liberaMapa(&copia);
+}
+
+int paraOndeFantasmaVai(int xAtual, int yAtual, int* xDestino, int* yDestino){
+    
+    int opcoes[4][2] = {{xAtual, yAtual + 1}, {xAtual + 1, yAtual},
+    {xAtual, yAtual - 1}, {xAtual -1, yAtual}};
+
+    srand(time(0));
+
+    for(int i = 0; i < 10; i++){
+        
+        int posicao = rand() % 4;
+
+        if(isValida(&m, opcoes[posicao][0], opcoes[posicao][1]) && 
+            isVazia(&m, opcoes[posicao][0], opcoes[posicao][1])){
+            
+            *xDestino = opcoes[posicao][0];
+            *yDestino = opcoes[posicao][1];
+
+            return 1;
+        }
+    }
+
+    return 0;
 
 }

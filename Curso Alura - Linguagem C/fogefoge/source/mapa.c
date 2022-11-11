@@ -47,16 +47,17 @@ void imprimeMapa(MAPA* m){
     }
 }
 
-void  encontraMapa(MAPA* m, POSICAO* p, char c){
+int encontraMapa(MAPA* m, POSICAO* p, char c){
     for(int i = 0; i < m->linhas; i++){
         for(int j = 0; j < m->colunas; j++){
             if(m->matriz[i][j] == c){
                 p->x = i;
                 p->y = j;
-                break;
+                return 1;
             }
         }
     }
+    return 0;
 }
 
 int isValida(MAPA* m, int x, int y){
@@ -87,4 +88,8 @@ void copiaMapa(MAPA* destino, MAPA* origem){
     }
 
 
+}
+
+int podeAndar(MAPA* m, int x, int y){
+    return isValida(m, x, y) && isVazia(m,y,y);
 }
