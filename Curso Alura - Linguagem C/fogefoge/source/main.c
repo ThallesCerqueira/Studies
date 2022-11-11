@@ -9,7 +9,7 @@ POSICAO heroi;
 int main(){
     
     lerMapa(&m);
-    encontraMapa(&m, &heroi, 'c');
+    encontraMapa(&m, &heroi, HEROI);
 
     do{
         imprimeMapa(&m);
