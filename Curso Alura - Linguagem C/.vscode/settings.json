@@ -29,6 +29,7 @@
     "**/.vscode/**"
   ],
   "files.associations": {
-    "mapa.h": "c"
+    "mapa.h": "c",
+    "main.h": "c"
   }
 }

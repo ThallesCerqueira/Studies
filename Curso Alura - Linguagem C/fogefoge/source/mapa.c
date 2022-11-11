@@ -12,21 +12,22 @@ void liberaMapa(MAPA* m){
 }
 
 void lerMapa(MAPA* m){
+    //Abertura do arquivo
     FILE* f;
-
     f = fopen("mapa.txt", "r");
-
     if (f == 0){
         printf("Erro na leitura do mapa!\n");
         exit(1);
     }
 
+    //Armazenando os valores do arquivo
     fscanf(f, "%d %d", &(m->linhas), &(m->colunas));
 
     //Alocação do Mapa
     alocaMapa(m);
 
-    for(int i = 0; i < 5; i++){
+    //
+    for(int i = 0; i < m->linhas; i++){
         fscanf(f, "%s", m->matriz[i]);
     }
     fclose(f);
@@ -34,14 +35,13 @@ void lerMapa(MAPA* m){
 
 void alocaMapa(MAPA* m){
     m->matriz = malloc(sizeof(char*) * m->linhas);
-
     for(int i = 0; i < m->linhas; i++){
         m->matriz[i] = malloc(sizeof(char) * (m->colunas+1));
     }
 }
 
 void imprimeMapa(MAPA* m){
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < m->linhas; i++){
       printf("%s\n", m->matriz[i]);
     }
 }
@@ -61,17 +61,14 @@ void  encontraMapa(MAPA* m, POSICAO* p, char c){
 int isValida(MAPA* m, int x, int y){
     if(x >= m->linhas) return 0;
     if(y >= m->colunas) return 0;
-
     return 1;
 }
 
 int isVazia(MAPA* m, int x, int y){
-
-    return m->matriz[x][y] == '.';
-
+    return m->matriz[x][y] == VAZIO;
 }
 
 void andaNoMapa(MAPA* m, int xOrigem, int yOrigem, int xDestino, int yDestino){
-    m->matriz[xDestino][yDestino] = '@';
-    m->matriz[xOrigem][yOrigem] = '.';
+    m->matriz[xDestino][yDestino] = HEROI;
+    m->matriz[xOrigem][yOrigem] = VAZIO;
 }

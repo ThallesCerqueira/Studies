@@ -9,7 +9,7 @@ POSICAO heroi;
 int main(){
     
     lerMapa(&m);
-    encontraMapa(&m, &heroi, '@');
+    encontraMapa(&m, &heroi, 'c');
 
     do{
         imprimeMapa(&m);
@@ -34,16 +34,16 @@ void move(char direcao){
     int proximoy = heroi.y;
 
     switch (direcao){
-    case 'a':
+    case ESQUERDA:
         proximoy--;
         break;
-    case 'w':
+    case CIMA:
         proximox--;
         break;
-    case 's':
+    case BAIXO:
         proximox++;
         break;
-    case 'd':
+    case DIRETA:
         proximoy++;
         break;
     }
@@ -62,5 +62,5 @@ int acabou(){
 }
 
 int isDirecao(char direcao){
-    return (direcao == 'a' || direcao == 's' || direcao == 'd'|| direcao == 'w');
+    return (direcao == ESQUERDA || direcao == BAIXO || direcao == DIRETA || direcao == CIMA);
 }
