@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "./main.h"
 #include "./mapa.h"
 
@@ -16,6 +17,7 @@ int main(){
         char comando;
         scanf(" %c", &comando);
         move(comando);
+        fantasmas();
     }while(!acabou());
     
 
@@ -63,4 +65,24 @@ int acabou(){
 
 int isDirecao(char direcao){
     return (direcao == ESQUERDA || direcao == BAIXO || direcao == DIRETA || direcao == CIMA);
+}
+
+void fantasmas(){
+
+    MAPA copia;
+
+    copiaMapa(&copia, &m);
+
+    for(int i = 0; i < m.linhas; i++){
+        for(int j = 0; j < m.colunas; j++){
+            if(copia.matriz[i][j] == FANTASMA && isVazia(&m, i, j+1)){
+                if(isValida(&m, i, j+1)){
+                    andaNoMapa(&m, i, j, i, j+1);
+                }
+            }
+        }
+    }
+
+    liberaMapa(&copia);
+
 }

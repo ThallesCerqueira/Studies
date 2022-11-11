@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "./main.h"
 #include "./mapa.h"
 
@@ -69,6 +70,21 @@ int isVazia(MAPA* m, int x, int y){
 }
 
 void andaNoMapa(MAPA* m, int xOrigem, int yOrigem, int xDestino, int yDestino){
-    m->matriz[xDestino][yDestino] = HEROI;
+    char personagem;
+    personagem = m->matriz[xOrigem][yOrigem];
+    m->matriz[xDestino][yDestino] = personagem;
     m->matriz[xOrigem][yOrigem] = VAZIO;
+}
+
+void copiaMapa(MAPA* destino, MAPA* origem){
+    destino->linhas = origem->linhas;
+    destino->colunas = origem->colunas;
+
+    alocaMapa(destino);
+
+    for(int i = 0; i < origem->linhas; i++){
+        strcpy(destino->matriz[i], origem->matriz[i]);
+    }
+
+
 }
