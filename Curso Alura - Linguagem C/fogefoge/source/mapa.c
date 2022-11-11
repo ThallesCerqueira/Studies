@@ -59,7 +59,6 @@ void  encontraMapa(MAPA* m, POSICAO* p, char c){
 }
 
 int isValida(MAPA* m, int x, int y){
-
     if(x >= m->linhas) return 0;
     if(y >= m->colunas) return 0;
 
@@ -68,17 +67,11 @@ int isValida(MAPA* m, int x, int y){
 
 int isVazia(MAPA* m, int x, int y){
 
-    if(m->matriz[x][y] != '.') return 1;
-
-    return 0;
-
+    return m->matriz[x][y] == '.';
 
 }
 
 void andaNoMapa(MAPA* m, int xOrigem, int yOrigem, int xDestino, int yDestino){
-    char personagem = m->matriz[xOrigem, yOrigem];
-    m->matriz[xDestino][yDestino] = personagem;
-
+    m->matriz[xDestino][yDestino] = '@';
     m->matriz[xOrigem][yOrigem] = '.';
-
 }

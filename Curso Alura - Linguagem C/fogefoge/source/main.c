@@ -26,15 +26,14 @@ int main(){
 
 void move(char direcao){
 
-    if(isDirecao(direcao)){
+    if(!isDirecao(direcao)){
         return;
     }
 
     int proximox = heroi.x;
     int proximoy = heroi.y;
 
-    switch (direcao)
-    {
+    switch (direcao){
     case 'a':
         proximoy--;
         break;
@@ -50,7 +49,7 @@ void move(char direcao){
     }
 
     if(!isValida(&m, proximox, proximoy)) return;
-    if(isVazia(&m, proximox, proximoy)) return;
+    if(!isVazia(&m, proximox, proximoy)) return;
 
     andaNoMapa(&m, heroi.x, heroi.y, proximox, proximoy);
     heroi.x = proximox;
@@ -63,9 +62,5 @@ int acabou(){
 }
 
 int isDirecao(char direcao){
-    if(direcao != 'a' && direcao != 's' && direcao != 'd'&& direcao != 'w'){
-        return 1;
-    }else{
-        return 0;
-    }
+    return (direcao == 'a' || direcao == 's' || direcao == 'd'|| direcao == 'w');
 }
