@@ -76,9 +76,9 @@ void fantasmas(){
 
     copiaMapa(&copia, &m);
 
-    for(int i = 0; i < m.linhas; i++){
-        for(int j = 0; j < m.colunas; j++){
-            if(copia.matriz[i][j] == FANTASMA && isVazia(&m, i, j+1)){
+    for(int i = 0; i < copia.linhas; i++){
+        for(int j = 0; j < copia.colunas; j++){
+            if(copia.matriz[i][j] == FANTASMA  && isVazia(&m, i, j+1)){
 
                 int xDestino;
                 int yDestino;
@@ -86,8 +86,7 @@ void fantasmas(){
                 int encontrou = paraOndeFantasmaVai(i, j, &xDestino, &yDestino);
 
                 if(encontrou){
-                    if(isValida(&m, i, j+1)) andaNoMapa(&m, i, j, i, j+1); //esse if pode sair..
-                
+                    if(isValida(&m, i, j+1)) andaNoMapa(&m, i, j, i, j+1);
                 }
             }
         }
@@ -118,5 +117,4 @@ int paraOndeFantasmaVai(int xAtual, int yAtual, int* xDestino, int* yDestino){
     }
 
     return 0;
-
 }

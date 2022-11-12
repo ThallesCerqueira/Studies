@@ -71,8 +71,7 @@ int isVazia(MAPA* m, int x, int y){
 }
 
 void andaNoMapa(MAPA* m, int xOrigem, int yOrigem, int xDestino, int yDestino){
-    char personagem;
-    personagem = m->matriz[xOrigem][yOrigem];
+    char personagem = m->matriz[xOrigem][yOrigem];
     m->matriz[xDestino][yDestino] = personagem;
     m->matriz[xOrigem][yOrigem] = VAZIO;
 }
@@ -86,10 +85,16 @@ void copiaMapa(MAPA* destino, MAPA* origem){
     for(int i = 0; i < origem->linhas; i++){
         strcpy(destino->matriz[i], origem->matriz[i]);
     }
-
-
 }
 
-int podeAndar(MAPA* m, int x, int y){
-    return isValida(m, x, y) && isVazia(m,y,y);
+int podeAndar(MAPA* m, char personagem, int x, int y){
+    return isValida(m, x, y) && !isParede(m,y,y) && !isPersonagem(m, personagem, x, y);
+}
+
+int isParede(MAPA* m, int x, int y){
+    return m->matriz[x][y] == PAREDE_VERTICAL || m->matriz[x][y] == PAREDE_HORIZONTAL;
+}
+
+int isPersonagem(MAPA* m, char personagem, int x, int y){
+    return m->matriz[x][y] == personagem;
 }
