@@ -7,6 +7,7 @@
 
 MAPA m;
 POSICAO heroi;
+int temPilula = 0;
 
 int main(){
     
@@ -14,6 +15,7 @@ int main(){
     encontraMapa(&m, &heroi, HEROI);
 
     do{
+        printf("Tem pilula: %s\n", (temPilula? "SIM": "NÃO"));
         imprimeMapa(&m);
         char comando;
         scanf(" %c", &comando);
@@ -54,6 +56,10 @@ void move(char direcao){
     if(!isValida(&m, proximox, proximoy)) return;
     if(!isVazia(&m, proximox, proximoy)) return;
 
+    if(isPersonagem(&m, PILULA, proximox, proximoy)){
+        temPilula = 1;
+    }
+
     andaNoMapa(&m, heroi.x, heroi.y, proximox, proximoy);
     heroi.x = proximox;
     heroi.y = proximoy;
@@ -86,7 +92,8 @@ void fantasmas(){
                 int encontrou = paraOndeFantasmaVai(i, j, &xDestino, &yDestino);
 
                 if(encontrou){
-                    if(isValida(&m, i, j+1)) andaNoMapa(&m, i, j, i, j+1);
+                    //if(isValida(&m, i, j+1)) 
+                    andaNoMapa(&m, i, j, i, j+1);
                 }
             }
         }

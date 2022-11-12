@@ -3,6 +3,7 @@
 #define VAZIO '.'
 #define PAREDE_VERTICAL '|'
 #define PAREDE_HORIZONTAL '-'
+#define PILULA 'P'
 
 struct mapa{
     char **matriz;
