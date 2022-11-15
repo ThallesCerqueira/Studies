@@ -24,5 +24,8 @@ public class testeMetodo {
 
         //System.out.println("Conta do Thalles após transferencia: " + contaThalles.saldo);
         System.out.println("Saldo atual: " + contaTaisy.saldo);
+
+        contaThalles.titular = "Thalles Cerqueira";
+        System.out.println("Titular: " + contaThalles.titular);
     }
 }
