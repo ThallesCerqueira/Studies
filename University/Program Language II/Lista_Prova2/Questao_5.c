@@ -18,12 +18,12 @@ int main(){
 
     inicio = NULL;
     inicio = inserirInicio(inicio, 5);
-    inicio = inserirInicio(inicio, 4);
+    inicio = inserirInicio(inicio, 2);
     inicio = inserirInicio(inicio, 3);
     inicio = inserirInicio(inicio, 2);
     inicio = inserirInicio(inicio, 1);
 
-    inicio = removeElemento(inicio, 5);
+    inicio = removeElemento(inicio, 2);
 
     printf("\n");
 
@@ -54,35 +54,15 @@ void imprimir(No* inicio){
 }
 
 No* removeElemento(No* inicio, int elemento){
-    No *auxiliar, *ponteiroParaSeguinte;
-    int contador = 0;
+    No *auxiliar, *novaLista;
+    novaLista = NULL;
+
+    for(auxiliar = inicio; auxiliar != NULL; auxiliar = auxiliar->proximo){
+        if(auxiliar->dado != elemento){
+            novaLista = inserirInicio(novaLista, auxiliar->dado);
+        }
+    }
+
+    return novaLista;
     
-    auxiliar = inicio;
-
-    if(auxiliar->dado == elemento){
-        inicio = inicio->proximo;
-    }
-
-    while(auxiliar->dado != elemento){
-        contador++;
-        printf("Valor do elemento: %d\n", auxiliar->dado);
-
-        auxiliar = auxiliar->proximo;
-
-        if(auxiliar->dado == elemento){
-            printf("Entrei e parei!\n");
-            ponteiroParaSeguinte = auxiliar->proximo;
-        }
-    }
-
-    auxiliar = inicio;
-    for(int i = 1; i <= contador; i++){
-        if(i == contador){
-            auxiliar->proximo = ponteiroParaSeguinte;
-        }else{
-            auxiliar = auxiliar->proximo;
-        }
-    }
-
-    return inicio;
 }
