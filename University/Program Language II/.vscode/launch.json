@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/taisy/Programming/Thalles/University/Program Language II",
-      "program": "/home/taisy/Programming/Thalles/University/Program Language II/build/Debug/outDebug",
+      "cwd": "/home/taisy/Programming/Thalles/University/Program Language II/Exerc_Susana",
+      "program": "/home/taisy/Programming/Thalles/University/Program Language II/Exerc_Susana/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
