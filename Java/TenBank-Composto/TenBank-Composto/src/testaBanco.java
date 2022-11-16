@@ -6,9 +6,9 @@ public class testaBanco {
         //thalles.cpf = "09300725530";
         //thalles.profissao = "Engenheiro de automação";
 
-        conta contaThalles = new conta();
+        //conta contaThalles = new conta();
 
-        contaThalles.deposita(100);
+        //contaThalles.deposita(100);
 
         //contaThalles.titular = thalles;
 
