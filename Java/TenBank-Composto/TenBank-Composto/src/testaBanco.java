@@ -10,8 +10,8 @@ public class testaBanco {
 
         contaThalles.deposita(100);
 
-        contaThalles.titular = thalles;
+        //contaThalles.titular = thalles;
 
-        System.out.println(contaThalles.titular.nome);
+        //System.out.println(contaThalles.titular.nome);
     }
 }

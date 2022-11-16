@@ -1,8 +1,8 @@
 public class conta {
     private double saldo;
-    int agencia;
-    int numero;
-    cliente titular;
+    private int agencia;
+    private int numero;
+    private cliente titular;
 
     public void deposita(double valor){
         saldo+= valor;
@@ -38,5 +38,9 @@ public class conta {
 
     public double getSaldo(){
         return saldo;
+    }
+
+    public int getNumero(){
+        return numero;
     }
 }
