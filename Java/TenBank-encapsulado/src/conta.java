@@ -1,18 +1,18 @@
 public class conta {
-    private double saldo;
-    private int agencia;
-    private int numero;
+    private double Saldo;
+    private int Agencia;
+    private int Numero;
     private cliente titular;
 
     public void deposita(double valor){
-        saldo+= valor;
+        Saldo+= valor;
     }
 
     public boolean saque(double valor){
         
         if(valor >= 0){
-            if(saldo >= valor){
-                saldo -= valor;
+            if(Saldo >= valor){
+                Saldo -= valor;
                 return true;
             }else{
                 return false;
@@ -24,10 +24,10 @@ public class conta {
 
     public boolean transfere(double valor, conta destino){
 
-        if(saldo >= valor){
+        if(Saldo >= valor){
 
-            saldo -=valor;
-            destino.saldo += valor;
+            Saldo -=valor;
+            destino.Saldo += valor;
 
             return true;
         }
@@ -37,10 +37,22 @@ public class conta {
     }
 
     public double getSaldo(){
-        return saldo;
+        return Saldo;
     }
 
     public int getNumero(){
-        return numero;
+        return Numero;
+    }
+
+    public void setNumero(int numero){
+        this.Numero = numero;
+    }
+
+    public int getAgencia(){
+        return Agencia;
+    }
+
+    public void setAgencia(int Agencia){
+        this.Agencia = Agencia;
     }
 }
