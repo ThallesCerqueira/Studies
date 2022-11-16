@@ -45,7 +45,12 @@ public class conta {
     }
 
     public void setNumero(int numero){
-        this.Numero = numero;
+        if(numero > 0){
+            this.Numero = numero;
+        }else{
+            System.out.println("Números menos ou iguais a zero não são permitidos.");
+            return;
+        }
     }
 
     public int getAgencia(){
@@ -53,6 +58,20 @@ public class conta {
     }
 
     public void setAgencia(int Agencia){
-        this.Agencia = Agencia;
+        if(Agencia > 0){
+            this.Agencia = Agencia;
+        }else{
+            System.out.println("Valores menos ou iguais a zero não são permitidos.");
+            return;
+        }
+        
+    }
+
+    public void setTitular(cliente cliente){
+        this.titular = cliente;
+    }
+
+    public cliente getTitular(){
+        return this.titular;
     }
 }
