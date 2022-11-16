@@ -65,12 +65,9 @@ No* removeElemento(No* inicio, int elemento){
 
     while(auxiliar->dado != elemento){
         contador++;
-        printf("Valor do elemento: %d\n", auxiliar->dado);
-
         auxiliar = auxiliar->proximo;
 
         if(auxiliar->dado == elemento){
-            printf("Entrei e parei!\n");
             ponteiroParaSeguinte = auxiliar->proximo;
         }
     }
@@ -83,6 +80,5 @@ No* removeElemento(No* inicio, int elemento){
             auxiliar = auxiliar->proximo;
         }
     }
-
     return inicio;
 }

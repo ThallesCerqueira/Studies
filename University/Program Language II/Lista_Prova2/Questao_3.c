@@ -79,8 +79,6 @@ No* removeNo(No* inicio, int posNo){
                 auxiliar = auxiliar->proximo;
             }
         }
-        
     }
-
     return inicio;
 }

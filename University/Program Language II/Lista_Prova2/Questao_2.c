@@ -60,7 +60,6 @@ int quant(LISTA* I){
         cont++;
     }
 
-
     return cont;
 }
 
