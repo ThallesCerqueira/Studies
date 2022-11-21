@@ -1,44 +1,45 @@
 #include <stdio.h>
 
-int* maximo(int *vetor, int tamanho);
+int* maximo(float *vetor, int tamanho);
 
 int main(){
 
     //Declarações
-    int tamanho, *vetor, *memoria;
+    int tamanho;
+    float *vetor, *memoria;
 
     //Inicializações
     tamanho = 5;
 
     //Alocação de memória para Vetor
-    vetor = (int*) malloc(tamanho * sizeof(int));
+    vetor = (float*) malloc(tamanho * sizeof(float));
 
     //Preenchimento vetor
     for(int i = 0; i < tamanho; i++){
-        vetor[i] = i;
+        printf("Entre com V[%i]: ", i);
+        scanf("%f", &vetor[i]);
     }
 
     //Recebimento do endereço do maior valor dentro de Vetor
     memoria = maximo(vetor, tamanho);
 
-    printf("Memoria = %i\n", memoria);
+    printf("Memoria = %p\n", memoria);
 
     return 0;
 }
 
-int* maximo(int *vetor, int tamanho){
+int* maximo(float *vetor, int tamanho){
 
     //variavel auxiliar
-    int *aux;
+    float aux, *aux2;
     aux = vetor[0];
 
     //percorrendo todo vetor e verificando o maior
     for(int i = 0; i < tamanho; i++){
         if(vetor[i] > aux){
-            aux = vetor[i];
+            aux2 = &vetor[i];
         }
     }
 
-    return aux;
-
+    return aux2;
 }
