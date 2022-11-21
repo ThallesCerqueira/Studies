@@ -34,15 +34,14 @@ int main(){
     return 0;
 }
 
-int **aloca_matriz(int m, int n){ //está alocando corretamente
+int **aloca_matriz(int m, int n){ 
     int **matriz;
 
     matriz = (int**) malloc(m * sizeof(int*));
     for(int i = 0; i < m; i++){
         matriz[i] = (int*) malloc(n * sizeof(int));
     }
-
-    return (matriz);
+    return matriz;
 }
 
 void mostra_matriz(int **matriz, int m, int n){

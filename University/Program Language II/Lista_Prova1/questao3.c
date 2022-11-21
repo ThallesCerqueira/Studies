@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int uniao(int *A, int n, int *B, int m, int *C);
+int* uniao(int *A, int n, int *B, int m, int *C);
 void preencher_vetor(int *A, int n, int *B, int m);
 int verifica_duplicidade(int *C, int tamanho);
 int remove_valor(int *C, int tamanho, int posicao);
+
+int tamanhoC = 0;
 
 int main(){
 
@@ -12,16 +14,16 @@ int main(){
     int *B; 
     int *C, n, m, tamanho;
 
-    n = 2;
-    m = 2;
+    n = 3;
+    m = 3;
 
     A = (int*) malloc(n * sizeof(int));
     B = (int*) malloc(m * sizeof(int));
 
     preencher_vetor(A, n, B, m);
-    tamanho = uniao(A, n, B, m, C);
-    tamanho = verifica_duplicidade(C, tamanho);
-    printf("Tamanho: %d", tamanho);
+    C = uniao(A, n, B, m, C);
+    tamanhoC = verifica_duplicidade(C, tamanhoC);
+    printf("Tamanho: %d\n", tamanhoC);
 
     return 0;
 }
@@ -40,9 +42,9 @@ void preencher_vetor(int *A, int n, int *B, int m){
 
 }
 
-int uniao(int *A, int n, int *B, int m, int *C){
+int* uniao(int *A, int n, int *B, int m, int *C){
     
-    int tamanho = n + m;
+    tamanhoC = n + m;
 
     C = (int*) malloc((n+m) * sizeof(int));
 
@@ -58,7 +60,7 @@ int uniao(int *A, int n, int *B, int m, int *C){
         printf("C[%d]: %d\n", i, C[i]);
     }
     
-    return tamanho;
+    return C;
 }
 
 int verifica_duplicidade(int *C, int tamanho){
