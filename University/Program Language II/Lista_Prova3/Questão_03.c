@@ -20,10 +20,9 @@ int mostraVet(int vet[], int tam){
 
     if(tam - 1 == 0){
         printf("VET[%d]: %d\n", tam - 1, vet[tam - 1]);
-        return;
+        return 1;
     }
-
-    printf("VET[%d]: %d\n", tam - 1, vet[tam - 1]);
-    return mostraVet(vet, tam - 1);
+    
+    return printf("VET[%d]: %d\n", tam - 1, vet[tam - 1]) && mostraVet(vet, tam - 1);
 
 }
