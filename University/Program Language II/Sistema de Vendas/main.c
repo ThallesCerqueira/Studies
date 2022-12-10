@@ -8,22 +8,23 @@ typedef struct estruturaCliente{
 
 typedef struct estruturaProduto{
     int codigoProduto;
-    int valorProduto
+    int valorProduto;
+    char nome[20];
 }PRODUTO;
 
 //FUNÇÕES
-void menuPrincipal(); // FUNCIONANDO
-
-int cadastroCliente(CLIENTE *cliente, int qtdCliente);
-void menuCadastroCliente();
-int incluirCliente(CLIENTE *cliente, int qtdCliente); //FUNCIONANDO
+void menuPrincipal();                                   //FUNCIONANDO
+void menuCadastroCliente();                             //FUNCIONANDO
 void excluirCliente(CLIENTE *cliente);
-void alterarCliente(CLIENTE *cliente, int qtdCliente); //FUNCIONANDO
+void alterarCliente(CLIENTE *cliente, int qtdCliente);  //FUNCIONANDO
+int cadastroCliente(CLIENTE *cliente, int qtdCliente);  //FUNCIONANDO
+int incluirCliente(CLIENTE *cliente, int qtdCliente);   //FUNCIONANDO
 
-void cadastroProduto();
-void incluirProduto();
+int cadastroProduto(PRODUTO *produto, int qtdProduto);
+int incluirProduto();
 void excluirProduto();
 void alterarProduto();
+void menuCadastroProduto();
 
 void venda();
 int verificaCodigo();
@@ -33,13 +34,14 @@ int opcao(); //FUNCIONANDO
 int main(){
 
     //Variaveis
-    int escolha, qtdCliente;
+    int escolha, qtdCliente, qtdProduto;
 
     //Inicialização de variavel
-    qtdCliente = 0;
+    qtdCliente = qtdProduto = 0;
 
     //Estruturas
     CLIENTE cliente[10];
+    PRODUTO produto[10];
 
     while(1){
         system("clear");
@@ -52,7 +54,7 @@ int main(){
                 qtdCliente = cadastroCliente(cliente, qtdCliente);
                 break;
             case 2:
-                cadastroProduto();
+                qtdProduto = cadastroProduto(produto, qtdProduto);
                 break;
             case 3:
                 venda();
@@ -97,10 +99,11 @@ int cadastroCliente(CLIENTE *cliente, int qtdCliente){
 
         switch(escolha){
             case 1:
-                incluirCliente(cliente, qtdCliente);
+                qtdCliente = incluirCliente(cliente, qtdCliente);
                 break;
             case 2:
-                excluirCliente(cliente);
+                printf("Não implementado.");
+                //excluirCliente(cliente);
                 break;
             case 3:
                 alterarCliente(cliente, qtdCliente);
@@ -179,10 +182,34 @@ void alterarCliente(CLIENTE *cliente, int qtdCliente){
 }
 
 //FUNÇÕES PRODUTO
-void cadastroProduto(){
-    
+int cadastroProduto(PRODUTO *produto, int qtdProduto){
+    int escolha;
+
+    while(1){
+        system("clear");
+        printf("\nCadastro de Produtos\n");
+
+        menuCadastroProduto();
+        escolha = opcao();
+        system("clear");
+
+        switch(escolha){
+            case 1:
+                qtdProduto = incluirProduto(produto, qtdProduto);
+                break;
+            case 2:
+                printf("Não implementado.");
+                //excluirProduto(produto);
+                break;
+            case 3:
+                alterarProduto(produto, qtdProduto);
+                break;
+            case 4:
+                return;
+        }
+    }
 }
-void incluirProduto(){
+int incluirProduto(){
 
 }
 void excluirProduto(){
@@ -190,6 +217,13 @@ void excluirProduto(){
 }
 void alterarProduto(){
 
+}
+void menuCadastroProduto(){
+    printf("\n1 - Incluir produto\n");
+    printf("2 - Excluir produto\n");
+    printf("3 - Alterar produto\n");
+    printf("4 - Retornar\n");
+    printf("\nDigite sua opção: ");
 }
 
 //FUNÇÕES BÁSICAS
