@@ -1,80 +1,180 @@
 #include <stdio.h>
 
-//VARIÁVEIS GLOBAIS
-int quantidade_produtos = 0;
+//ESTRUTURAS
+typedef struct estruturaCliente{
+    int codigoCliente;
+    char nome[20];
+}CLIENTE;
 
-//Funções
-void cadastrar_produto();
-void excluir_produto();
-void menuPrincipal();
-int escolhaMenuPrincipal();
-
-//Estruturas
-typedef struct produto{
-    char nome[10];
-    int valor;
+typedef struct estruturaProduto{
+    int codigoProduto;
+    int valorProduto
 }PRODUTO;
 
-PRODUTO lista[100];
+//FUNÇÕES
+void menuPrincipal();
+
+void cadastroCliente();
+void menuCadastroCliente();
+void incluirCliente();
+void excluirCliente();
+void alterarCliente();
+
+void cadastroProduto();
+void incluirProduto();
+void excluirProduto();
+void alterarProduto();
+
+
+void venda();
+void verificaCodigo();
+int opcao();
 
 int main(){
 
-    int opcao;
+    //Variaveis
+    int escolha;
 
-    do{
+    while(1){
+        system("clear");
         menuPrincipal();
-        opcao = escolhaMenuPrincipal();
+        escolha = opcao();
+        system("clear");
+        
 
-        switch (opcao){
-            case 0:
-                return 0;
-            
+        switch(escolha){
             case 1:
-                cadastrar_produto();
+                cadastroCliente();
                 break;
             case 2:
-                excluir_produto();
+                cadastroProduto();
                 break;
             case 3:
-                alterar_produto();
+                venda();
                 break;
             case 4:
-                cadastrar_cliente();
-                break;
-            case 5:
-                excluir_cliente();
-                break;
-            case 6:
-                alterar_cliente();
-                break;
-            case 7:
-                fazer_venda();
-                break;
+                return 1;
             default:
-                printf("Opção inválida!\n");
-                continue;         
+                printf("Opção Inválida");
         }
 
-    }while(opcao != 0);
-
+    }
 
     return 0;
 }
 
-int escolhaMenuPrincipal(){
+void menuPrincipal(){
+    printf("\n1 - Cadastro de clientes.\n");
+    printf("2 - Cadastro de produtos.\n");
+    printf("3 - Venda.\n");
+    printf("4 - Sair do sistema.\n");
+    printf("\nDigite sua opção: ");
+}
+
+int opcao(){
     int opcao;
+
     scanf("%d", &opcao);
+
     return opcao;
 }
 
-void menuPrincipal(){
-    printf("BEM-VINDO\n\n");
-    printf("1. Cadastrar produto\n");
-    printf("2. Exluir produto\n");
-    printf("3. Alterar produto");
-    printf("4. Cadastrar cliente\n");
-    printf("5. Excluir cliente\n");
-    printf("6. Alterar cliente\n");
-    printf("7. Fazer venda\n");
-    printf("0. Encerrar programa\n");
+//FUNÇÕES CLIENTE
+void cadastroCliente(){
+    int escolha;
+    system("clear");
+
+    while(1){
+        printf("\nCadastro de Clientes\n\n");
+        menuCadastroCliente();
+        escolha = opcao();
+        system("clear");
+
+        switch(escolha){
+            case 1:
+                incluirCliente();
+                break;
+            case 2:
+                excluirCliente();
+                break;
+            case 3:
+                alterarCliente();
+                break;
+            case 4:
+                return;
+        }
+    }
 }
+
+void menuCadastroCliente(){
+    printf("\n1 - Incluir cliente\n");
+    printf("2 - Excluir cliente\n");
+    printf("3 - Alterar clinte\n");
+    printf("4 - Retornar\n");
+    printf("\nDigite sua opção: ");
+}
+
+void incluirCliente(){
+    int codigoCliente;
+    char nome[20];
+
+    printf("\nIncluir cliente\n\n");
+    printf("Código do cliente: ");
+    scanf("%d", &codigoCliente);
+
+    verificaCodigo();
+
+    printf("Nome do cliente: ");
+    scanf("%s", nome);
+}
+
+void excluirCliente(){
+    int codigoCliente;
+
+    printf("\nExcluir cliente\n\n");
+    printf("Código do cliente: ");
+    scanf("%d", &codigoCliente);
+}
+
+void alterarCliente(){
+    int codigoCliente;
+    char nome[20];
+
+    printf("\nAlterar Cliente\n\n");
+    printf("Código do cliente: ");
+    scanf("%d", &codigoCliente);
+
+    printf("Nome para alteração: ");
+    scanf("%s", nome);
+}
+
+//FUNÇÕES PRODUTO
+void cadastroProduto(){
+    
+}
+void incluirProduto(){
+
+}
+void excluirProduto(){
+
+}
+void alterarProduto(){
+
+}
+
+//FUNÇÕES BÁSICAS
+void venda(){
+    int codigoCliente, codigoProduto;
+
+    printf("\nEfetuar Venda\n");
+
+    printf("Código do cliente: ");
+    scanf("%d", &codigoCliente);
+
+    printf("Código do produto: ");
+    scanf("%d", &codigoProduto);
+
+    //deve haver mensagem para produto inexistente
+}
+
+void verificaCodigo(){}

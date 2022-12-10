@@ -47,7 +47,7 @@ int main(){
                 excluirItem(ID, item);
                 break;
             default:
-                break;
+                return 1;
         }
 
     }while(escolha != 5);
