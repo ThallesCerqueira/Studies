@@ -14,11 +14,11 @@ typedef struct estruturaProduto{
 //FUNÇÕES
 void menuPrincipal();
 
-void cadastroCliente();
+int cadastroCliente(CLIENTE *cliente, int qtdCliente);
 void menuCadastroCliente();
-void incluirCliente();
-void excluirCliente();
-void alterarCliente();
+int incluirCliente(CLIENTE *cliente, int qtdCliente);
+void excluirCliente(CLIENTE *cliente);
+void alterarCliente(CLIENTE *cliente);
 
 void cadastroProduto();
 void incluirProduto();
@@ -27,13 +27,19 @@ void alterarProduto();
 
 
 void venda();
-void verificaCodigo();
+int verificaCodigo();
 int opcao();
 
 int main(){
 
     //Variaveis
-    int escolha;
+    int escolha, qtdCliente;
+
+    //Inicialização de variavel
+    qtdCliente = 0;
+
+    //Estruturas
+    CLIENTE cliente[10];
 
     while(1){
         system("clear");
@@ -44,7 +50,7 @@ int main(){
 
         switch(escolha){
             case 1:
-                cadastroCliente();
+                qtdCliente = cadastroCliente(cliente, qtdCliente);
                 break;
             case 2:
                 cadastroProduto();
@@ -80,25 +86,25 @@ int opcao(){
 }
 
 //FUNÇÕES CLIENTE
-void cadastroCliente(){
+int cadastroCliente(CLIENTE *cliente, int qtdCliente){
     int escolha;
-    system("clear");
 
     while(1){
-        printf("\nCadastro de Clientes\n\n");
+        system("clear");
+        printf("\nCadastro de Clientes\n");
         menuCadastroCliente();
         escolha = opcao();
         system("clear");
 
         switch(escolha){
             case 1:
-                incluirCliente();
+                incluirCliente(cliente, qtdCliente);
                 break;
             case 2:
-                excluirCliente();
+                excluirCliente(cliente);
                 break;
             case 3:
-                alterarCliente();
+                alterarCliente(cliente);
                 break;
             case 4:
                 return;
@@ -114,21 +120,35 @@ void menuCadastroCliente(){
     printf("\nDigite sua opção: ");
 }
 
-void incluirCliente(){
+int incluirCliente(CLIENTE *cliente, int qtdCliente){
     int codigoCliente;
-    char nome[20];
 
-    printf("\nIncluir cliente\n\n");
-    printf("Código do cliente: ");
-    scanf("%d", &codigoCliente);
+    while(1){
+        system("clear");
 
-    verificaCodigo();
+        printf("\nIncluir cliente\n\n");
 
-    printf("Nome do cliente: ");
-    scanf("%s", nome);
+        printf("Código do cliente: ");
+        scanf("%d", &codigoCliente);
+
+        if(!verificaCodigo()){
+          cliente[qtdCliente].codigoCliente = codigoCliente;
+
+          printf("Nome do cliente: ");
+          scanf("%s", cliente[qtdCliente].nome);
+          qtdCliente++;
+
+          return qtdCliente;
+        }else{
+            printf("Código inválido, já existe um cliente com este código!");
+            continue;
+        }
+    }
+
+    return qtdCliente;
 }
 
-void excluirCliente(){
+void excluirCliente(CLIENTE *cliente){
     int codigoCliente;
 
     printf("\nExcluir cliente\n\n");
@@ -136,7 +156,7 @@ void excluirCliente(){
     scanf("%d", &codigoCliente);
 }
 
-void alterarCliente(){
+void alterarCliente(CLIENTE *cliente){
     int codigoCliente;
     char nome[20];
 
@@ -177,4 +197,13 @@ void venda(){
     //deve haver mensagem para produto inexistente
 }
 
-void verificaCodigo(){}
+int verificaCodigo(){}
+
+
+//ANOTAÇÕES
+
+/*
+-- incluirCliente deve retornar a quantidade atual de clientes.
+
+
+*/
