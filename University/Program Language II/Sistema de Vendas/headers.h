@@ -26,11 +26,11 @@ void excluirProduto();                                  //
 void alterarProduto(PRODUTO *produto, int qtdProduto);  //FUNCIONANDO
 void menuCadastroProduto();                             //FUNCIONANDO
 
-//
-void venda(CLIENTE *cliente, int qtdCliente, PRODUTO *produto, int qtdProduto);
-void dadosVenda(CLIENTE *cliente, int posicaoCliente);
+//(2/2)
+void venda(CLIENTE *cliente, int qtdCliente, PRODUTO *produto, int qtdProduto);  //FUNCIONANDO
+void dadosVenda(CLIENTE *cliente, int posicaoCliente);                           //FUNCIONANDO
 
-//(3/4)
+//(4/4)
 void limparTela();                                                              //FUNCIONANDO
 int localizaCodigoCliente(CLIENTE *cliente, int codigoCliente, int qtdCliente); //FUNCIONANDO
 int localizaCodigoProduto(PRODUTO *produto, int codigoProduto, int qtdProduto); //FUNCIONANDO
