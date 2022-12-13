@@ -1,38 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
-
-//ESTRUTURAS
-typedef struct estruturaCliente{
-    int codigoCliente;
-    char nome[20];
-}CLIENTE;
-
-typedef struct estruturaProduto{
-    int codigoProduto;
-    int valorProduto;
-    char nome[20];
-}PRODUTO;
-
-//FUNÇÕES
-void menuPrincipal();                                   //FUNCIONANDO
-void menuCadastroCliente();                             //FUNCIONANDO
-void excluirCliente(CLIENTE *cliente);
-void alterarCliente(CLIENTE *cliente, int qtdCliente);  //FUNCIONANDO
-int cadastroCliente(CLIENTE *cliente, int qtdCliente);  //FUNCIONANDO
-int incluirCliente(CLIENTE *cliente, int qtdCliente);   //FUNCIONANDO
-
-int cadastroProduto(PRODUTO *produto, int qtdProduto);
-int incluirProduto();
-void excluirProduto();
-void alterarProduto();
-void menuCadastroProduto();
-
-void venda();
-void limparTela();
-int verificaCodigo();
-int localizaCodigo(CLIENTE *cliente, int codigoCliente, int qtdCliente); //FUNCIONANDO
-int opcao(); //FUNCIONANDO
+#include "headers.h"
 
 int main(){
 
@@ -72,22 +40,6 @@ int main(){
     return 0;
 }
 
-void menuPrincipal(){
-    printf("\n1 - Cadastro de clientes.\n");
-    printf("2 - Cadastro de produtos.\n");
-    printf("3 - Venda.\n");
-    printf("4 - Sair do sistema.\n");
-    printf("\nDigite sua opção: ");
-}
-
-int opcao(){
-    int opcao;
-
-    scanf("%d", &opcao);
-
-    return opcao;
-}
-
 //FUNÇÕES CLIENTE
 int cadastroCliente(CLIENTE *cliente, int qtdCliente){
     int escolha;
@@ -112,11 +64,10 @@ int cadastroCliente(CLIENTE *cliente, int qtdCliente){
                 alterarCliente(cliente, qtdCliente);
                 break;
             case 4:
-                return;
+                return 0;
         }
     }
 }
-
 void menuCadastroCliente(){
     printf("\n1 - Incluir cliente\n");
     printf("2 - Excluir cliente\n");
@@ -124,7 +75,6 @@ void menuCadastroCliente(){
     printf("4 - Retornar\n");
     printf("\nDigite sua opção: ");
 }
-
 int incluirCliente(CLIENTE *cliente, int qtdCliente){
     int codigoCliente;
 
@@ -136,8 +86,9 @@ int incluirCliente(CLIENTE *cliente, int qtdCliente){
         printf("Código do cliente: ");
         scanf("%d", &codigoCliente);
 
-        if(localizaCodigo(cliente, codigoCliente, qtdCliente) < 0){
+        if(localizaCodigoCliente(cliente, codigoCliente, qtdCliente) < 0){
           cliente[qtdCliente].codigoCliente = codigoCliente;
+          cliente[qtdCliente].totalPagar = 0;
 
           printf("Nome do cliente: ");
           scanf("%s", cliente[qtdCliente].nome);
@@ -145,14 +96,14 @@ int incluirCliente(CLIENTE *cliente, int qtdCliente){
 
           return qtdCliente;
         }else{
-            printf("Código inválido, já existe um cliente com este código!\n");
+            printf("\nCódigo inválido, já existe um cliente com este código!\n");
+            system("pause");
             continue;
         }
     }
 
     return qtdCliente;
 }
-
 void excluirCliente(CLIENTE *cliente){
     int codigoCliente;
 
@@ -160,7 +111,6 @@ void excluirCliente(CLIENTE *cliente){
     printf("Código do cliente: ");
     scanf("%d", &codigoCliente);
 }
-
 void alterarCliente(CLIENTE *cliente, int qtdCliente){
     int posicao, codigoCliente;
     char nome[20];
@@ -171,13 +121,13 @@ void alterarCliente(CLIENTE *cliente, int qtdCliente){
         printf("Código do cliente: ");
         scanf("%d", &codigoCliente);
 
-        posicao = localizaCodigo(cliente, codigoCliente, qtdCliente);
+        posicao = localizaCodigoCliente(cliente, codigoCliente, qtdCliente);
 
         if(posicao == -1){
             printf("Cliente inexistente.\n");
             continue;
         }else{
-            printf("Nome para alteração: ");
+            printf("Novo nome: ");
             scanf("%s", cliente[posicao].nome);
             return;
         }
@@ -208,18 +158,74 @@ int cadastroProduto(PRODUTO *produto, int qtdProduto){
                 alterarProduto(produto, qtdProduto);
                 break;
             case 4:
-                break;;
+                return 0;
         }
     }
 }
-int incluirProduto(){
+int incluirProduto(PRODUTO *produto, int qtdProduto){
 
+    int codigoProduto;
+    float valor;
+    char c;
+
+    while(1){
+        limparTela();
+
+        printf("\nIncluir produto\n\n");
+
+        printf("Código do produto: ");
+        scanf("%d", &codigoProduto);
+
+        if(localizaCodigoProduto(produto, codigoProduto, qtdProduto) < 0){
+          produto[qtdProduto].codigoProduto = codigoProduto;
+
+          printf("Nome do produto: ");
+          scanf("%s", produto[qtdProduto].nome);
+          
+          printf("Valor do produto: R$");
+          scanf("%f", &valor);
+
+          produto[qtdProduto].valorProduto = valor;
+
+          qtdProduto++;
+          return qtdProduto;
+        }else{
+            printf("\nCódigo inválido, já existe um produto com este código!\n");
+            system("pause");
+            continue;;
+        }
+    }
+    return qtdProduto;
 }
 void excluirProduto(){
 
 }
-void alterarProduto(){
+void alterarProduto(PRODUTO *produto, int qtdProduto){
+    int posicao, codigoProduto;
+    float valor;
 
+    printf("\nAlterar Produto\n\n");
+    
+    while(1){
+        printf("Código do produto: ");
+        scanf("%d", &codigoProduto);
+
+        posicao = localizaCodigoProduto(produto, codigoProduto, qtdProduto);
+
+        if(posicao == -1){
+            printf("Produto inexistente.\n");
+            continue;
+        }else{
+            printf("Novo nome: ");
+            scanf("%s", produto[posicao].nome);
+
+            printf("Novo valor: R$");
+            scanf("%f", &valor);
+            produto[posicao].valorProduto = valor;
+
+            return;
+        }
+    }
 }
 void menuCadastroProduto(){
     printf("\n1 - Incluir produto\n");
@@ -229,42 +235,70 @@ void menuCadastroProduto(){
     printf("\nDigite sua opção: ");
 }
 
-//FUNÇÕES BÁSICAS
-void venda(){
+//FUNÇÕES VENDA
+void venda(CLIENTE *cliente, int qtdCliente, PRODUTO *produto, int qtdProduto){
     int codigoCliente, codigoProduto;
 
-    printf("\nEfetuar Venda\n");
+    while(1){
+        limparTela();
 
-    printf("Código do cliente: ");
-    scanf("%d", &codigoCliente);
+        printf("\nEfetuar Venda\n");
 
-    printf("Código do produto: ");
-    scanf("%d", &codigoProduto);
+        printf("Código do cliente: ");
+        scanf("%d", &codigoCliente);
 
-    //deve haver mensagem para produto inexistente
+        if(localizaCodigoCliente(cliente, codigoCliente, qtdCliente) >= 0){
+            
+            printf("Código do produto: ");
+            scanf("%d", &codigoProduto);
+
+            if(localizaCodigoProduto(produto, codigoProduto, qtdProduto) >= 0){
+
+            }else{
+                printf("Código de cliente inválido!\n\n");
+                system("pause");
+            continue;
+            }
+
+        }else{
+            printf("Código de cliente inválido!\n\n");
+            system("pause");
+            continue;
+        }
+    }
 }
 
-int verificaCodigo(){}
-
-int localizaCodigo(CLIENTE *cliente, int codigoCliente, int qtdCliente){
+//FUNÇÕES BÁSICAS
+void limparTela(){
+    printf("\e[1;1H\e[2J");
+}
+void menuPrincipal(){
+    printf("\n1 - Cadastro de clientes.\n");
+    printf("2 - Cadastro de produtos.\n");
+    printf("3 - Venda.\n");
+    printf("4 - Sair do sistema.\n");
+    printf("\nDigite sua opção: ");
+}
+int localizaCodigoCliente(CLIENTE *cliente, int codigoCliente, int qtdCliente){
     for(int i = 0; i <= qtdCliente; i++){
         if(cliente[i].codigoCliente == codigoCliente){
             return i;
         }
     }
-
     return -1;
 }
-
-void limparTela(){
-    printf("\e[1;1H\e[2J");
+int localizaCodigoProduto(PRODUTO *produto, int codigoProduto, int qtdProduto){
+    for(int i = 0; i <= qtdProduto; i++){
+        if(produto[i].codigoProduto == codigoProduto){
+            return i;
+        }
+    }
+    return -1;
 }
+int opcao(){
+    int opcao;
 
+    scanf("%d", &opcao);
 
-//ANOTAÇÕES
-
-/*
--- incluirCliente deve retornar a quantidade atual de clientes.
-
-
-*/
+    return opcao;
+}
