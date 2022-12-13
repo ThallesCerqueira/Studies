@@ -28,7 +28,7 @@ int main(){
                 qtdProduto = cadastroProduto(produto, qtdProduto);
                 break;
             case 3:
-                venda();
+                venda(cliente, qtdCliente, produto, qtdProduto);
                 break;
             case 4:
                 return 1;
@@ -64,7 +64,7 @@ int cadastroCliente(CLIENTE *cliente, int qtdCliente){
                 alterarCliente(cliente, qtdCliente);
                 break;
             case 4:
-                return 0;
+                return qtdCliente;
         }
     }
 }
@@ -158,7 +158,7 @@ int cadastroProduto(PRODUTO *produto, int qtdProduto){
                 alterarProduto(produto, qtdProduto);
                 break;
             case 4:
-                return 0;
+                return qtdProduto;
         }
     }
 }
@@ -237,7 +237,8 @@ void menuCadastroProduto(){
 
 //FUNÇÕES VENDA
 void venda(CLIENTE *cliente, int qtdCliente, PRODUTO *produto, int qtdProduto){
-    int codigoCliente, codigoProduto;
+    int codigoCliente, codigoProduto, posicaoCliente, posicaoProduto, totalPagar;
+    totalPagar = 0;
 
     while(1){
         limparTela();
@@ -247,17 +248,28 @@ void venda(CLIENTE *cliente, int qtdCliente, PRODUTO *produto, int qtdProduto){
         printf("Código do cliente: ");
         scanf("%d", &codigoCliente);
 
-        if(localizaCodigoCliente(cliente, codigoCliente, qtdCliente) >= 0){
+        posicaoCliente = localizaCodigoCliente(cliente, codigoCliente, qtdCliente);
+
+        if(posicaoCliente >= 0){
             
-            printf("Código do produto: ");
-            scanf("%d", &codigoProduto);
+            while(1){
+                printf("Código do produto: ");
+                scanf("%d", &codigoProduto);
 
-            if(localizaCodigoProduto(produto, codigoProduto, qtdProduto) >= 0){
+                if(codigoProduto >= 0){
+                    posicaoProduto = localizaCodigoProduto(produto, codigoProduto, qtdProduto);
 
-            }else{
-                printf("Código de cliente inválido!\n\n");
-                system("pause");
-            continue;
+                    if(posicaoProduto >= 0){
+                        cliente[posicaoCliente].totalPagar += produto[posicaoProduto].valorProduto;
+                    }else{
+                        printf("Código de produto inválido!\n\n");
+                        system("pause");
+                        continue;
+                    }
+                }else{
+                    dadosVenda(cliente, posicaoCliente);
+                    exit(1);
+                } 
             }
 
         }else{
@@ -301,4 +313,9 @@ int opcao(){
     scanf("%d", &opcao);
 
     return opcao;
+}
+void dadosVenda(CLIENTE *cliente, int posicaoCliente){
+    printf("\n-----DADOS DA VENDA-----");
+    printf("\n\n\nCliente: %i - %s\n", cliente[posicaoCliente].codigoCliente, cliente[posicaoCliente].nome);
+    printf("\nTotal a pagar: %.2f\n", cliente[posicaoCliente].totalPagar);
 }

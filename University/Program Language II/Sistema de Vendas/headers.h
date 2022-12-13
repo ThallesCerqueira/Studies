@@ -6,9 +6,9 @@ typedef struct estruturaCliente{
 }CLIENTE;
 
 typedef struct estruturaProduto{
+    char nome[20];
     int codigoProduto;
     float valorProduto;
-    char nome[20];
 }PRODUTO;
 
 //FUNÇÕES (5/6)
@@ -28,6 +28,7 @@ void menuCadastroProduto();                             //FUNCIONANDO
 
 //
 void venda(CLIENTE *cliente, int qtdCliente, PRODUTO *produto, int qtdProduto);
+void dadosVenda(CLIENTE *cliente, int posicaoCliente);
 
 //(3/4)
 void limparTela();                                                              //FUNCIONANDO
