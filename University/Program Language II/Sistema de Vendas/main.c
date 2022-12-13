@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
 
 //ESTRUTURAS
 typedef struct estruturaCliente{
@@ -27,6 +29,7 @@ void alterarProduto();
 void menuCadastroProduto();
 
 void venda();
+void limparTela();
 int verificaCodigo();
 int localizaCodigo(CLIENTE *cliente, int codigoCliente, int qtdCliente); //FUNCIONANDO
 int opcao(); //FUNCIONANDO
@@ -44,10 +47,10 @@ int main(){
     PRODUTO produto[10];
 
     while(1){
-        system("clear");
+        limparTela();
         menuPrincipal();
         escolha = opcao();
-        system("clear");
+        limparTela();
 
         switch(escolha){
             case 1:
@@ -90,12 +93,12 @@ int cadastroCliente(CLIENTE *cliente, int qtdCliente){
     int escolha;
 
     while(1){
-        system("clear");
+        limparTela();
         printf("\nCadastro de Clientes\n");
 
         menuCadastroCliente();
         escolha = opcao();
-        system("clear");
+        limparTela();
 
         switch(escolha){
             case 1:
@@ -126,14 +129,14 @@ int incluirCliente(CLIENTE *cliente, int qtdCliente){
     int codigoCliente;
 
     while(1){
-        system("clear");
+        limparTela();
 
         printf("\nIncluir cliente\n\n");
 
         printf("Código do cliente: ");
         scanf("%d", &codigoCliente);
 
-        if(!verificaCodigo()){
+        if(localizaCodigo(cliente, codigoCliente, qtdCliente) < 0){
           cliente[qtdCliente].codigoCliente = codigoCliente;
 
           printf("Nome do cliente: ");
@@ -142,7 +145,7 @@ int incluirCliente(CLIENTE *cliente, int qtdCliente){
 
           return qtdCliente;
         }else{
-            printf("Código inválido, já existe um cliente com este código!");
+            printf("Código inválido, já existe um cliente com este código!\n");
             continue;
         }
     }
@@ -186,12 +189,12 @@ int cadastroProduto(PRODUTO *produto, int qtdProduto){
     int escolha;
 
     while(1){
-        system("clear");
+        limparTela();
         printf("\nCadastro de Produtos\n");
 
         menuCadastroProduto();
         escolha = opcao();
-        system("clear");
+        limparTela();
 
         switch(escolha){
             case 1:
@@ -205,7 +208,7 @@ int cadastroProduto(PRODUTO *produto, int qtdProduto){
                 alterarProduto(produto, qtdProduto);
                 break;
             case 4:
-                return;
+                break;;
         }
     }
 }
@@ -251,6 +254,10 @@ int localizaCodigo(CLIENTE *cliente, int codigoCliente, int qtdCliente){
     }
 
     return -1;
+}
+
+void limparTela(){
+    printf("\e[1;1H\e[2J");
 }
 
 
