@@ -1,4 +1,4 @@
 Escrevendo para depois ler o texto.
-Testando também
-a
-quebra de linha.
+Adicionando segunda linha.
+Terceira linha.
+Quarta linha.Quinta linha.c
