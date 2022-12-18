@@ -19,10 +19,8 @@ int main(){
 int soma(int n, int i){
 
     if(i == 0){
-        return 0;
+        return n;
     }else{
-        return n + soma(n, i - 1);
+        return n + soma(1, i-1);
     }
-
-
 }
