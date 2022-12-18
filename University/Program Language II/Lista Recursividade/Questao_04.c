@@ -1,26 +1,42 @@
 #include <stdio.h>
 
-int inverte(int *vet, int tam);
+void inverte(int vet[], int inicio, int fim);
+void imprimir(int vet[], int tam);
 
 int main(){
 
-    int vet[4] = {1,2,3,4};
-    int tam = 4;
+    int vet[6] = {1,2,3,4,5,6};
+    int tam = 6;
 
-    inverte(vet, tam);
+    printf("Ordem normal: \n");
+    imprimir(vet, tam);
+    printf("\n");
 
+    inverte(vet, 0, 5);
+
+    printf("Vetor com posição inversa: \n");
+    imprimir(vet, tam);
 
     return 0;
 }
 
-int inverte(int *vet, int tam){
+void inverte(int vet[], int inicio, int fim){
+    int aux;
 
-    if(tam == 0){
-        vet[0] = vet[0];
-        return vet[0];
+    if(inicio < fim){
+        aux = vet[inicio];
+        vet[inicio] = vet[fim];
+        vet[fim] = aux;
+
+        inverte(vet, inicio +1, fim -1);
     }
+}
 
-    return vet[tam] = inverte(vet, tam - 1);
-
-
+void imprimir(int vet[], int tam){
+    if(tam == 1){
+        printf("%d\n", vet[tam-1]);
+    }else{
+        imprimir(vet, tam -1);
+        printf("%d\n", vet[tam-1]);
+    }
 }
