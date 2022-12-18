@@ -15,9 +15,9 @@ int main(){
 
 int super(int n){
 
-    if(n == 1){
+    if(n == 1 || n == 0){
         return 1;
     }else{
-        return ((n * super(n-1)) * (n * super(n-1)));
+        return (n*super(n-1)) * ((n-1) * super(n-2));
     }
 }
