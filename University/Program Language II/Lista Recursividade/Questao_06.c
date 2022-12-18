@@ -1,26 +1,23 @@
 #include <stdio.h>
 
-float calcula(float n);
+float soma(int n);
 
 int main(){
 
-    float resultado, n;
+    int n;
 
-    printf("Entre com o valor de n: ");
-    scanf("%f", &n);
+    printf("Informe o valor de n: ");
+    scanf("%d", &n);
 
-    resultado = calcula(n);
+    printf("O resultado é: %.2f\n", soma(n));
 
-    printf("O resultado é: %.3f\n", resultado);
     return 0;
 }
 
-float calcula(float n){
-
+float soma(int n){
     if(n == 1){
-        return 1;
+        return 1.0;
     }else{
-        return 1 + 1/calcula(n-1);
+        return 1.0/n + soma(n-1);
     }
 }
-

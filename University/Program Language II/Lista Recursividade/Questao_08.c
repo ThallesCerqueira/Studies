@@ -6,7 +6,7 @@ int main(){
 
     int n;
 
-    printf("Informe o valor de n: ");
+    printf("Entre com o valor de n: ");
     scanf("%d", &n);
 
     printf("O resultado é: %.2f\n", soma(n));
@@ -15,9 +15,11 @@ int main(){
 }
 
 float soma(int n){
+
     if(n == 1){
-        return 1.0;
+        return ((n*n + 1.0)/(n+3));
     }else{
-        return 1.0/n + soma(n-1);
+        return ((n*n + 1.0)/(n+3)) + soma(n-1);
     }
+
 }
