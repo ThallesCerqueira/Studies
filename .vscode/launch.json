@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/taisy/Programming/Thalles/University/Program Language II",
-      "program": "/home/taisy/Programming/Thalles/University/Program Language II/build/Debug/outDebug",
+      "cwd": "C:\\Users\\thall\\Pasta GitHub\\Thalles - GIT\\Thalles\\University\\Program Language II",
+      "program": "C:\\Users\\thall\\Pasta GitHub\\Thalles - GIT\\Thalles\\University\\Program Language II\\build\\Debug\\outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
