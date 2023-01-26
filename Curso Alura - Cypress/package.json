@@ -1,14 +1,14 @@
 {
-  "name": "curso-alura---cypress",
+  "name": "primeiro-projeto",
   "version": "1.0.0",
-  "description": "Primeiro projeto .cypress",
+  "description": "Primeiro projeto com Cypress",
   "main": "index.js",
   "scripts": {
     "test": "npx cypress open"
   },
-  "author": "ThallesCerqueira",
+  "author": "Jacqueline Oliveira",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.4.0"
+    "cypress": "^9.1.1"
   }
 }
