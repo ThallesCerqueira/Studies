@@ -15,27 +15,46 @@ int main(){
     printf("RECURSIVO - Valor: %d\n", resposta);
 
     //Output para implementação não recursiva
-    if(n == 1 || n == 2){
-        printf("REPETIÇÃO - Valor: 1\n");
-    }else{
-        for(int i = 3; i <= n; i++){
-            resposta = n1 + n2;
-            n1 = n2;
-            n2 = resposta;
-        }
-    }
-
-    if(n > 2) printf("REPETIÇÃO - Valor: %d\n", resposta);
+    resposta = fiboNaoRecursivo(n);
+    printf("NÃO RECURSIVO - Valor: %d\n", resposta);
 
     return 0;
 }
 
-int fibo(int n){
+int fibo(int n) {
 
-    if(n  == 1 || n == 2){
+    if(n  == 1 || n == 2) {
+
         return 1;
-    }else{
+
+    }else {
+
         return fibo( n - 1) + fibo(n - 2);
+        
     }
+
+}
+
+int fiboNaoRecursivo( int n ) {
+
+    int resposta, n1, n2;
+    n1 = n2 = 1;
+
+    if(n == 1 || n == 2) {
+
+        return 1;
+    
+    }else {
+
+        for(int i = 3; i <= n; i++) {
+
+            resposta = n1 + n2;
+            n1 = n2;
+            n2 = resposta;
+        }
+
+    }
+
+    return resposta;
 
 }
