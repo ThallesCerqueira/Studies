@@ -1,0 +1,6 @@
+Operador Ternário
+
+O operador ternário possui uma funcionalidade semelhante ao do If...Else e ele é representado pelo símbolo "?"
+
+Por exemplo:
+    condição ? valor se for verdareiro : valor se for falso;
