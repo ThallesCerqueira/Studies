@@ -1,6 +1,4 @@
-# Question: Faça uma pesquisa sobre outros tipos de operadores em Java: Operadores bit a bit e Operadores compostos e de atribuição.
-
-## Operadores Bit a Bit (Bitwise)
+# Operadores Bit a Bit (Bitwise)
 
 Os operadores são chamados de bit a bit porque realizam uma comparação dos operando no nível de seus bits.
 
