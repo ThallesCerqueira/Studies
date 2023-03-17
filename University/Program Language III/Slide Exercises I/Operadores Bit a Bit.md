@@ -9,14 +9,14 @@ Este faz a comparação entre os operandos semelhante ao conectivo lógico Conju
 Por exemplo:
     "2 & 3" é semelhante a "10 & 11" (Desconsiderando os 14 bits restantes).
 
-    Portanto, a operação é feita da seguinte forma
+Portanto, a operação é feita da seguinte forma
 
         1 0
         1 1
        -----
         1 0
 
-     E a tabela da verdade fica:
+E a tabela da verdade fica:
 
      Operando 1 | Operando 2 | Resultado
         1             1            1
@@ -74,7 +74,7 @@ Por exemplo:
 Este operador faz a negação do operando. Ou seja, se for 1, vira 0 e vice versa.
 
 Por exemplo:
-    "~5" é semelhante a "~ 101" (Desconsiderando os 13 bits restantes).
+    "\~5" é semelhante a "\~ 101" (Desconsiderando os 13 bits restantes).
 
     Portanto, a operação é feita da seguinte forma
 
