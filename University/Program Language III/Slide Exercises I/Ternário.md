@@ -1,4 +1,4 @@
-Operador Ternário
+##Operador Ternário
 
 O operador ternário possui uma funcionalidade semelhante ao do If...Else e ele é representado pelo símbolo "?"
 

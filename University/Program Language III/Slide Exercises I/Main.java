@@ -31,9 +31,6 @@ public class Main {
         //  1111 1111 1111 1101
         System.out.println( "Operador Complemento \"~\" bit a bit:  " + (~2) );
 
-
-
-        //Exemplo 2
         int A = 10;
         System.out.println( "Valor de A: " + A );
 
@@ -58,6 +55,12 @@ public class Main {
         A = A % B;
         A %= B;
         System.out.println( "A %= B: " + A );
+
+        //Exemplo 2
+        A = 50;
+        B = 30;
+
+        System.out.println( "Resultado para operações com precedência para seguinte conta ((50 - 30) * 50 + (30 - 50)): " + ((A - B) * A + (B -A)) );
 
 
         //Exemplo 3
