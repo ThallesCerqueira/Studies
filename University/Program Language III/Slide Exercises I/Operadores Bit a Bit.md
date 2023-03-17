@@ -75,7 +75,7 @@ E a tabela de verdade fica:
 Este operador faz a negação do operando. Ou seja, se for 1, vira 0 e vice versa.
 
 Por exemplo:
-    "~5" é semelhante a "~ 101" (Desconsiderando os 13 bits restantes).
+    "\~5" é semelhante a "\~101" (Desconsiderando os 13 bits restantes).
 
 Portanto, a operação é feita da seguinte forma
 
