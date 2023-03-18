@@ -5,12 +5,10 @@ public class BatalhaNaval {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner( System.in );
-
         int[][]entradasPlayer = new int[5][2];
         char [][]mapa1 = new char[5][5];
         char [][]mapa2 = new char[5][5];
-
-        int i, j, contador, contadorGeral;
+        int i, j, contador, contadorGeral, auxiliarX, auxiliarY;
         contadorGeral = 0;
 
         System.out.println( "Welcome to battleship!!!\n" );
@@ -26,16 +24,17 @@ public class BatalhaNaval {
                 System.out.println( "Enter your " + (contador + 1) + " location: " );
 
                 //leitura de x e y
-                entradasPlayer[i][j] = sc.nextInt();
-                j++;
-                entradasPlayer[i][j] = sc.nextInt();
+                auxiliarX = sc.nextInt();
+                auxiliarY = sc.nextInt();
 
-                if ( entradasPlayer[i][j] < 0 || entradasPlayer[i][j] > 4 ) {
+                if ( auxiliarX < 0 || auxiliarX > 4 || auxiliarY < 0 || auxiliarY > 4 ) {
                     System.out.println( "Invalid coordinates. Choose different coordinates." );
                     contador--;
-                    j--;
                     continue;
                 }
+                entradasPlayer[i][j] = auxiliarX;
+                j++;
+                entradasPlayer[i][j] = auxiliarY;
 
                 i++;
                 j = 0;
@@ -51,20 +50,20 @@ public class BatalhaNaval {
                 //j será as colunas do mapa
                 for( j = 0; j < 5; j++ ) {
 
-                    if( entradasPlayer[j][0] == i && entradasPlayer[j][1] == j ) {
-                        System.out.print( "@ " );
+                        if( entradasPlayer[j][0] == i && entradasPlayer[j][1] == j ) {
+                            System.out.print( "@ " );
 
-                        //Gravando os mapas
-                        if (contadorGeral == 0) mapa1[i][j] = '@';
-                        if (contadorGeral == 1) mapa2[i][j] = '@';
+                            //Gravando os mapas
+                            if (contadorGeral == 0) mapa1[i][j] = '@';
+                            if (contadorGeral == 1) mapa2[i][j] = '@';
 
-                    }else {
-                        System.out.print( "- " );
+                        }else {
+                            System.out.print( "- " );
 
-                        //Gravando os mapas
-                        if (contadorGeral == 0) mapa1[i][j] = '-';
-                        if (contadorGeral == 1) mapa2[i][j] = '-';
-                    }
+                            //Gravando os mapas
+                            if (contadorGeral == 0) mapa1[i][j] = '-';
+                            if (contadorGeral == 1) mapa2[i][j] = '-';
+                        }
 
                 }
                 System.out.println(" "); //Quebrando linha
@@ -73,6 +72,8 @@ public class BatalhaNaval {
             contadorGeral++;
         }
 
+
+        //Entradas para a batalha
 
 
     }
