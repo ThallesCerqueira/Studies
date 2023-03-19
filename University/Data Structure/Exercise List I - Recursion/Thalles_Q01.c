@@ -1,3 +1,7 @@
+/*
+    Como já foi dito em sala de aula, este algoritmo possui complexidade log2 n.
+*/
+
 #include <stdio.h>
 
 char* int2bin(int n);

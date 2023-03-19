@@ -1,3 +1,8 @@
+/*
+    Para fibonacci nao recursivo seria n - 2, mas reduzido é n. Para fibonacci recursivo,
+    de acordo com a pesquisa que fiz, seria 2^n... Pesquisei pois eu achava ser n^2 mas quis confirmar.
+*/
+
 #include <stdio.h>
 
 int fibo(int n);

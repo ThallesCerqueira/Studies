@@ -1,3 +1,8 @@
+/*
+    Bom, aparentemente este algoritmo é fácil de análisar, digo ser complexidade de n, pois é um simples
+    somatório até N.
+*/
+
 #include <stdio.h>
 
 int somaN( int n );

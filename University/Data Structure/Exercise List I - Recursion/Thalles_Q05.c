@@ -3,13 +3,13 @@
 
 int* randArray( int n, int a, int b );
 
-int vetMax( int *vet, int n );
+int vetMax( int *vet, int n ); // Complexidade n
 
-int vetSoma( int *vet, int n );
+int vetSoma( int *vet, int n ); // Complexidade n
 
-int ValInVet( int val, int *vet, int n );
+int ValInVet( int val, int *vet, int n ); // Complexidade n
 
-int posValVet( int val, int *vet, int n );
+int posValVet( int val, int *vet, int n ); // Complexidade n
 
 int main() {
 
