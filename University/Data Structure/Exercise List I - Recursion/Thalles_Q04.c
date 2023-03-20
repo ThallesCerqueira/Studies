@@ -1,5 +1,5 @@
 /*
-    Bom, aparentemente este algoritmo é fácil de análisar, digo ser complexidade de n, pois é um simples
+    Bom, aparentemente este algoritmo é fácil de análisar, digo ser complexidade de O(n), pois é um simples
     somatório até N.
 */
 

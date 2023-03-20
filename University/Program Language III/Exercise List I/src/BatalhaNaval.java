@@ -72,10 +72,6 @@ public class BatalhaNaval {
             contadorGeral++;
         }
 
-
-        //Entradas para a batalha
-
-
     }
 
 }

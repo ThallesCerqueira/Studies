@@ -1,6 +1,6 @@
 /*
-    Para fibonacci nao recursivo seria n - 2, mas reduzido é n. Para fibonacci recursivo,
-    de acordo com a pesquisa que fiz, seria 2^n... Pesquisei pois eu achava ser n^2 mas quis confirmar.
+    Para fibonacci nao recursivo seria n - 2, mas reduzido é O(n). Para fibonacci recursivo,
+    de acordo com a pesquisa que fiz, seria O(2^n)... Pesquisei pois eu achava ser O(n^2) mas quis confirmar.
 */
 
 #include <stdio.h>

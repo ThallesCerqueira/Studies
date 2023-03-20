@@ -1,5 +1,5 @@
 /*
-    Como já foi dito em sala de aula, este algoritmo possui complexidade log2 n.
+    Como já foi dito em sala de aula, este algoritmo possui complexidade O(log n).
 */
 
 #include <stdio.h>
