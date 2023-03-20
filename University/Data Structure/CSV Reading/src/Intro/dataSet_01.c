@@ -27,7 +27,7 @@ int main(void)
     
     acervo = (TBook*) malloc(CSVSIZE*sizeof(TBook));
 
-    fp = fopen("../../Data/vgsales.csv", "r");
+    fp = fopen("../../Data/dataSetEquipe2.csv", "r");
     
     if(fp == NULL) 
     {
