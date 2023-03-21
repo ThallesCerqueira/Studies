@@ -1,21 +1,24 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
-#define CSVSIZE 16400
+#define CSVSIZE 10500
 
 typedef struct
 {
-    int rankID;             
-    char *name;
-    char *Platform;
-    int year;
-    char *genre;
-    char *publisher;
-    float NA_Sales;
-    float EU_Sales;
-    float JP_Sales;
-    float Other_Sales;
-    float Global_Sales;
+    int appId;             
+    char *title;
+    char *dataRelease;
+    char *win;
+    char *mac;
+    char *linux;
+    char *rating;
+    int positiveRatio;
+    int userReviews;
+    float priceFinal;
+    float priceOriginal;
+    float discount;
+    char *steamDeck;
+
 } TBook;
 
 int main(void)
@@ -55,61 +58,76 @@ int main(void)
         {
             char *campo;
 
-            //int rankID
+            //APP ID
             campo = strtok(str, sep);  // pega a string até a primeira ','
-            acervo[i].rankID = atoi(campo); // converte em int
+            acervo[i].appId = atoi(campo); // converte em int
             
-            //char NOME
+            //TITLE
             campo = strtok(NULL, sep);
             int pos = 0;
             while(campo[pos] != 15 && pos < strlen(campo))
                 pos++;
             campo[pos] = '\0';
-            acervo[i].name = (char*) malloc(strlen(campo)+1);
-            strcpy(acervo[i].name, campo);
+            acervo[i].title = (char*) malloc(strlen(campo)+1);
+            strcpy(acervo[i].title, campo);
 
-            //PLATAFORMA
-            campo = strtok(NULL, sep);
-            acervo[i].Platform = (char*) malloc(strlen(campo)+1);
-            strcpy(acervo[i].Platform, campo);
-
-            //ANO
-            campo = strtok(NULL, sep); 
-            acervo[i].year = atoi(campo); // converte em int
-
-            //GENERO
-            campo = strtok(NULL, sep);
-            acervo[i].genre = (char*) malloc(strlen(campo)+1);
-            strcpy(acervo[i].genre, campo);
-
-            //PUBLISHER
+            //Data release
             campo = strtok(NULL, sep);
             pos = 0;
-            while(campo[pos] != 10 && pos < strlen(campo))
+            while(campo[pos] != 15 && pos < strlen(campo))
                 pos++;
             campo[pos] = '\0';
-            acervo[i].publisher = (char*) malloc(strlen(campo)+1);
-            strcpy(acervo[i].publisher, campo);
+            acervo[i].dataRelease = (char*) malloc(strlen(campo)+1);
+            strcpy(acervo[i].dataRelease, campo);
 
-            //NA SALES
+            //WINDOWS
             campo = strtok(NULL, sep);
-            acervo[i].NA_Sales = atof(campo); // converte em float
+            acervo[i].win = (char*) malloc(strlen(campo)+1);
+            strcpy(acervo[i].win, campo);
 
-            //EU SALES
+            //MAC
             campo = strtok(NULL, sep);
-            acervo[i].EU_Sales = atof(campo); // converte em float
+            acervo[i].mac = (char*) malloc(strlen(campo)+1);
+            strcpy(acervo[i].mac, campo);
 
-            //JP SALES
+            //LINUX
             campo = strtok(NULL, sep);
-            acervo[i].JP_Sales = atof(campo); // converte em float
+            acervo[i].linux = (char*) malloc(strlen(campo)+1);
+            strcpy(acervo[i].linux, campo);
 
-            //Other sales - Other continents
+            //RATING
             campo = strtok(NULL, sep);
-            acervo[i].Other_Sales = atof(campo); // converte em float
+            pos = 0;
+            while(campo[pos] != 15 && pos < strlen(campo))
+                pos++;
+            campo[pos] = '\0';
+            acervo[i].rating = (char*) malloc(strlen(campo)+1);
+            strcpy(acervo[i].rating, campo);
 
-            //global sales
+            //POSITIVE RATIO
+            campo = strtok(NULL, sep); 
+            acervo[i].positiveRatio = atoi(campo); // converte em int
+
+            //USER REVIEWS
+            campo = strtok(NULL, sep); 
+            acervo[i].userReviews = atoi(campo); // converte em int
+
+            //PRICE FINAL
             campo = strtok(NULL, sep);
-            acervo[i].Global_Sales = atof(campo); // converte em float
+            acervo[i].priceFinal = atof(campo); // converte em float
+
+            //PRICE ORIGINAL
+            campo = strtok(NULL, sep);
+            acervo[i].priceOriginal = atof(campo); // converte em float
+
+            //DISCOUNT
+            campo = strtok(NULL, sep);
+            acervo[i].discount = atof(campo); // converte em float
+
+            //STEAM DECK
+            campo = strtok(NULL, sep);
+            acervo[i].steamDeck = (char*) malloc(strlen(campo)+1);
+            strcpy(acervo[i].steamDeck, campo);
             
             i++;
         }
@@ -118,31 +136,41 @@ int main(void)
     int id;
     do
     {
-        printf("\n\nEntre com índice de um item do acervo (-1 para sair) (%d < RANK < %d): ", 0, i);
+        printf("\n\nEntre com índice de um item do acervo (-1 para sair) (%d < Indice < %d): ", 0, i-1);
         scanf("%d", &id);
 
-        if(id == -1) exit(1);
+        if(id == -1) {
+            exit(1);
+        }else if( id > (i-1)) {
+            printf("\nValor fora do intervalo!\n");
+            continue;
+        }
 
-        printf("\nRANK: %d\n", acervo[id].rankID);
-        printf("NAME: %s\n", acervo[id].name);
-        printf("PLATAFORMA: %s\n", acervo[id].Platform);
-        printf("ANO: %d\n", acervo[id].year);
-        printf("GENERO: %s\n", acervo[id].genre);
-        printf("PUBLISHER: %s\n", acervo[id].publisher);
-        printf("NA SALES: %.2f\n", acervo[id].NA_Sales);
-        printf("EU SALES: %.2f\n", acervo[id].EU_Sales);
-        printf("JP SALES: %.2f\n", acervo[id].JP_Sales);
-        printf("OTHER SALES: %.2f\n", acervo[id].Other_Sales);
-        printf("GLOBAL SALES: %.2f\n", acervo[id].Global_Sales);
+        printf("\nApp Id: %d\n", acervo[id].appId);
+        printf("Title: %s\n", acervo[id].title);
+        printf("Data Release: %s\n", acervo[id].dataRelease);
+        printf("Windows: %s\n", acervo[id].win);
+        printf("Mac: %s\n", acervo[id].mac);
+        printf("Linux: %s\n", acervo[id].linux);
+        printf("Rating: %s\n", acervo[id].rating);
+        printf("Ratio: %d\n", acervo[id].positiveRatio);
+        printf("Users Review: %d\n", acervo[id].userReviews);
+        printf("Final Price : %.2f\n", acervo[id].priceFinal);
+        printf("Original Price: %.2f\n", acervo[id].priceOriginal);
+        printf("Discount: %.2f\n", acervo[id].discount);
+        printf("Steam Deck: %s\n", acervo[id].steamDeck);
 
     } while (id != -1);
 
     for(int j = 0; j < i; j++)
     {
-        free(acervo[j].name);
-        free(acervo[j].Platform);
-        free(acervo[j].genre);
-        free(acervo[j].publisher);
+        free(acervo[j].title);
+        free(acervo[j].dataRelease);
+        free(acervo[j].win);
+        free(acervo[j].mac);
+        free(acervo[j].linux);
+        free(acervo[j].rating);
+        free(acervo[j].steamDeck);
         
     }
     free(acervo);
