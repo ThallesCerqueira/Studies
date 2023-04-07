@@ -39,11 +39,7 @@ public class Multimetro {
         System.out.println( " " );
 
         //Output dos valores lidos
-        for( int i = 0; i < tamVet; i++ ) {
-
-            System.out.println( "Voltagem do " +  (i + 1) + "º Multímetro: " + vetMultimetros[i] );
-
-        }
+        for( int i = 0; i < tamVet; i++ ) System.out.println( "Voltagem do " +  (i + 1) + "º Multímetro: " + vetMultimetros[i] );
 
         //Output do valor médio
         System.out.println( "\nValor médio: " + valorMedio );
@@ -66,5 +62,3 @@ public class Multimetro {
         }
 
     }
-
-}
