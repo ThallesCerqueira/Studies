@@ -352,3 +352,48 @@
 
 ## Questão 10 - 
 
+    modelo LivroDeLivraria
+    início do modelo
+        dados autor, editora, paginas, quantidadeVendidos, valor;
+
+        operação venderLivro( valor, quantidade )
+            início
+                imprime "Total a pagar: " + valor * quantidade;
+            fim
+
+        operação divulgarLivro()
+            início
+                imprime "Venham, venham! Comprem os livros do" + autor;
+                imprime "Aproveitem a promoção, por apenas R$" + valor;
+            fim
+        
+
+        operação setAutor( oAutor )
+            início
+                autor = oAutor
+                
+            fim
+
+        operação setEditora( aEditora )
+            início
+                editora = aEditora
+                
+            fim
+
+        operação setPaginas( aPaginas )
+            início
+                paginas = aPaginas
+                
+            fim
+
+        operação setQuantidadeVendidos( quantidade )
+            início
+                quantidadeVendidos = quantidade
+                
+            fim
+
+
+    fim do modelo
+
+## Questão 11 -
+    
