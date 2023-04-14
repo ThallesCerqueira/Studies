@@ -398,6 +398,7 @@
 ## Questão 11 - 
 
 //A diferença deste modelo é que agora existem novos dados no modelo e que alguns métodos deixaram de existir para o surgimento de outros.
+    
     modelo LivroDeBiblioteca
     início do modelo
         dados autor, editora, paginas, quantidadeEmprestado, disponivel, destinatario, prazoEmprestimo;
