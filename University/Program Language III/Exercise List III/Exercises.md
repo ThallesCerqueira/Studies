@@ -188,9 +188,9 @@
         operação estaLigada()
             início
                 se (estadoDaLampada == aceso)
-                    retorne verdadeiro
+                    retorne verdadeiro;
                 senão
-                    retorne falso
+                    retorne falso;
             fim		
 
     fim do modelo
@@ -224,7 +224,7 @@
 				senão
 					saldo = 0;
 			senão
-				saldo = depósito
+				saldo = depósito;
 
 			contaÉEspecial = especial;
 		fim
@@ -326,25 +326,25 @@
 
         operação setAutor( oAutor )
             início
-                autor = oAutor
+                autor = oAutor;
                 
             fim
 
         operação setEditora( aEditora )
             início
-                editora = aEditora
+                editora = aEditora;
                 
             fim
 
         operação setPaginas( aPaginas )
             início
-                paginas = aPaginas
+                paginas = aPaginas;
                 
             fim
 
         operação setQuantidadeVendidos( quantidade )
             início
-                quantidadeVendidos = quantidade
+                quantidadeVendidos = quantidade;
                 
             fim
 
@@ -370,30 +370,78 @@
 
         operação setAutor( oAutor )
             início
-                autor = oAutor
+                autor = oAutor;
                 
             fim
 
         operação setEditora( aEditora )
             início
-                editora = aEditora
+                editora = aEditora;
                 
             fim
 
         operação setPaginas( aPaginas )
             início
-                paginas = aPaginas
+                paginas = aPaginas;
                 
             fim
 
         operação setQuantidadeVendidos( quantidade )
             início
-                quantidadeVendidos = quantidade
+                quantidadeVendidos = quantidade;
                 
             fim
 
 
     fim do modelo
 
-## Questão 11 -
-    
+## Questão 11 - 
+
+//A diferença deste modelo é que agora existem novos dados no modelo e que alguns métodos deixaram de existir para o surgimento de outros.
+    modelo LivroDeBiblioteca
+    início do modelo
+        dados autor, editora, paginas, quantidadeEmprestado, disponivel, destinatario, prazoEmprestimo;
+
+        operação setAutor( oAutor )
+            início
+                autor = oAutor;
+                
+            fim
+
+        operação setEditora( aEditora )
+            início
+                editora = aEditora;
+                
+            fim
+
+        operação setPaginas( aPaginas )
+            início
+                paginas = aPaginas;
+                
+            fim
+
+        operação quantidadeEmprestado()
+            início
+                quantidadeEmprestado = quantidadeEmprestado + 1;
+                
+            fim
+
+        operação estáDisponivel()
+        início
+            se disponivel == verdadeiro
+                retorne verdadeiro;
+            senão
+                retorne falso;
+        fim
+        operação emprestarLivro( oDestinatario, oPrazo )
+            início
+                se estáDisponivel()
+                    destinatario = oDestinatario;
+                    prazoEmprestimo = oPrazo;
+                    imprime "Livro emprestado para " + oDestinatario + "com prazo de entrega até " + oPrazo;
+                senão
+                    imprime "Livro indisponível, tente em outro momento";
+            fim
+
+    fim do modelo
+        
