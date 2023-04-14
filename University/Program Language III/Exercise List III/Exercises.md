@@ -428,12 +428,13 @@
             fim
 
         operação estáDisponivel()
-        início
-            se disponivel == verdadeiro
-                retorne verdadeiro;
-            senão
-                retorne falso;
-        fim
+		início
+		    se disponivel == verdadeiro
+			retorne verdadeiro;
+		    senão
+			retorne falso;
+		fim
+		
         operação emprestarLivro( oDestinatario, oPrazo )
             início
                 se estáDisponivel()
