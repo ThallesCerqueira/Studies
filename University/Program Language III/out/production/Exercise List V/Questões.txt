@@ -1,0 +1,8 @@
+Exemplos implementados:
+
+Circulo -
+Contato - OK
+Data - Ok
+Lampada - Ok
+Ponto2D -
+Time - OK
