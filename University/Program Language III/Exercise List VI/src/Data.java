@@ -153,13 +153,13 @@ public class Data {
         int parametro = dateToDay(dia, mes, ano );
         int atributo = dateToDay(this.dia, this.mes, this.ano);
 
-        int percorridos = atributo - parametro;
+        int percorridos = parametro - atributo;
 
         if( percorridos >= 0 ) {
             return percorridos;
         }
 
-        return -1;
+        return 0;
 
     }
 
