@@ -1,0 +1,5 @@
+1- OK
+2 - Parei na funcao public static Time diffTime( Time t )
+3-
+4-
+5-
