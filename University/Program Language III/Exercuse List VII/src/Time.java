@@ -199,16 +199,35 @@ public class Time {
         Time novoTime;
         int diferenca;
 
+        //Transforma as horas para segundos
         int t1 = t.timeToSec( data.getHours() ,data.getMinutes(), data.getSeconds() );
         int t2 = t.timeToSec( t.hora, t.min, t.seg );
 
+        //Calculando a diferença entre os segundos
         diferenca = t1 - t2;
 
         if (diferenca < 0 ) diferenca *= -1;
 
+        //Gerando um novo objeto a partir da diferenca entre as horas
         novoTime = t.SecToTime( diferenca );
 
-        return null;
+        return novoTime;
+    }
+
+    public static boolean isAm( Time time ) {
+
+        int seg = time.timeToSec( time.hora, time.min, time.seg );
+
+        return seg < 43200;
+
+    }
+
+    public static boolean isPm( Time time ) {
+
+        int seg = time.timeToSec( time.hora, time.min, time.seg );
+
+        return seg > 43200;
+
     }
 
 }
