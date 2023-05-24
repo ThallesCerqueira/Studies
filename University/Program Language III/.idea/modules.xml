@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ExercIse List VII/ExercIse List VII.iml" filepath="$PROJECT_DIR$/ExercIse List VII/ExercIse List VII.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exercise List I/Exercise List I.iml" filepath="$PROJECT_DIR$/Exercise List I/Exercise List I.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exercise List IV/Exercise List IV.iml" filepath="$PROJECT_DIR$/Exercise List IV/Exercise List IV.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exercise List V/Exercise List V.iml" filepath="$PROJECT_DIR$/Exercise List V/Exercise List V.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exercise List VI/Exercise List VI.iml" filepath="$PROJECT_DIR$/Exercise List VI/Exercise List VI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Exercuse List VII/Exercuse List VII.iml" filepath="$PROJECT_DIR$/Exercuse List VII/Exercuse List VII.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercise List VIII/Exercise List VIII.iml" filepath="$PROJECT_DIR$/Exercise List VIII/Exercise List VIII.iml" />
       <module fileurl="file://$PROJECT_DIR$/Program Language III.iml" filepath="$PROJECT_DIR$/Program Language III.iml" />
     </modules>
   </component>

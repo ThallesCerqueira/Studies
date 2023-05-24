@@ -5,82 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02b836aa-3168-4b0e-b979-56ea7c1636b6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/.idea/Exercise List I.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/br.exercises/br.exercises.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/br.exercises/src/BatalhaNaval.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/br.exercises/src/Dados.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/br.exercises/src/Multimetro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/out/Exercise List I.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/out/Program Language III.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/out/production/br.exercises/BatalhaNaval.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/out/production/br.exercises/Dados.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercise List I/out/production/br.exercises/Multimetro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/.vscode/c_cpp_properties.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao10.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao3.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao4.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao5.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao6.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao7.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao8.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 1/Questao9.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/.vscode/c_cpp_properties.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_01.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_02.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_03.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_04.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_05.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_06.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_07.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_08.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_09.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_10.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_11.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_12.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_13.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_14.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 2/QUESTÃO_15.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 3/P1_Q3_Thalles.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 3/P1_Q6_Thalles.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 3/P1_Q9_Thalles.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 3/P2_Q4_Thalles.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 3/P2_Q5_Thalles.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 3/P2_Q6_Thalles.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 4/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 4/question_1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 4/question_2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 4/question_4.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Exercises 4/question_5.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/array.two.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/array_one.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/function_with_parameter.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/function_without_parameter.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/generating_image.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/generator_of_registration.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/howManyTimes.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/numbersOfPairs.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/question_3_&amp;_4.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/Random/question_5.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/URI/Uri_1010.C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/URI/Uri_1011.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/University/Program_Language I/URI/Uri_1012.c" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Study.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/University/.idea/University.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/University/Program Language III/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/University/Program Language III/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/University/Program Language III/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/University/Program Language III/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercuse List VII/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercuse List VII/relacao.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercuse List VII/src/Contato.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercuse List VII/src/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercuse List VII/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercuse List VII/src/Ponto2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/University/Program Language III/Exercuse List VII/src/Time.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -99,7 +43,9 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/thall/Pasta GitHub/Thalles - GIT/University/Program Language III"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Cerqu/Git/Study"
   }
 }]]></component>
   <component name="RecentsManager">
