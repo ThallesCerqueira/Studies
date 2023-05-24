@@ -4,3 +4,5 @@
 *.json
 *.pdf
 *.o
+*.xsd
+/.idea
