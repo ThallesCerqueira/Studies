@@ -99,7 +99,7 @@ public class Time {
     }
 
     public void prnTime(){
-        System.out.println(getTime());
+        System.out.print(getTime());
     }
 
     public void addTime( int hora, int min, int seg ) {

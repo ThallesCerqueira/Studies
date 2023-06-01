@@ -22,7 +22,7 @@ public class Ponto2D {
 
     public void imprimirPonto() {
 
-        System.out.println("Ponto (" +x+ ","+ y+")");
+        System.out.print("Ponto (" +x+ ","+ y+")");
 
     }
 

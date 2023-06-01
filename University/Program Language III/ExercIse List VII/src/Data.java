@@ -224,7 +224,7 @@ public class Data {
 
         int days;
 
-        days = 30 - data.dia;
+        days = 31 - data.dia;
 
         return days;
 
@@ -262,25 +262,25 @@ public class Data {
         } else if ( data.mes == 2 ) {
             mes = "Fevereiro";
         } else if ( data.mes == 3 ) {
-            mes = "Fevereiro";
+            mes = "Março";
         } else if ( data.mes == 4 ) {
-            mes = "Fevereiro";
+            mes = "Abril";
         } else if ( data.mes == 5 ) {
-            mes = "Fevereiro";
+            mes = "Maio";
         } else if ( data.mes == 6 ) {
-            mes = "Fevereiro";
+            mes = "Junho";
         } else if ( data.mes == 7 ) {
-            mes = "Fevereiro";
+            mes = "Julho";
         } else if ( data.mes == 8 ) {
-            mes = "Fevereiro";
+            mes = "Agosto";
         } else if ( data.mes == 9 ) {
-            mes = "Fevereiro";
+            mes = "Setembro";
         } else if ( data.mes == 10 ) {
-            mes = "Fevereiro";
+            mes = "Outubro";
         } else if ( data.mes == 11 ) {
-            mes = "Fevereiro";
+            mes = "Novembro";
         } else if ( data.mes == 12 ) {
-            mes = "Fevereiro";
+            mes = "Dezembro";
         }
 
         return data.dia + " de " + mes + " de " + data.ano;
