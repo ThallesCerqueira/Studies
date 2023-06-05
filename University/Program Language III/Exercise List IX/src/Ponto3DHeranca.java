@@ -19,7 +19,7 @@ public class Ponto3DHeranca extends Ponto2D {
 
     @Override
     public String toString() {
-        return "X: " + super.getX() + " Y: " + super.getY() + " Z: " + this.z;
+        return "X: " + super.getX() + "\nY: " + super.getY() + "\nZ: " + this.z;
     }
 
     @Override

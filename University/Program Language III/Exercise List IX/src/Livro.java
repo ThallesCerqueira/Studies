@@ -33,7 +33,7 @@ public class Livro {
     }
 
     public boolean isOlder( Livro livro ) {
-        return this.anoPublicacao > livro.anoPublicacao;
+        return !(this.anoPublicacao > livro.anoPublicacao);
     }
 
     public String getTitulo() {

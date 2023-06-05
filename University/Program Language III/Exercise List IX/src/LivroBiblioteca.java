@@ -27,13 +27,18 @@ public class LivroBiblioteca extends Livro {
         return !this.emprestado;
     }
 
-    public boolean borrow() {
+    public boolean borrow( String dataDevolucao ) {
 
         if( isAvailable() ) {
             this.emprestado = true;
+            this.dataDevolucao = dataDevolucao;
             return true;
         }
 
         return false;
+    }
+
+    public String getDataDevolucao() {
+        return this.dataDevolucao;
     }
 }

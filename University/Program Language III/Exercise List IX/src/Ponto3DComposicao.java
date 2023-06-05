@@ -17,7 +17,7 @@ public class Ponto3DComposicao {
     }
 
     public String toString() {
-        return ponto2D.toString() + " Z: " + this.z;
+        return ponto2D.toString() + "\nZ: " + this.z;
     }
 
     public boolean inAxisX() {
@@ -41,9 +41,11 @@ public class Ponto3DComposicao {
     }
 
     public double distance( int x, int y, int z ) {
+        int dx = ponto2D.getX() - x;
+        int dy = ponto2D.getY() - y;
         int dz = this.z - z;
 
-        return ponto2D.distance( x, y ) + Math.sqrt( dz );
+        return Math.sqrt( dx*dx + dy*dy + dz*dz );
     }
 
     public double distance( Ponto3DComposicao ponto ) {

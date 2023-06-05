@@ -19,7 +19,7 @@ public class Ponto2D {
     }
 
     public String toString() {
-        return "X: " + this.x + " Y: " + this.y;
+        return "X: " + this.x + "\nY: " + this.y;
     }
 
     public boolean inAxisX() {
