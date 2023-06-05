@@ -60,4 +60,7 @@ public class Ponto3DHeranca extends Ponto2D {
         return this.distance( ponto.getX(), ponto.getY(), ponto.z );
     }
 
+    public int getZ() {
+        return z;
+    }
 }
