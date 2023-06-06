@@ -139,4 +139,71 @@ public class BarrigaTest extends BaseTest {
 
     }
 
+    @Test
+    public void naoDeveInserirUmaMovimentacaoComDataFutura() {
+
+        Movimentacao mov = getMovimentacao();
+        mov.setData_transacao( "20/05/2050" );
+
+        given()
+                .header( "Authorization", "JWT " + TOKEN )
+                .body( mov )
+                .when()
+                .post( "/transacoes" )
+                .then()
+                .statusCode( 400 )
+                .body( "msg", hasItems( "Data da Movimentação deve ser menor ou igual à data atual") )
+
+        ;
+
+    }
+
+    private Movimentacao getMovimentacao() {
+        Movimentacao mov = new Movimentacao();
+
+        mov.setConta_id( 1740434 );
+        //mov.setUsuario_id(  );
+        mov.setDescricao( "Descrição da movimentação." );
+        mov.setEnvolvido( "Envolvido na mov" );
+        mov.setTipo( "REC" );
+        mov.setData_transacao( "01/01/2000" );
+        mov.setData_pagamento( "01/01/2010" );
+        mov.setValor( 100f );
+        mov.setStatus( true );
+
+        return mov;
+    }
+
+    @Test
+    public void naoDeveRemoverContaComMovimentacao() {
+
+        given()
+                .header( "Authorization", "JWT " + TOKEN )
+        .when()
+                .delete( "/contas/1740434" )
+        .then()
+                .statusCode( 500 )
+                .body( "constraint", is( "transacoes_conta_id_foreign" ) )
+
+
+        ;
+
+    }
+
+    @Test
+    public void deveCalcularSaldoContas() {
+
+        given()
+                .header( "Authorization", "JWT " + TOKEN )
+        .when()
+                .get( "/saldo" )
+        .then()
+                .statusCode( 200 )
+                .body( "find{it.conta_id==1740434}.saldo", is( "200.00" ) )
+
+
+        ;
+
+    }
+
 }
