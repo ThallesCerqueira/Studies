@@ -13,7 +13,7 @@ public class PessoaJuridica extends Pessoa {
         if( validaPessoaJuridica( faturamento ) ) {
             this.faturamento = faturamento;
         } else {
-            this.faturamento = faturamento;
+            this.faturamento = 0;
         }
 
     }
