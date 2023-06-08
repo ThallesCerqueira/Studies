@@ -1,4 +1,4 @@
-package figuras;
+package Figuras;
 
 public class Rectangle extends Shape2D {
 
@@ -17,6 +17,11 @@ public class Rectangle extends Shape2D {
     @Override
     public float area() {
         return super.getAltura() * super.getBase();
+    }
+
+    @Override
+    public float perimetro() {
+        return 2 * super.getBase() + 2 * super.getAltura();
     }
 
 }

@@ -1,4 +1,4 @@
-package figuras;
+package Figuras;
 
 public class Square extends Shape2D {
 
@@ -21,7 +21,12 @@ public class Square extends Shape2D {
 
     @Override
     public String toString() {
-        return "Base: " + super.getBase();
+        return "Base:  " + super.getBase();
+    }
+
+    @Override
+    public float perimetro() {
+        return 4 * super.getBase();
     }
 
 }

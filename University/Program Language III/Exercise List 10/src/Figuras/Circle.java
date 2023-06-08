@@ -1,4 +1,4 @@
-package figuras;
+package Figuras;
 
 public class Circle extends Shape2D {
 
@@ -36,6 +36,11 @@ public class Circle extends Shape2D {
     @Override
     public String toString() {
         return "Raio: " + raio + "   Pi: " + PI;
+    }
+
+    @Override
+    public float perimetro() {
+        return 2 * PI * this.raio;
     }
 
 }

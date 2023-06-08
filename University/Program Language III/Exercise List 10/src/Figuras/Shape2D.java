@@ -1,4 +1,4 @@
-package figuras;
+package Figuras;
 
 public class Shape2D {
 
@@ -33,12 +33,20 @@ public class Shape2D {
         return base*altura;
     }
 
+    public float perimetro() {
+        return this.base * 4;
+    }
+
     public float getAltura() {
         return this.altura;
     }
 
     public float getBase() {
         return this.base;
+    }
+
+    public void setBase( float base ) {
+        this.base = base;
     }
 
     @Override
