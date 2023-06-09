@@ -22,4 +22,14 @@ public class PessoaJuridica extends Pessoa {
         return faturamento >= 0;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + ", Cnpj: " + this.cnpj + ", Faturamento: " + this.faturamento;
+    }
+
+    @Override
+    public long getChave() {
+        return this.cnpj;
+    }
+
 }

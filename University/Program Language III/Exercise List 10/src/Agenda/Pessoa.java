@@ -27,4 +27,13 @@ public class Pessoa {
         return nome != "" && endereco != "" && telefone >= 0 && email != "";
     }
 
+    @Override
+    public String toString() {
+        return "Nome: " + this.nome + ", Endereço: " + this.endereco + ", Telefone: " + this.telefone + ", Email: " + this.email;
+    }
+
+    public long getChave() {
+        return telefone;
+    }
+
 }

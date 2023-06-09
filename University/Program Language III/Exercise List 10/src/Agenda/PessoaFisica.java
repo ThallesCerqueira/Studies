@@ -23,4 +23,14 @@ public class PessoaFisica extends Pessoa {
         return aniversario != null;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + ", Cpf: " + this.cpf + ", Aniversário: " + this.aniversario.toString();
+    }
+
+    @Override
+    public long getChave() {
+        return this.cpf;
+    }
+
 }
