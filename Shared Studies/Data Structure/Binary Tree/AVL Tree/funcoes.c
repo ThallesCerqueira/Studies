@@ -19,16 +19,94 @@ Node* startNode() {
     return NULL;
 }
 
+Node* insere( Node* raiz, int key ) {
+
+    int alturaNo;
+
+    // Se a árvore estiver vazia.
+    if( !raiz ) return newNode( key );
+
+    // Primeira possibilidade de inserção.
+    if( key < raiz->key ) {
+        
+        raiz->left = insere( raiz->left, key );
+
+        // Verificando se a inserção mudou o Fator de Balanceamento para +- 2.
+        alturaNo = altura( raiz->left ) - altura( raiz->right );
+        if( alturaNo == 2 || alturaNo == -2 ) {
+
+            // Decidindo o tipo de rotação.
+            if( key < raiz->left->key ) {
+                raiz = rotacionaDireita( raiz );
+            } else {
+                raiz = rotacionaEsquerdaDireita( raiz );
+            }
+
+        }
+
+    } else {
+        // Segunda possibilidade de inserção.
+        if( key > raiz->key ) {
+
+            raiz->right = insere( raiz->right, key );
+
+            // Verificando se a inserção mudou o Fator de Balanceamento para +- 2.
+            alturaNo = altura( raiz->left ) - altura( raiz->right );
+            if( alturaNo == 2 || alturaNo == -2 ) {
+
+                // Decidindo o tipo de rotação.
+                if( key > raiz->right->key ) {
+                    
+                    raiz = rotacionaEsquerda( raiz );
+
+                } else {
+
+                    raiz = rotacionaDireitaEsquerda( raiz );
+
+                }
+
+            }
+
+        }
+
+    }
+
+    raiz->hight = max( altura( raiz->left ), altura( raiz->right ) ) + 1;
+
+    return raiz;
+
+}
+
+Node* search( Node* node, int key ) {
+
+    if( node == NULL ) return NULL;
+
+    if( key == node->key ) return node;
+
+    if( key < node->key ) {
+
+        return search( node->left, key );
+
+    }else {
+
+        return search( node->right, key );
+
+    }
+
+}
+
 Node* rotacionaDireita( Node* raiz ) {
 
     Node* auxiliar;
 
+    // Rotacionando, redefinindo os ponteiros.
     auxiliar = raiz->left;
     raiz->left = auxiliar->right;
     auxiliar->right = raiz;
 
+    // Recalculando as alturas.
     raiz->hight = max( altura( raiz->right), altura( raiz->left ) ) + 1;
-    auxiliar->hight = max( altura( auxiliar->left, raiz->hight ) ) + 1;
+    auxiliar->hight = max( altura( auxiliar->left ), altura( raiz->hight ) ) + 1;
 
     return auxiliar;
 
@@ -38,10 +116,12 @@ Node* rotacionaEsquerda( Node* raiz ) {
 
     Node* auxiliar;
     
+    // Rotacionando, redefinindo os ponteiros.
     auxiliar = raiz->right;
     raiz->right = auxiliar->left;
     auxiliar->left = raiz;
 
+    // Recalculando as alturas.
     raiz->hight = max( altura( raiz->right), altura( raiz->left  ) ) + 1;
     auxiliar->hight = max( altura( auxiliar->right ), raiz->hight ) + 1;
 
@@ -64,4 +144,10 @@ Node* rotacionaDireitaEsquerda( Node* raiz ) {
 int max( int a, int b ) {
     if( a > b ) return a;
     return b;
+}
+
+int altura( Node* raiz ) {
+    if ( !raiz ) return -1;
+
+    return raiz->hight;
 }
