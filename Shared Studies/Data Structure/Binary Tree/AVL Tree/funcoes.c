@@ -151,3 +151,86 @@ int altura( Node* raiz ) {
 
     return raiz->hight;
 }
+
+Node* removeNo( Node* raiz, int key ) {
+
+    // Se raiz é nula.
+    if( raiz == NULL ) {
+        return raiz; 
+    } else {
+
+        // Verificando se achou o Nó desejado.
+        if( raiz->key == key ) {
+            
+            // Verificando se é NÓ Folha.
+            if( raiz->left == NULL && raiz->right == NULL ) {
+                
+                free( raiz );
+                return NULL;
+
+            } else {
+
+                // Verificando se o NÓ tem 2 filhos.
+                if( raiz->left != NULL && raiz->right != NULL ) {
+
+                    Node* aux = raiz->left;
+
+                    // Indo até o último Nó à direita, da subArvore à esquerda.
+                    while( aux->right != NULL ) aux = aux->right;
+
+                    raiz->key = aux->key;
+                    aux->key = key;
+                    raiz->left = removeNo( raiz->left, key );
+
+                    return raiz;
+
+                } else {
+
+                    // Caso em que o NÓ possui 1 filho apenas.
+                    Node * aux;
+
+                    if( raiz->left != NULL ) {
+
+                        aux = raiz->left;
+                    
+                    } else {
+
+                        aux = raiz->right;
+
+                    }
+
+                    free( raiz );
+
+                    return aux;
+
+                }
+
+            }
+
+        } else {
+
+            if( key < raiz->key ) {
+
+                raiz->left = removeNo( raiz->left, key );
+
+            } else {
+
+                raiz->right = removeNo( raiz->right, key );
+
+            }
+
+        }
+
+        // Recalculando altura dos nós.
+        int altura1 = raiz->left->hight;
+        int altura2 = raiz->right->hight
+
+        raiz->hight = (altura1 > altura1 ? altura1: altura2) + 1;
+
+        // Adicionar minha função de balancear.
+        raiz = balancear( raiz );
+
+        return raiz;
+    }
+
+}
