@@ -33,6 +33,6 @@ public class Pessoa {
         return !nome.equals("") && cpf >= 0 && nascimento != null && !endereco.equals("") && renda >= 0;
     }
 
-    
+
 
 }
