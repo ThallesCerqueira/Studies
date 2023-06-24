@@ -8,8 +8,8 @@ public class PessoaJuridica extends Pessoa {
     private long cnpj;
     private Data dataAbertura;
 
-    public PessoaJuridica( String nome, long cnpj, double renda ) {
-        this( nome, cnpj, null, "", renda );
+    public PessoaJuridica( String nome, double renda ) {
+        this( nome, 0, null, "", renda );
     }
 
     public PessoaJuridica( String nome, long cnpj, Data dataAbertura, String endereco, double renda ) {

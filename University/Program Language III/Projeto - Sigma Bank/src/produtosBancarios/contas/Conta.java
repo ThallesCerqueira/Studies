@@ -3,12 +3,11 @@ package produtosBancarios.contas;
 import utils.Data;
 import pessoas.Pessoa;
 import java.util.Random;
-import pessoas.PessoaFisica;
 import produtosBancarios.cartoes.*;
 import produtosBancarios.emprestimos.*;
 import produtosBancarios.financiamentos.*;
 
-public class Conta {
+public abstract class Conta {
 
     private int numConta;
     private Pessoa cliente;
@@ -17,8 +16,8 @@ public class Conta {
     private Financiamento financiamento;
     Random random = new Random( 123 );
 
-    public Conta(String nome, long cpf, Data nascimento, String endereco, double renda ) {
-        this.cliente = new PessoaFisica( nome, cpf, nascimento, endereco, renda);
+    // Rever este construtor
+    public Conta() {
         // Gearando um número aleatório para conta.
         this.numConta = random.nextInt( 10000, 99999 );
 
@@ -73,6 +72,10 @@ public class Conta {
     // CRIAR MÉTODO
     private double limiteCartao() {
         return 0;
+    }
+
+    protected void setConta( Pessoa cliente ) {
+        this.cliente = cliente;
     }
 
 }

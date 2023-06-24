@@ -8,8 +8,8 @@ public class PessoaFisica extends Pessoa {
     private long cpf;
     private Data nascimento;
 
-    public PessoaFisica( String nome, long cpf, double renda ) {
-        this( nome, cpf, null, "", renda );
+    public PessoaFisica( String nome, double renda ) {
+        this( nome, 0, null, "", renda );
     }
 
     public PessoaFisica( String nome, long cpf, Data nascimento, String endereco, double renda ) {
