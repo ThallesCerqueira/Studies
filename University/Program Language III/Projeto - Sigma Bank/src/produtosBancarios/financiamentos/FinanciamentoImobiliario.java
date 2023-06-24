@@ -1,4 +1,4 @@
 package produtosBancarios.financiamentos;
 
-public class FinanciamentoImobiliario {
+public class FinanciamentoImobiliario extends Financiamento{
 }

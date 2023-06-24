@@ -1,4 +1,4 @@
 package produtosBancarios.emprestimos;
 
-public class EmprestimoPessoal {
+public class EmprestimoPessoal extends Emprestimo{
 }

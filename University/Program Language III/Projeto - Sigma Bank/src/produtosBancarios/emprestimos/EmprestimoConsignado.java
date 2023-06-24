@@ -1,4 +1,4 @@
 package produtosBancarios.emprestimos;
 
-public class EmprestimoConsignado {
+public class EmprestimoConsignado extends Emprestimo{
 }
