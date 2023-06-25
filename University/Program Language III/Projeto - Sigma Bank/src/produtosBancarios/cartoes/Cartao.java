@@ -1,8 +1,9 @@
 package produtosBancarios.cartoes;
 
 import utils.Data;
+import utils.Gerais;
 
-public class Cartao {
+public class Cartao implements Gerais {
 
     private Data vencimento;
     private Data validade;
@@ -34,7 +35,8 @@ public class Cartao {
         return vencimento != null && limite >= 0;
     }
 
-    public boolean pagarFatura( double pagamento ) {
+    @Override
+    public boolean pagar( double pagamento ) {
 
         if( this.fatura >= pagamento ) {
             this.fatura -= pagamento;
@@ -56,8 +58,14 @@ public class Cartao {
         return false;
     }
 
-    public double consultarLimite() {
+    @Override
+    public double getSaldo() {
         return this.limite;
+    }
+
+    @Override
+    public String toString() {
+        return "Limite: " + this.limite + "Num. Cartão: " + this.numCartao + "Validade: " + this.validade;
     }
 
 }

@@ -26,8 +26,8 @@ public class CartaoBlack extends Cartao {
     }
 
     @Override
-    public boolean pagarFatura( double pagamento ) {
-        if( super.pagarFatura( pagamento ) ) {
+    public boolean pagar( double pagamento ) {
+        if( super.pagar( pagamento ) ) {
             setMilhas();
             return true;
         }
