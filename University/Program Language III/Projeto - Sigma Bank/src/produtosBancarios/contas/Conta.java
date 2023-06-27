@@ -39,9 +39,11 @@ public abstract class Conta {
         senha = sc.nextInt();
 
         if( limite > 10000 ) {
+            System.out.println( "Cartão a ser criado: Cartão Black" );
             this.cartao = new CartaoBlack( new Data( dia, 12 ), limite, senha );
             return true;
         } else if ( limite > 0 ) {
+            System.out.println( "Cartão a ser criado: Cartão Gold" );
             this.cartao = new CartaoGold( new Data( dia, 12 ), limite, senha );
             return true;
         }
@@ -78,21 +80,33 @@ public abstract class Conta {
     }
 
     // Caso o cliente queira um Financiamento
-    public boolean criarFinanciamento( int tipo ) {
+    public boolean criarFinanciamento() {
+
+        int tipo, parcelas;
+        double valor;
+
+        System.out.println( "1 - Financiamento Imobiliário" );
+        System.out.println( "2 - Financiamento Veicular" );
+        tipo = sc.nextInt();
+
+        System.out.println( "Quantas parcelas: " );
+        parcelas = sc.nextInt();
+        System.out.println( "Valor do Financiamento: " );
+        valor = sc.nextDouble();
 
         if( tipo == 1 ) {
-            //this.financiamento = new FinanciamentoImobiliario();
+            this.financiamento = new FinanciamentoImobiliario( parcelas, valor );
             return true;
-        }else if( tipo == 2 ) {
-            //this.financiamento = new FinanciamentoVeicular();
+        } else if( tipo == 2 ) {
+            this.financiamento = new FinanciamentoVeicular( parcelas, valor );
             return true;
         }
 
         return false;
 
+
     }
 
-    // CRIAR MÉTODO
     private double limiteCartao() {
         return cliente.getRenda() * 0.70;
     }
@@ -163,24 +177,29 @@ public abstract class Conta {
             // Escolha das ações da conta a partir do menuConta
             switch (opcao) {
                 // Opção de visualizar Informações Pessoais
-                case 1 :
-                    System.out.println( cliente.toString() );
-                    break;
+                case 1 -> System.out.println(cliente.toString());
+
                 // Opção Área de Cartões
-                case 2:
+                case 2 -> {
                     Cartao.menuCartao();
                     opcao2 = sc.nextInt();
-
-                    acoesCartao( opcao2 );
-                    break;
+                    acoesCartao(opcao2);
+                }
                 // Opção Área de Empréstimos
-                case 3:
+                case 3 -> {
                     Emprestimo.menuEmprestimo();
                     opcao2 = sc.nextInt();
 
                     // Função de métodos pertinentes ao Empréstimo.
-                    acoesEmprestimo( opcao2 );
-                    break;
+                    acoesEmprestimo(opcao2);
+                }
+                case 4 -> {
+                    Financiamento.menuFinanciamento();
+                    opcao2 = sc.nextInt();
+
+                    // Função de métodos pertinentes ao Financiamento
+                    acoesFinanciamento(opcao2);
+                }
             }
 
             if( opcao == 5 ) System.out.println( "Até mais " + this.cliente.getNome() + "!" );
@@ -188,7 +207,6 @@ public abstract class Conta {
         }while( opcao != 5 );
 
     }
-
 
     private boolean isEmprestimo() {
         return this.emprestimo != null;
@@ -262,11 +280,49 @@ public abstract class Conta {
 
     }
 
+    private void acoesFinanciamento( int opcao ) {
+
+        double valorPagamento;
+
+        // Escolha das ações para Financiamento a partir do menuFinanciamento
+        switch (opcao) {
+
+            // Opção para novo Financiamento
+            case 1:
+                if(criarFinanciamento()) System.out.println( "Financiamento criado!" );
+                else System.out.println( "Falha ao criar Financiamento!" );
+                break;
+            // Opção para ver informações do Financiamento
+            case 2 :
+                if( isFinanciamento() ) System.out.println( financiamento.toString() );
+                else System.out.println( "Nenhum financiamento localizado." );
+                break;
+            // Opção para pagar Financiamento
+            case 3:
+                if( isFinanciamento() ) {
+                    System.out.println( "Valor do pagamento: " );
+                    valorPagamento = sc.nextDouble();
+
+                    if( financiamento.pagar( valorPagamento ) ) System.out.println( "Pagamento efetuado" );
+                    else System.out.println( "Pagamento não efetuado!" );
+                }
+                break;
+            // Opção de voltar à tela anterior
+            case 4 :
+                break;
+        }
+
+    }
+
+    private boolean isFinanciamento() {
+        return this.financiamento != null;
+    }
+
     private boolean isCartao() {
         return this.cartao != null;
     }
 
-    public void menuConta() {
+    private void menuConta() {
 
         System.out.println("\nMENU: ");
         System.out.println( "1 - Informações Pessoais" );

@@ -44,4 +44,14 @@ public class Financiamento implements Gerais {
         return "Valor: " + this.valor + ", Parcelas: " + this.qtdParcelas + ", Parcelas Pagas:" + this.parcelasPagas;
     }
 
+    public static void menuFinanciamento() {
+
+        System.out.println( "1 - Novo financiamento" );
+        System.out.println( "2 - Consultar financiamento" );
+        System.out.println( "3 - Pagar financiamento" );
+        System.out.println( "4 - Voltar" );
+        System.out.print( "Opção: " );
+
+    }
+
 }
