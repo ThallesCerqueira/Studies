@@ -68,4 +68,14 @@ public class Cartao implements Gerais {
         return "Limite: " + this.limite + "Num. Cartão: " + this.numCartao + "Validade: " + this.validade;
     }
 
+    public static void menuCartao() {
+
+        System.out.println( "1 - Novo Cartão" );
+        System.out.println( "2 - Consultar cartão" );
+        System.out.println( "3 - Pagar cartão" );
+        System.out.println( "4 - Voltar" );
+        System.out.print( "Opção: " );
+
+    }
+
 }

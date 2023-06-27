@@ -36,4 +36,9 @@ public class Data {
         return dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && ano >= 1970 && ano <= 2050;
     }
 
+    @Override
+    public String toString() {
+        return this.dia + "/" + this.mes + "/" + this.ano;
+    }
+
 }

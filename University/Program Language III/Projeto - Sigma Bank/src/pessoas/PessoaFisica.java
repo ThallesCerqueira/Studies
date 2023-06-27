@@ -8,8 +8,8 @@ public class PessoaFisica extends Pessoa {
     private long cpf;
     private Data nascimento;
 
-    public PessoaFisica( String nome, double renda ) {
-        this( nome, 0, null, "", renda );
+    public PessoaFisica( String nome, long key, String endereco ,double renda ) {
+        this( nome, key, new Data(), endereco, renda );
     }
 
     public PessoaFisica( String nome, long cpf, Data nascimento, String endereco, double renda ) {
@@ -42,4 +42,15 @@ public class PessoaFisica extends Pessoa {
     public Data getNascimento() {
         return this.nascimento;
     }
+
+    @Override
+    public long getKeyPessoa() {
+        return this.cpf;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " +super.getNome() +", Cpf: "+ this.cpf + ", Nascimento: " + this.nascimento + ", Endereço: " + super.getEndereco() + ", Renda: " +super.getRenda();
+    }
+
 }

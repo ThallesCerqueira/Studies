@@ -1,7 +1,8 @@
 import produtosBancarios.contas.Conta;
-
+import produtosBancarios.contas.ContaCorrente;
 import java.util.ArrayList;
 import java.util.Scanner;
+import static java.lang.System.exit;
 
 public class Main {
     static Scanner sc = new Scanner( System.in );
@@ -10,8 +11,9 @@ public class Main {
 
         // Variáveis
         int escolha = 0;
-        Conta contaAtual;
+        Conta contaAtual = null;
         ArrayList<Conta> contaList = new ArrayList<>();
+        Conta.inicializaContas( contaList );
 
         System.out.println(" ========= Bem-Vindo ao Sigma Bank ========= ");
 
@@ -26,48 +28,35 @@ public class Main {
 
             } while ( escolha < 1 || escolha > 6);
 
-            switch ( escolha ) {
-                case 1:
-                    contaAtual = acessarConta();
-                    break;
-                case 2:
-                    contaAtual = abrirConta();
+            switch (escolha) {
+                case 1 -> contaAtual = Conta.acessarConta(contaList);
+                case 2 -> contaAtual = abrirConta();
+                case 3 -> {
+                    exit(0);
+                }
             }
 
+            if( contaAtual != null ) {
+                contaAtual.acoesConta();
+            } else {
+                System.out.println( "\nConta não localizada. Tente novamente!" );
+            }
 
         }
 
     }
-
 
     public static void menuPrincipal() {
 
-        System.out.println( "1 - Acessar conta." );
+        System.out.println( "\n1 - Acessar conta." );
         System.out.println( "2 - Abrir conta." );
-        System.out.println( "3 - Encerrar Sessão." );
-        System.out.print(" Opção: ");
-
-    }
-
-    public static Conta acessarConta( ArrayList<Conta> contaList ) {
-
-        int escolha;
-
-        do {
-            System.out.println( "\n1 - Conta Física." );
-            System.out.println( "2 - Conta Jurídica." );
-
-            escolha = sc.nextInt();
-        }while( escolha < 1 || escolha > 2 );
-
-        if( escolha == 1 ) {
-
-        }
-
+        System.out.println( "3 - Encerrar Programa." );
+        System.out.print("\nOpção: ");
 
     }
 
     private static Conta abrirConta() {
+        return null;
     }
 }
 

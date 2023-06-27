@@ -8,8 +8,8 @@ public class PessoaJuridica extends Pessoa {
     private long cnpj;
     private Data dataAbertura;
 
-    public PessoaJuridica( String nome, double renda ) {
-        this( nome, 0, null, "", renda );
+    public PessoaJuridica( String nome, long key, String endereco, double renda ) {
+        this( nome, key, new Data(), endereco, renda );
     }
 
     public PessoaJuridica( String nome, long cnpj, Data dataAbertura, String endereco, double renda ) {
@@ -35,5 +35,15 @@ public class PessoaJuridica extends Pessoa {
 
     public Data getDataAbertura() {
         return this.dataAbertura;
+    }
+
+    @Override
+    public long getKeyPessoa() {
+        return this.cnpj;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + super.getNome() +", Cnpj: "+ this.cnpj + ", Abertura: " + this.dataAbertura + ", Endereço: " + super.getEndereco() + ", Renda: " +super.getRenda();
     }
 }

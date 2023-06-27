@@ -39,4 +39,8 @@ public abstract class Pessoa {
     public double getRenda() {
         return this.renda;
     }
+
+    public long getKeyPessoa() {
+        return 0;
+    }
 }
