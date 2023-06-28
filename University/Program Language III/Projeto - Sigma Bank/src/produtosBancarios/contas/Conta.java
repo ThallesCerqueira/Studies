@@ -159,8 +159,8 @@ public abstract class Conta {
     }
 
     public static void inicializaContas( ArrayList<Conta> contaList) {
-        contaList.add( new ContaCorrente( "Thalles Cerqueira", 123456 , "Rua Nova",1000.0d, 1 ));
-        contaList.add( new ContaCorrente( "Company Center", 654321, "Juracy Magalhães", 100000.0d, 2 ) );
+        contaList.add( new ContaCorrente( "Thalles Cerqueira", 123456 , new Data(),"Rua Nova",1000.0d, 1 ));
+        contaList.add( new ContaCorrente( "Company Center", 654321, new Data(),"Juracy Magalhães", 100000.0d, 2 ) );
     }
 
     public void acoesConta() {
@@ -331,6 +331,76 @@ public abstract class Conta {
         System.out.println( "4 - Área de financiamentos" );
         System.out.println( "5 - Encerrar sessão" );
         System.out.print( "\nOpção: " );
+
+    }
+
+    public static Conta abrirConta( ArrayList<Conta> contaList ) {
+
+        String nome, endereco;
+        long key;
+        double renda;
+        int opcao, opcao2, dia, mes, ano;
+        Scanner sc = new Scanner( System.in );
+        Conta conta;
+
+        System.out.println( " === ABERTURA DE CONTA === " );
+
+        System.out.println( "\n1 - Conta Corrente\n2 - Conta Poupança" );
+        do{
+            System.out.print( "Opção: " );
+            opcao2 = sc.nextInt();
+            if( opcao2 < 1 || opcao2 > 2 ) System.out.println( "Opção inválida! Tente novamente" );
+        } while ( opcao2 < 1 || opcao2   > 2 );
+
+        System.out.println( "\n1 - Pessoa física\n2 - Pessoa Jurídica" );
+        do{
+            System.out.print( "Opção: " );
+            opcao = sc.nextInt();
+            if( opcao < 1 || opcao > 2 ) System.out.println( "Opção inválida! Tente novamente" );
+        } while ( opcao < 1 || opcao > 2 );
+
+        System.out.print( "Nome: " );
+        nome = sc.nextLine();
+
+        if( opcao == 1 ) {
+            System.out.println( "Cpf: " );
+            key = sc.nextLong();
+            System.out.print( "Data de nascimento:\nDia: " );
+        }
+        else {
+            System.out.println( "Cnpj: " );
+            key = sc.nextLong();
+            System.out.print( "Data de Abertura:\nDia: " );
+        }
+        dia = sc.nextInt();
+        System.out.print( "Mês: " );
+        mes = sc.nextInt();
+        System.out.print( "Ano: " );
+        ano = sc.nextInt();
+
+        System.out.print( "Endereço: " );
+        endereco = sc.nextLine();
+
+        System.out.print( "Renda: " );
+        renda  = sc.nextDouble();
+
+        if( opcao == 1 && opcao2 == 1 ) {
+            conta = new ContaCorrente( nome, key, new Data(dia, mes, ano), endereco, renda, 1 );
+            contaList.add(conta);
+            return  conta;
+        } else if (opcao == 1) {
+            conta = new ContaCorrente( nome, key, new Data(dia, mes, ano), endereco, renda, 2 );
+            contaList.add(conta);
+            return  conta;
+        } else if(opcao2 == 1) {
+            conta = new ContaPoupanca( nome, key, new Data(dia, mes, ano), endereco, renda, 1 );
+            contaList.add(conta);
+            return conta;
+        } else {
+            conta = new ContaPoupanca( nome, key, new Data(dia, mes, ano), endereco, renda, 1 );
+            contaList.add(conta);
+            return conta;
+        }
 
     }
 
