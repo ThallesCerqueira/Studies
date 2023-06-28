@@ -1,8 +1,8 @@
 package produtosBancarios.contas;
 
+import utils.Data;
 import pessoas.PessoaFisica;
 import pessoas.PessoaJuridica;
-import utils.Data;
 
 public class ContaCorrente extends Conta {
 

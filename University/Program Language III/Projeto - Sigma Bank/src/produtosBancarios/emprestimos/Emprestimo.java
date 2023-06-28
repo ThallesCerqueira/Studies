@@ -1,7 +1,6 @@
 package produtosBancarios.emprestimos;
 
 import utils.Gerais;
-
 import java.util.Scanner;
 
 public abstract class Emprestimo implements Gerais {

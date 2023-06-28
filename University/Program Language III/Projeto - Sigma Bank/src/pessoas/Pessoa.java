@@ -25,7 +25,7 @@ public abstract class Pessoa {
     }
 
     private boolean validaPessoa( String nome, String endereco, double renda ) {
-        return !nome.equals("") && !endereco.equals("") && renda >= 0;
+        return nome != "" && endereco!= "" && renda >= 0;
     }
 
     public String getNome() {

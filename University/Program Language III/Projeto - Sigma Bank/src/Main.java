@@ -2,54 +2,50 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import static java.lang.System.exit;
 import produtosBancarios.contas.Conta;
+import utils.ClasseUtils;
 
 public class Main {
-    static Scanner sc = new Scanner( System.in );
+    static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         // Variáveis
         int escolha = 0;
         Conta contaAtual = null;
         ArrayList<Conta> contaList = new ArrayList<>();
-        Conta.inicializaContas( contaList );
+        Conta.inicializaContas(contaList);
 
         System.out.println(" ========= Bem-Vindo ao Sigma Bank ========= ");
 
-        while( escolha != 5 ) {
+        while ( true ) {
 
             // Verificando a opção do Usuário
             do {
-                menuPrincipal();
+                ClasseUtils.menuPrincipal();
                 escolha = sc.nextInt();
 
-                if( escolha < 1 || escolha > 6 ) System.out.println( "Opção inválida." );
+                if (escolha < 1 || escolha > 3) System.out.println("Opção inválida.");
 
-            } while ( escolha < 1 || escolha > 6);
+            } while (escolha < 1 || escolha > 3);
 
             switch (escolha) {
-                case 1 -> contaAtual = Conta.acessarConta( contaList );
-                case 2 -> contaAtual = Conta.abrirConta( contaList );
+                case 1 -> contaAtual = Conta.acessarConta(contaList);
+                case 2 -> contaAtual = Conta.abrirConta(contaList);
                 case 3 -> {
-                    exit(0);
+                    System.out.println( "\nEncerrando Programa!" );
+                    System.out.println( "Contas instanciadas: " + Conta.getQtdContas() );
+                    exit( 0 );
                 }
             }
 
-            if( contaAtual != null ) {
+            if (contaAtual != null) {
                 contaAtual.acoesConta();
             } else {
-                System.out.println( "\nConta não localizada. Tente novamente!" );
+                System.out.println("\nConta não localizada. Tente novamente!");
             }
 
         }
 
     }
 
-    public static void menuPrincipal() {
-
-        System.out.println( "\n1 - Acessar conta." );
-        System.out.println( "2 - Abrir conta." );
-        System.out.println( "3 - Encerrar Programa." );
-        System.out.print("\nOpção: ");
-
-    }
+}

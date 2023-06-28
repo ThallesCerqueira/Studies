@@ -16,6 +16,7 @@ public abstract class Conta {
     private Cartao cartao;
     private Emprestimo emprestimo;
     private Financiamento financiamento;
+    private static int qtdContas = 0;
     Random random = new Random( 123 );
     Scanner sc = new Scanner( System.in );
 
@@ -23,6 +24,7 @@ public abstract class Conta {
     public Conta() {
         // Gearando um número aleatório para conta.
         this.numConta = random.nextInt( 10000, 99999 );
+        qtdContas++;
 
     }
 
@@ -359,16 +361,17 @@ public abstract class Conta {
             if( opcao < 1 || opcao > 2 ) System.out.println( "Opção inválida! Tente novamente" );
         } while ( opcao < 1 || opcao > 2 );
 
+        sc.nextLine();
         System.out.print( "Nome: " );
         nome = sc.nextLine();
 
         if( opcao == 1 ) {
-            System.out.println( "Cpf: " );
+            System.out.print( "Cpf: " );
             key = sc.nextLong();
             System.out.print( "Data de nascimento:\nDia: " );
         }
         else {
-            System.out.println( "Cnpj: " );
+            System.out.print( "Cnpj: " );
             key = sc.nextLong();
             System.out.print( "Data de Abertura:\nDia: " );
         }
@@ -378,6 +381,7 @@ public abstract class Conta {
         System.out.print( "Ano: " );
         ano = sc.nextInt();
 
+        sc.nextLine();
         System.out.print( "Endereço: " );
         endereco = sc.nextLine();
 
@@ -387,11 +391,11 @@ public abstract class Conta {
         if( opcao == 1 && opcao2 == 1 ) {
             conta = new ContaCorrente( nome, key, new Data(dia, mes, ano), endereco, renda, 1 );
             contaList.add(conta);
-            return  conta;
+            return conta;
         } else if (opcao == 1) {
             conta = new ContaCorrente( nome, key, new Data(dia, mes, ano), endereco, renda, 2 );
             contaList.add(conta);
-            return  conta;
+            return conta;
         } else if(opcao2 == 1) {
             conta = new ContaPoupanca( nome, key, new Data(dia, mes, ano), endereco, renda, 1 );
             contaList.add(conta);
@@ -402,6 +406,10 @@ public abstract class Conta {
             return conta;
         }
 
+    }
+
+    public static int getQtdContas() {
+        return qtdContas;
     }
 
 }
