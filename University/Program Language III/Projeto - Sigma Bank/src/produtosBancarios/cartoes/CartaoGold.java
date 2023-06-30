@@ -17,7 +17,8 @@ public class CartaoGold extends Cartao {
         super( vencimento, limite, senha );
     }
 
-    @Override // Função para comprar algo. R$4 é a tarifa.
+    // Sobreescrita do método ComprarAlgo
+    @Override
     public boolean comprarAlgo( double valor ) {
         return super.comprarAlgo( valor + 4 );
     }

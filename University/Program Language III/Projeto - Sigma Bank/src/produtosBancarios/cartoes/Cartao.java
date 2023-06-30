@@ -5,6 +5,7 @@ import utils.Gerais;
 
 public class Cartao implements Gerais {
 
+    // Atributos da Classe
     private Data vencimento;
     private Data validade;
     private double limite;
@@ -13,6 +14,7 @@ public class Cartao implements Gerais {
     private long numCartao;
     private int senha;
 
+    // Construtor com 3 parâmetros
     public Cartao( Data vencimento, double limite, int senha ) {
 
         if( validaCartao( vencimento, limite) ) {
@@ -27,14 +29,17 @@ public class Cartao implements Gerais {
         this.validade = new Data( 2025 );
     }
 
+    // Construtor com 2 parâmetros
     public Cartao( double limite, int senha ) {
         this( null, limite, senha );
     }
 
+    // Método para verificar se os dados são válidos
     private boolean validaCartao( Data vencimento, double limite ) {
         return vencimento != null && limite >= 0;
     }
 
+    // Sobreescrita do método pagar, previsto na Interface
     @Override
     public boolean pagar( double pagamento ) {
 
@@ -47,6 +52,7 @@ public class Cartao implements Gerais {
 
     }
 
+    // Método para compra com o Cartão
     public boolean comprarAlgo( double valor ) {
 
         if( this.limite >= valor ) {
@@ -58,16 +64,19 @@ public class Cartao implements Gerais {
         return false;
     }
 
+    // Sobreescrita do método getSaldo, previsto na Interface
     @Override
     public double getSaldo() {
         return this.limite;
     }
 
+    // Sobreescrita do método toString, previsto na Interface
     @Override
     public String toString() {
         return "Limite: " + this.limite + "Num. Cartão: " + this.numCartao + "Validade: " + this.validade;
     }
 
+    // Menu para o cartão
     public static void menuCartao() {
 
         System.out.println( "1 - Novo Cartão" );

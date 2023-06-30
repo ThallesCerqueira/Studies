@@ -5,14 +5,19 @@ import java.util.Random;
 
 public class PessoaJuridica extends Pessoa {
 
+    // Atributos da Classe
     private long cnpj;
     private Data dataAbertura;
 
+    // Construtor com 4 parâmetros
     public PessoaJuridica( String nome, long key, String endereco, double renda ) {
         this( nome, key, new Data(), endereco, renda );
     }
 
+    // Construtor com 5 parâmetros
     public PessoaJuridica( String nome, long cnpj, Data dataAbertura, String endereco, double renda ) {
+
+        // Chamando construtor da Super Class
         super( nome, endereco, renda );
 
         if( validaPessoaJuridica( cnpj, dataAbertura ) ) {
@@ -25,10 +30,18 @@ public class PessoaJuridica extends Pessoa {
         }
     }
 
+    // Método para verificar se os dados são válidos
     private boolean validaPessoaJuridica( long cnpj, Data dataAbertura ) {
         return cnpj >= 1000 && dataAbertura != null;
     }
 
+    // Método sobreescrito, toString
+    @Override
+    public String toString() {
+        return "Nome: " + super.getNome() +", Cnpj: "+ this.cnpj + ", Abertura: " + this.dataAbertura + ", Endereço: " + super.getEndereco() + ", Renda: " +super.getRenda();
+    }
+
+    // Getters da Classe
     public long getCnpj() {
         return this.cnpj;
     }
@@ -42,8 +55,4 @@ public class PessoaJuridica extends Pessoa {
         return this.cnpj;
     }
 
-    @Override
-    public String toString() {
-        return "Nome: " + super.getNome() +", Cnpj: "+ this.cnpj + ", Abertura: " + this.dataAbertura + ", Endereço: " + super.getEndereco() + ", Renda: " +super.getRenda();
-    }
 }

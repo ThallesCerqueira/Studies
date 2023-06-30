@@ -2,6 +2,7 @@ package utils;
 
 public class ClasseUtils {
 
+    // Método que mostra Menu Principal
     public static void menuPrincipal() {
 
         System.out.println("\n1 - Acessar conta.");
