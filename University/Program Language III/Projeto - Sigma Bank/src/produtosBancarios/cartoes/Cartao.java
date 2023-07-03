@@ -87,4 +87,9 @@ public abstract class Cartao implements Gerais {
 
     }
 
+    // Método de verificação para Cartão
+    public static boolean isCartao( Cartao cartao ) {
+        return cartao != null;
+    }
+
 }

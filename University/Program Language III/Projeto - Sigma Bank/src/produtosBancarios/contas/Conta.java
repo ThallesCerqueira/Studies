@@ -389,13 +389,13 @@ public abstract class Conta {
 
             // Opção para ver informações do Cartão
             case 2:
-                if( isCartao() ) System.out.println( cartao.toString() );
+                if( Cartao.isCartao( cartao ) ) System.out.println( cartao.toString() );
                 else System.out.println( "\nNenhum cartão localizado!" );
                 break;
 
             // Opção para pagar Cartão
             case 3:
-                if( isCartao() ) {
+                if( Cartao.isCartao( cartao ) ) {
                     System.out.println( "Valor do pagamento: " );
                     valorPagamento = sc.nextDouble();
 
@@ -448,11 +448,6 @@ public abstract class Conta {
                 break;
         }
 
-    }
-
-    // Método de verificação para Cartão
-    private boolean isCartao() {
-        return this.cartao != null;
     }
 
     // Método auxiliar para mostrar o Menu da Conta
