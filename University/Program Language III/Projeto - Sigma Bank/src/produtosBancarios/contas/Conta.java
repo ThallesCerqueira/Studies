@@ -13,6 +13,7 @@ public abstract class Conta {
 
     // Atributos da Classe
     private int numConta;
+    private double saldo;
     private Pessoa cliente;
     private Cartao cartao;
     private Emprestimo emprestimo;
@@ -25,6 +26,8 @@ public abstract class Conta {
     public Conta() {
         // Gearando um número aleatório para conta
         this.numConta = random.nextInt( 10000, 99999 );
+        this.saldo = 0;
+
         // Atualizando o número de Contas Instanciadas
         qtdContas++;
 
@@ -277,7 +280,12 @@ public abstract class Conta {
             // Escolha das ações da conta a partir do menuConta
             switch (opcao) {
                 // Opção de visualizar Informações Pessoais
-                case 1 -> System.out.println(cliente.toString());
+                case 1 -> {
+                    subMenuConta();
+                    opcao2 = sc.nextInt();
+                    subacoesConta( opcao2 );
+
+                }
 
                 // Opção Área de Cartões
                 case 2 -> {
@@ -449,12 +457,66 @@ public abstract class Conta {
     private void menuConta() {
 
         System.out.println("\nMENU: ");
-        System.out.println( "1 - Informações Pessoais" );
+        System.out.println( "1 - Informações da Conta" );
         System.out.println( "2 - Área de Cartões" );
         System.out.println( "3 - Área de Emprestimos" );
         System.out.println( "4 - Área de financiamentos" );
         System.out.println( "5 - Encerrar sessão" );
         System.out.print( "\nOpção: " );
+
+    }
+
+    // Método auxiliar para mostrar o subMenu da Conta
+    private void subMenuConta() {
+
+        System.out.println( "1 - Dados pessoais" );
+        System.out.println( "2 - Saldo da conta" );
+        System.out.println( "3 - Depositar dinheiro" );
+        System.out.println( "4 - Sacar dinheiro" );
+        System.out.println( "5 - Voltar" );
+        System.out.print( "Opção: " );
+
+    }
+
+    // Método para as subações da conta
+    public void subacoesConta( int opcao ) {
+
+        switch (opcao) {
+            case 1 -> {
+                System.out.println( cliente.toString() );
+            }
+
+            case 2 -> {
+                System.out.println( "Saldo: " + getSaldo() );
+            }
+
+            case 3 -> {
+                double valor;
+                System.out.print( "Valor: " );
+                valor = sc.nextDouble();
+
+                setSaldo( valor );
+                System.out.println( "Deposito realizado com sucesso!" );
+
+            }
+
+            case 4 -> {
+                double valor;
+                System.out.print( "Valor: " );
+                valor = sc.nextDouble();
+
+                if (sacar( valor )) {
+                    System.out.println( "Saque realizado com sucesso!" );
+                }else {
+                    System.out.println( "Saldo insuficiente!" );
+                }
+
+            }
+
+            case 5 -> {
+                // Opção para retornar à tela anterior
+            }
+        }
 
     }
 
@@ -476,6 +538,33 @@ public abstract class Conta {
     // Método auxiliar, para pegar a chave da pessoa, sendo este CPF ou CNPJ
     public long getKeyPessoa() {
         return this.cliente.getKeyPessoa();
+    }
+
+    // Método auxiliar, para pegar o salario do cliente
+    public double getRenda() {
+        return cliente.getRenda();
+    }
+
+    // Método para saber o saldo
+    public double getSaldo() {
+        return this.saldo;
+    }
+
+    // Método para adicionar saldo na conta
+    public void setSaldo( double saldo ) {
+        this.saldo = saldo;
+    }
+
+    // Método para realizar saque
+    public boolean sacar( double valor ) {
+
+        if( this.saldo >= valor ) {
+            this.saldo -= valor;
+            return true;
+        }
+
+        return false;
+
     }
 
 }
