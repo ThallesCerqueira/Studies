@@ -56,7 +56,6 @@ public abstract class Financiamento implements Gerais {
         System.out.println( "2 - Consultar financiamento" );
         System.out.println( "3 - Pagar financiamento" );
         System.out.println( "4 - Voltar" );
-        System.out.print( "Opção: " );
 
     }
 

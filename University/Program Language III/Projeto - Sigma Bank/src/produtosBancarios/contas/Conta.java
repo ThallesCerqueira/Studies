@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import produtosBancarios.cartoes.*;
 import produtosBancarios.emprestimos.*;
 import produtosBancarios.financiamentos.*;
+import utils.Utils;
 
 public abstract class Conta {
 
@@ -51,18 +52,14 @@ public abstract class Conta {
 
         // Output e Intput
         System.out.println( "\n1 - Conta Corrente\n2 - Conta Poupança" );
-        do{
-            System.out.print( "Opção: " );
-            opcao2 = sc.nextInt();
-            if( opcao2 < 1 || opcao2 > 2 ) System.out.println( "Opção inválida! Tente novamente" );
-        } while ( opcao2 < 1 || opcao2   > 2 );
+
+        System.out.print( "Opção: " );
+        opcao2 = Utils.opcao( 1, 2 );
 
         System.out.println( "\n1 - Pessoa física\n2 - Pessoa Jurídica" );
-        do{
-            System.out.print( "Opção: " );
-            opcao = sc.nextInt();
-            if( opcao < 1 || opcao > 2 ) System.out.println( "Opção inválida! Tente novamente" );
-        } while ( opcao < 1 || opcao > 2 );
+
+        System.out.print( "Opção: " );
+        opcao = Utils.opcao( 1, 2 );
 
         sc.nextLine();
         System.out.print( "Nome: " );
@@ -78,11 +75,12 @@ public abstract class Conta {
             key = sc.nextLong();
             System.out.print( "Data de Abertura:\nDia: " );
         }
-        dia = sc.nextInt();
+
+        dia = Utils.opcao( 1, 31 );
         System.out.print( "Mês: " );
-        mes = sc.nextInt();
+        mes = Utils.opcao( 1, 12 );
         System.out.print( "Ano: " );
-        ano = sc.nextInt();
+        ano = Utils.opcao( 1, 2100 );
 
         sc.nextLine();
         System.out.print( "Endereço: " );
@@ -137,13 +135,9 @@ public abstract class Conta {
         Scanner sc = new Scanner( System.in );
 
         // Output e Inputs
-        do {
-            System.out.println( "\n1 - Conta Física." );
-            System.out.println( "2 - Conta Jurídica." );
-            System.out.print( "\nOpção: " );
-
-            escolha = sc.nextInt();
-        }while( escolha < 1 || escolha > 2 );
+        System.out.println( "\n1 - Conta Física." );
+        System.out.println( "2 - Conta Jurídica." );
+        escolha = Utils.opcao( 1, 2 );
 
         if( escolha == 1 ) {
             System.out.print( "\nDigite seu CPF: " );
@@ -195,7 +189,7 @@ public abstract class Conta {
 
         // Output e Input
         System.out.println( "Dia do Vencimento: " );
-        dia = sc.nextInt();
+        dia = Utils.opcao( 1, 31 );
         System.out.println( "Senha: " );
         senha = sc.nextInt();
 
@@ -223,7 +217,7 @@ public abstract class Conta {
         // Output e Input
         System.out.println( "1 - Empréstimo Consignado" );
         System.out.println( "2 - Empréstimo Pessoal" );
-        tipo = sc.nextInt();
+        tipo = Utils.opcao( 1, 2 );
 
         System.out.println( "Quantas parcelas? " );
         parcelas = sc.nextInt();
@@ -253,7 +247,7 @@ public abstract class Conta {
         // Output e Input
         System.out.println( "1 - Financiamento Imobiliário" );
         System.out.println( "2 - Financiamento Veicular" );
-        tipo = sc.nextInt();
+        tipo = Utils.opcao( 1, 2 );
 
         System.out.println( "Quantas parcelas: " );
         parcelas = sc.nextInt();
@@ -286,7 +280,7 @@ public abstract class Conta {
             menuConta();
 
             // Input da escolha
-            opcao = sc.nextInt();
+            opcao = Utils.opcao( 1, 5 );
             System.out.println();
 
             // Escolha das ações da conta a partir do menuConta
@@ -294,7 +288,7 @@ public abstract class Conta {
                 // Opção de visualizar Informações Pessoais
                 case 1 -> {
                     subMenuConta();
-                    opcao2 = sc.nextInt();
+                    opcao2 = Utils.opcao( 1, 5 );
                     subacoesConta( opcao2 );
 
                 }
@@ -302,20 +296,20 @@ public abstract class Conta {
                 // Opção Área de Cartões
                 case 2 -> {
                     Cartao.menuCartao();
-                    opcao2 = sc.nextInt();
+                    opcao2 = Utils.opcao( 1, 4 );
                     acoesCartao(opcao2);
                 }
                 // Opção Área de Empréstimos
                 case 3 -> {
                     Emprestimo.menuEmprestimo();
-                    opcao2 = sc.nextInt();
+                    opcao2 = Utils.opcao( 1, 4 );
 
                     // Função de métodos pertinentes ao Empréstimo.
                     acoesEmprestimo(opcao2);
                 }
                 case 4 -> {
                     Financiamento.menuFinanciamento();
-                    opcao2 = sc.nextInt();
+                    opcao2 = Utils.opcao( 1, 4 );
 
                     // Função de métodos pertinentes ao Financiamento
                     acoesFinanciamento(opcao2);
@@ -459,7 +453,6 @@ public abstract class Conta {
         System.out.println( "3 - Área de Emprestimos" );
         System.out.println( "4 - Área de financiamentos" );
         System.out.println( "5 - Encerrar sessão" );
-        System.out.print( "\nOpção: " );
 
     }
 
@@ -471,7 +464,6 @@ public abstract class Conta {
         System.out.println( "3 - Depositar dinheiro" );
         System.out.println( "4 - Sacar dinheiro" );
         System.out.println( "5 - Voltar" );
-        System.out.print( "Opção: " );
 
     }
 

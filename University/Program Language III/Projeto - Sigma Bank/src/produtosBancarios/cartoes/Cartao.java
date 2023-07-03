@@ -83,7 +83,6 @@ public abstract class Cartao implements Gerais {
         System.out.println( "2 - Consultar cartão" );
         System.out.println( "3 - Pagar cartão" );
         System.out.println( "4 - Voltar" );
-        System.out.print( "Opção: " );
 
     }
 

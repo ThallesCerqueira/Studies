@@ -23,7 +23,7 @@ public class Utils {
             System.out.print( "Opção: " );
             opcao = sc.nextInt();
 
-            if( opcao < min || opcao > max ) System.out.println( "Opção inválida, tente novamente!" );
+            if( opcao < min || opcao > max ) System.out.println( "Opção inválida, tente novamente!\n" );
         }while ( opcao < min || opcao > max );
 
         return opcao;

@@ -49,7 +49,6 @@ public abstract class Emprestimo implements Gerais {
         System.out.println( "2 - Consultar empréstimo" );
         System.out.println( "3 - Pagar empréstimo" );
         System.out.println( "4 - Voltar" );
-        System.out.print( "Opção: " );
 
     }
 
