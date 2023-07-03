@@ -2,7 +2,7 @@ package produtosBancarios.financiamentos;
 
 import utils.Gerais;
 
-public class Financiamento implements Gerais {
+public abstract class Financiamento implements Gerais {
 
     // Atributos da Classe
     private int qtdParcelas;

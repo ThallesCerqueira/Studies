@@ -3,7 +3,7 @@ package produtosBancarios.cartoes;
 import utils.Data;
 import utils.Gerais;
 
-public class Cartao implements Gerais {
+public abstract class Cartao implements Gerais {
 
     // Atributos da Classe
     private Data vencimento;
