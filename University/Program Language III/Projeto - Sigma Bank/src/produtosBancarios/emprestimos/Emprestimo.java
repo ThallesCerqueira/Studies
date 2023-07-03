@@ -13,8 +13,15 @@ public abstract class Emprestimo implements Gerais {
 
     // Construtor com 2 parâmetros
     public Emprestimo( int qtdParcelas, double valor ) {
-        this.qtdParcelas = qtdParcelas;
-        this.valor = valor;
+
+        if ( validaEmprestimo( qtdParcelas, valor ) ) {
+            this.qtdParcelas = qtdParcelas;
+            this.valor = valor;
+        } else {
+            this.qtdParcelas = 0;
+            this.valor = 0;
+        }
+
     }
 
     // Sobreescrita do método pagar, previsto pela Interface
@@ -38,6 +45,7 @@ public abstract class Emprestimo implements Gerais {
     }
 
     // Sobreescrita do método toStringo, previsto pela Interface
+    @Override
     public String toString() {
         return "Valor: " + this.valor + ", Parcelas: " + this.qtdParcelas + ", Parcelas Pagas:" + this.parcelasPagas;
     }
@@ -55,6 +63,11 @@ public abstract class Emprestimo implements Gerais {
     // Método de verificação para Empréstimo
     public static boolean isEmprestimo( Emprestimo emprestimo ) {
         return emprestimo != null;
+    }
+
+    // Método de validação
+    private boolean validaEmprestimo( int quantidade, double valor ) {
+        return quantidade > 1 && valor > 0;
     }
 
 }

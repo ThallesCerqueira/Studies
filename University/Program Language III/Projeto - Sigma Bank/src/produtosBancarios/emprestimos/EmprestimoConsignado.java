@@ -1,6 +1,6 @@
 package produtosBancarios.emprestimos;
 
-public class EmprestimoConsignado extends Emprestimo{
+public class EmprestimoConsignado extends Emprestimo {
 
     // Construtor com 2 parâmetros
     public EmprestimoConsignado( int qtdParcelas, double valor ) {
