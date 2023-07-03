@@ -350,13 +350,13 @@ public abstract class Conta {
 
             // Opção para ver informações do Empréstimo
             case 2 :
-                if( isEmprestimo() ) System.out.println( emprestimo.toString() );
+                if( Emprestimo.isEmprestimo( emprestimo ) ) System.out.println( emprestimo.toString() );
                 else System.out.println( "Nenhum empréstimo localizado." );
                 break;
 
             // Opção para pagar Empréstimo
             case 3:
-                if( isEmprestimo() ) {
+                if( Emprestimo.isEmprestimo( emprestimo ) ) {
                     System.out.println( "Valor do pagamento: " );
                     valorPagamento = sc.nextDouble();
 
@@ -428,13 +428,13 @@ public abstract class Conta {
 
             // Opção para ver informações do Financiamento
             case 2 :
-                if( isFinanciamento() ) System.out.println( financiamento.toString() );
+                if( Financiamento.isFinanciamento( financiamento ) ) System.out.println( financiamento.toString() );
                 else System.out.println( "Nenhum financiamento localizado." );
                 break;
 
             // Opção para pagar Financiamento
             case 3:
-                if( isFinanciamento() ) {
+                if( Financiamento.isFinanciamento( financiamento ) ) {
                     System.out.println( "Valor do pagamento: " );
                     valorPagamento = sc.nextDouble();
 
@@ -448,16 +448,6 @@ public abstract class Conta {
                 break;
         }
 
-    }
-
-    // Método de verificação para Empréstimo
-    private boolean isEmprestimo() {
-        return this.emprestimo != null;
-    }
-
-    // Método de verificação para Financiamento
-    private boolean isFinanciamento() {
-        return this.financiamento != null;
     }
 
     // Método de verificação para Cartão

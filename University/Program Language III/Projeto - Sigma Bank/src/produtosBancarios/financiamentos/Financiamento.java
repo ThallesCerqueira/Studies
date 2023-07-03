@@ -60,4 +60,9 @@ public abstract class Financiamento implements Gerais {
 
     }
 
+    // Método de verificação para Financiamento
+    public static boolean isFinanciamento( Financiamento financiamento ) {
+        return financiamento != null;
+    }
+
 }

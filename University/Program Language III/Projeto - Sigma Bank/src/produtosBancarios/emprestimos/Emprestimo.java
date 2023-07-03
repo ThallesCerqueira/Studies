@@ -53,4 +53,9 @@ public abstract class Emprestimo implements Gerais {
 
     }
 
+    // Método de verificação para Empréstimo
+    public static boolean isEmprestimo( Emprestimo emprestimo ) {
+        return emprestimo != null;
+    }
+
 }
