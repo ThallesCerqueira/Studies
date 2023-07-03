@@ -10,10 +10,10 @@ public class ContaCorrente extends Conta {
     private double saldoDevedorCheque;
 
     // Construtor com 6 parâmetros
-    public ContaCorrente( String nome, long key, Data data, String endereco, double renda, int tipo ) {
+    public ContaCorrente( String nome, long key, Data data, String endereco, double renda, int tipo, String senha ) {
 
         // Chamando Construtor da Super Class
-        super();
+        super( senha );
 
         // Escolhendo se será Pessoa Física ou Jurídica
         if( tipo == 1 ) {

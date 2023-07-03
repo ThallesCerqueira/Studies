@@ -1,4 +1,4 @@
-import utils.ClasseUtils;
+import utils.Utils;
 import java.util.Scanner;
 import java.util.ArrayList;
 import static java.lang.System.exit;
@@ -24,7 +24,7 @@ public class Main {
             // Verificando a opção do Usuário
             do {
                 // Mostrando o Menu Principal
-                ClasseUtils.menuPrincipal();
+                Utils.menuPrincipal();
                 escolha = sc.nextInt();
 
                 if (escolha < 1 || escolha > 3) System.out.println("Opção inválida.");

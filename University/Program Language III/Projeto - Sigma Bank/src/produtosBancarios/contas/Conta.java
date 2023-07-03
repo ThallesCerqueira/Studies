@@ -2,6 +2,8 @@ package produtosBancarios.contas;
 
 import utils.Data;
 import pessoas.Pessoa;
+
+import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public abstract class Conta {
 
     // Atributos da Classe
     private int numConta;
+    private String senha;
     private double saldo;
     private Pessoa cliente;
     private Cartao cartao;
@@ -23,10 +26,11 @@ public abstract class Conta {
     Scanner sc = new Scanner( System.in );
 
     // Construtor sem parâmetros
-    public Conta() {
+    public Conta( String senha ) {
         // Gearando um número aleatório para conta
         this.numConta = random.nextInt( 10000, 99999 );
         this.saldo = 0;
+        this.senha = senha;
 
         // Atualizando o número de Contas Instanciadas
         qtdContas++;
@@ -36,7 +40,7 @@ public abstract class Conta {
     public static Conta abrirConta( ArrayList<Conta> contaList ) {
 
         // Variáveis
-        String nome, endereco;
+        String nome, endereco, senha;
         long key;
         double renda;
         int opcao, opcao2, dia, mes, ano;
@@ -87,31 +91,34 @@ public abstract class Conta {
         System.out.print( "Renda: " );
         renda  = sc.nextDouble();
 
+        System.out.print( "Senha da conta: " );
+        senha = sc.next();
+
         // Escolha de qual Conta será instanciada, levando em consideração a pessoa (CPF/CNPJ)
         if( opcao == 1 && opcao2 == 1 ) {
 
-            conta = new ContaCorrente( nome, key, new Data(dia, mes, ano), endereco, renda, 1 );
+            conta = new ContaCorrente( nome, key, new Data(dia, mes, ano), endereco, renda, 1, senha );
             // Adicionando conta criada à Lista
             contaList.add(conta);
             return conta;
 
         } else if (opcao == 1) {
 
-            conta = new ContaCorrente( nome, key, new Data(dia, mes, ano), endereco, renda, 2 );
+            conta = new ContaCorrente( nome, key, new Data(dia, mes, ano), endereco, renda, 2, senha );
             // Adicionando conta criada à Lista
             contaList.add(conta);
             return conta;
 
         } else if(opcao2 == 1) {
 
-            conta = new ContaPoupanca( nome, key, new Data(dia, mes, ano), endereco, renda, 1 );
+            conta = new ContaPoupanca( nome, key, new Data(dia, mes, ano), endereco, renda, 1, senha );
             // Adicionando conta criada à Lista
             contaList.add(conta);
             return conta;
 
         } else {
 
-            conta = new ContaPoupanca( nome, key, new Data(dia, mes, ano), endereco, renda, 1 );
+            conta = new ContaPoupanca( nome, key, new Data(dia, mes, ano), endereco, renda, 1, senha );
             // Adicionando conta criada à Lista
             contaList.add(conta);
             return conta;
@@ -125,6 +132,7 @@ public abstract class Conta {
         // Variáveis
         int escolha;
         long key;
+        String senha;
         Conta conta;
         Scanner sc = new Scanner( System.in );
 
@@ -145,13 +153,17 @@ public abstract class Conta {
 
         // Pegando a chave de acesso e fazendo a busca nas contas já existentes.
         key = sc.nextInt();
-        conta = buscaConta(contaList, key);
+
+        System.out.print( "Digite sua senha: " );
+        senha = sc.next();
+
+        conta = buscaConta(contaList, key, senha);
 
         return conta;
     }
 
     // Método auxiliar para buscar uma conta
-    private static Conta buscaConta( ArrayList<Conta> contaList, long key ) {
+    private static Conta buscaConta( ArrayList<Conta> contaList, long key, String senha ) {
 
         // Variáveis
         int i = 0;
@@ -159,7 +171,7 @@ public abstract class Conta {
         // Looping que percorre a nossa lista
         for( Conta conta: contaList ) {
 
-            if( conta.getKeyPessoa() == key) {
+            if( conta.getKeyPessoa() == key && Objects.equals(conta.getSenha(), senha)) {
                 return conta;
             }
             i++;
@@ -170,8 +182,8 @@ public abstract class Conta {
 
     // Método auxiliar para popular o banco de contas/pessoas
     public static void inicializaContas( ArrayList<Conta> contaList ) {
-        contaList.add( new ContaCorrente( "Thalles Cerqueira", 123456 , new Data(), "Rua Nova", 1000.0d, 1 ) );
-        contaList.add( new ContaCorrente( "Company Center", 654321, new Data(), "Juracy Magalhães", 100000.0d, 2 ) );
+        contaList.add( new ContaCorrente( "Thalles Cerqueira", 123456 , new Data(), "Rua Nova", 1000.0d, 1, "thalles" ) );
+        contaList.add( new ContaCorrente( "Company Center", 654321, new Data(), "Juracy Magalhães", 100000.0d, 2, "thalles" ) );
     }
 
     // Caso o cliente queira criar um cartão
@@ -548,6 +560,11 @@ public abstract class Conta {
     // Método para saber o saldo
     public double getSaldo() {
         return this.saldo;
+    }
+
+    // Método que retorna a senha da Conta
+    private String getSenha() {
+        return this.senha;
     }
 
     // Método para adicionar saldo na conta

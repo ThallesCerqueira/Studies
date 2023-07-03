@@ -7,10 +7,10 @@ import pessoas.PessoaJuridica;
 public class ContaPoupanca extends Conta {
 
     // Construtor com 6 parâmetros
-    public ContaPoupanca( String nome, long key, Data data, String endereco, double renda, int tipo ) {
+    public ContaPoupanca( String nome, long key, Data data, String endereco, double renda, int tipo, String senha ) {
 
         // Chamando construtor da Super Class
-        super();
+        super( senha );
 
         // Escolhendo se será Pessoa Física ou Jurídica
         if( tipo == 1 ) {

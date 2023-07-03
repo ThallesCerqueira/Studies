@@ -2,7 +2,7 @@ package utils;
 
 import java.util.Scanner;
 
-public class ClasseUtils {
+public class Utils {
 
     // Método que mostra Menu Principal
     public static void menuPrincipal() {
