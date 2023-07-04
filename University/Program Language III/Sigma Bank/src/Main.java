@@ -1,4 +1,6 @@
+import pessoas.Funcionario;
 import utils.Utils;
+import pessoas.Pessoa;
 import java.util.Scanner;
 import java.util.ArrayList;
 import static java.lang.System.exit;
@@ -13,9 +15,13 @@ public class Main {
         int escolha = 0;
         Conta contaAtual = null;
         ArrayList<Conta> contaList = new ArrayList<>();
+        ArrayList<Pessoa> funcionarioList = new ArrayList<>();
 
         // Chamando método para popular os usuários
-        Conta.inicializaContas(contaList);
+        Conta.inicializaContas( contaList );
+
+        // Chamando método para popular os funcionários
+        Funcionario.inicializaFuncionarios( funcionarioList );
 
         System.out.println(" ========= Bem-Vindo ao Sigma Bank ========= ");
 
@@ -23,19 +29,25 @@ public class Main {
 
             // Mostrando o Menu Principal
             Utils.menuPrincipal();
-            escolha = Utils.opcao( 1, 3 );
+            escolha = Utils.opcao( 1, 5 );
 
             // Chamando o método de acordo com a escolha do Usuário
             switch (escolha) {
 
                 // Opção para acessar uma Conta
-                case 1 -> contaAtual = Conta.acessarConta(contaList);
+                case 1 -> contaAtual = Conta.acessarConta( contaList );
 
                 // Opção para criar uma Conta
-                case 2 -> contaAtual = Conta.abrirConta(contaList);
+                case 2 -> contaAtual = Conta.abrirConta( contaList );
+
+                // Opção para mostrar os funcionarios
+                case 3 -> Utils.nossosFuncionarios( funcionarioList );
+
+                // Opção para mostrar os clientes
+                case 4 -> Utils.nossosClientes( contaList );
 
                 // Opção para encerrar o programa
-                case 3 -> {
+                case 5 -> {
                     System.out.println( "\nEncerrando Programa!" );
                     System.out.println( "Contas instanciadas: " + Conta.getQtdContas() );
                     exit( 0 );

@@ -561,6 +561,11 @@ public abstract class Conta {
         return this.senha;
     }
 
+    // Método que retorna o nome do cliente
+    public String getNome() {
+        return cliente.getNome();
+    }
+
     // Método para adicionar saldo na conta
     public void setSaldo( double saldo ) {
         this.saldo = saldo;
