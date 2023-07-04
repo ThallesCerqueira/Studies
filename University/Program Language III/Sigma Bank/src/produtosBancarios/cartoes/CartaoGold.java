@@ -20,7 +20,13 @@ public class CartaoGold extends Cartao {
     // Sobreescrita do método ComprarAlgo
     @Override
     public boolean comprarAlgo( double valor, int senha ) {
-        return super.comprarAlgo( valor + 4, senha );
+        return super.comprarAlgo( valor + 4 + anuidade, senha );
+    }
+
+    // Sobreescrita do método toString
+    @Override
+    public String toString() {
+        return super.toString() + ", Anuidade: " + this.anuidade;
     }
 
 }

@@ -1,12 +1,13 @@
-import pessoas.Funcionario;
 import utils.Utils;
 import pessoas.Pessoa;
 import java.util.Scanner;
+import pessoas.Funcionario;
 import java.util.ArrayList;
 import static java.lang.System.exit;
 import produtosBancarios.contas.Conta;
 
 public class Main {
+
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {

@@ -14,11 +14,6 @@ public class Funcionario extends Pessoa {
         this.cargo = cargo;
     }
 
-    // Método para pegar o cargo
-    public String getCargo() {
-        return this.cargo;
-    }
-
     // Método para inicializar os funcionarios
     public static void inicializaFuncionarios(ArrayList<Pessoa> list) {
 
@@ -34,11 +29,16 @@ public class Funcionario extends Pessoa {
 
     }
 
-    // Sobrrescrita do método getNome
+    // Sobreescrita do método getNome
     @Override
     public String getNome() {
         return super.getNome() + ", Cargo: " + this.cargo;
     }
 
+    // Sobreescrita e implementação do método getKeyPessoa
+    @Override
+    public long getKeyPessoa() {
+        return 0;
+    }
 
 }

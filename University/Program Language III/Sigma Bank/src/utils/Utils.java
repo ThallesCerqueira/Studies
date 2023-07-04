@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import produtosBancarios.contas.Conta;
 
-public class Utils {
+public abstract class Utils {
 
     // Método que mostra Menu Principal
     public static void menuPrincipal() {

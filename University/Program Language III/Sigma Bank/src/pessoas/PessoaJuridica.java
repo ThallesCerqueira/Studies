@@ -38,18 +38,10 @@ public class PessoaJuridica extends Pessoa {
     // Método sobreescrito, toString
     @Override
     public String toString() {
-        return "Nome: " + super.getNome() +", Cnpj: "+ this.cnpj + ", Abertura: " + this.dataAbertura + ", Endereço: " + super.getEndereco() + ", Renda: " +super.getRenda();
+        return "Nome: " + super.getNome() +", Cnpj: "+ this.cnpj + ", Abertura: " + dataAbertura.toString() + ", Endereço: " + super.getEndereco() + ", Renda: " +super.getRenda();
     }
 
-    // Getters da Classe
-    public long getCnpj() {
-        return this.cnpj;
-    }
-
-    public Data getDataAbertura() {
-        return this.dataAbertura;
-    }
-
+    // Sobreescrita e implementação do método getKeyPessoa
     @Override
     public long getKeyPessoa() {
         return this.cnpj;

@@ -34,20 +34,22 @@ public abstract class Pessoa {
         return !Objects.equals(nome, "") && !Objects.equals(endereco, "") && renda >= 0;
     }
 
-    // Getters da Classe
+    // Método getNome
     public String getNome() {
         return this.nome;
     }
 
+    // Método getEndereco
     public String getEndereco() {
         return this.endereco;
     }
 
+    // Método getRenda
     public double getRenda() {
         return this.renda;
     }
 
-    public long getKeyPessoa() {
-        return 0;
-    }
+    // Método abstrato getKeyPessoa
+    public abstract long getKeyPessoa();
+
 }

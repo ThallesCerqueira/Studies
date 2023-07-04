@@ -42,6 +42,12 @@ public class CartaoBlack extends Cartao {
         return false;
     }
 
+    // Sobreescrita do método toString
+    @Override
+    public String toString() {
+        return super.toString() + ", Milhas: " + this.milhas;
+    }
+
     // Método para atribuir milhas, quando o cliente Compra ou paga a fatura.
     private void setMilhas() {
         this.milhas += 30;
