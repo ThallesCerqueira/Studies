@@ -32,7 +32,13 @@ public class Funcionario extends Pessoa {
         list.add( new Funcionario( "Bartolomeu", "Chefe de setor", "Sarinha", 5000 ) );
         list.add( new Funcionario( "Filipe", "Diretor Executivo", "Jaçanã", 15000 ) );
 
-
     }
+
+    // Sobrrescrita do método getNome
+    @Override
+    public String getNome() {
+        return super.getNome() + ", Cargo: " + this.cargo;
+    }
+
 
 }

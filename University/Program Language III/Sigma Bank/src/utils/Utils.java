@@ -21,14 +21,18 @@ public class Utils {
     // Método que mostra os funcionarios da empresa
     public static void nossosFuncionarios( ArrayList<Pessoa> list ) {
 
+        System.out.println( "\n\nLista de funcionários:\n" );
+
         for( Pessoa pessoa: list ) {
-            System.out.println( "Funcionário: " + pessoa.getNome() + ", salário: " + pessoa.getRenda() );
+            System.out.println( "Funcionário: " + pessoa.getNome() + ", Salário: " + pessoa.getRenda() );
         }
 
     }
 
     // Método para mostrar nossos clientes
     public static void nossosClientes( ArrayList<Conta> list ) {
+
+        System.out.println( "\n\nLista de clientes: \n" );
 
         for( Conta cliente: list ) {
             System.out.println( "Cliente: " + cliente.getNome() );

@@ -41,10 +41,16 @@ public class Main {
                 case 2 -> contaAtual = Conta.abrirConta( contaList );
 
                 // Opção para mostrar os funcionarios
-                case 3 -> Utils.nossosFuncionarios( funcionarioList );
+                case 3 -> {
+                    Utils.nossosFuncionarios(funcionarioList);
+                    continue;
+                }
 
                 // Opção para mostrar os clientes
-                case 4 -> Utils.nossosClientes( contaList );
+                case 4 -> {
+                    Utils.nossosClientes( contaList );
+                    continue;
+                }
 
                 // Opção para encerrar o programa
                 case 5 -> {
