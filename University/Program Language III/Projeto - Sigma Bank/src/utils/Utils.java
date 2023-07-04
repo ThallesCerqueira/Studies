@@ -10,7 +10,6 @@ public class Utils {
         System.out.println("\n1 - Acessar conta.");
         System.out.println("2 - Abrir conta.");
         System.out.println("3 - Encerrar Programa.");
-        System.out.print("\nOpção: ");
 
     }
 
@@ -20,7 +19,7 @@ public class Utils {
         Scanner sc = new Scanner( System.in );
 
         do{
-            System.out.print( "Opção: " );
+            System.out.print( "\nOpção: " );
             opcao = sc.nextInt();
 
             if( opcao < min || opcao > max ) System.out.println( "Opção inválida, tente novamente!\n" );

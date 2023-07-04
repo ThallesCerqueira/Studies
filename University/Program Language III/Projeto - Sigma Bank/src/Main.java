@@ -21,15 +21,9 @@ public class Main {
 
         while ( true ) {
 
-            // Verificando a opção do Usuário
-            do {
-                // Mostrando o Menu Principal
-                Utils.menuPrincipal();
-                escolha = sc.nextInt();
-
-                if (escolha < 1 || escolha > 3) System.out.println("Opção inválida.");
-
-            } while (escolha < 1 || escolha > 3);
+            // Mostrando o Menu Principal
+            Utils.menuPrincipal();
+            escolha = Utils.opcao( 1, 3 );
 
             // Chamando o método de acordo com a escolha do Usuário
             switch (escolha) {

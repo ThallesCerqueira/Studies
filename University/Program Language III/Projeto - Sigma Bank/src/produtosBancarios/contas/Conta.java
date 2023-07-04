@@ -188,7 +188,7 @@ public abstract class Conta {
 
         // Output e Input
         System.out.print( "Dia do Vencimento: " );
-        dia = Utils.opcao( 1, 31 );
+        dia = sc.nextInt();
         System.out.print( "Senha: " );
         senha = sc.nextInt();
 
@@ -397,6 +397,8 @@ public abstract class Conta {
 
                     if( cartao.comprarAlgo( valorPagamento, senha ) ) System.out.println( "Compra efetuada" );
                     else System.out.println( "Compra não efetuada!" );
+                } else {
+                    System.out.println( "\nNenhum cartão localizado!" );
                 }
                 break;
 
@@ -408,6 +410,8 @@ public abstract class Conta {
 
                     if( cartao.pagar( valorPagamento ) ) System.out.println( "Pagamento efetuado" );
                     else System.out.println( "Pagamento não efetuado!" );
+                } else {
+                    System.out.println( "\nNenhum cartão localizado!" );
                 }
                 break;
 
