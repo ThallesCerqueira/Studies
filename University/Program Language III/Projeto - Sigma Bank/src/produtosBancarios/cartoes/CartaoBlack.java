@@ -22,8 +22,8 @@ public class CartaoBlack extends Cartao {
 
     // Sobreescrita do método comprarAlgo
     @Override
-    public boolean comprarAlgo( double valor ) {
-        if( super.comprarAlgo(valor) ) {
+    public boolean comprarAlgo( double valor, int senha ) {
+        if( super.comprarAlgo( valor, senha ) ) {
             setMilhas();
             return true;
         }

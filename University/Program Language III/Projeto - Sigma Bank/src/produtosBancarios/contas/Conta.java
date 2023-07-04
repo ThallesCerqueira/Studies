@@ -1,16 +1,15 @@
 package produtosBancarios.contas;
 
 import utils.Data;
+import utils.Utils;
 import pessoas.Pessoa;
-
-import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Objects;
 import java.util.ArrayList;
 import produtosBancarios.cartoes.*;
 import produtosBancarios.emprestimos.*;
 import produtosBancarios.financiamentos.*;
-import utils.Utils;
 
 public abstract class Conta {
 
@@ -188,9 +187,9 @@ public abstract class Conta {
         double limite = limiteCartao();
 
         // Output e Input
-        System.out.println( "Dia do Vencimento: " );
+        System.out.print( "Dia do Vencimento: " );
         dia = Utils.opcao( 1, 31 );
-        System.out.println( "Senha: " );
+        System.out.print( "Senha: " );
         senha = sc.nextInt();
 
         // Verificação de qual cartão será criado. É arbitrário.
@@ -296,7 +295,7 @@ public abstract class Conta {
                 // Opção Área de Cartões
                 case 2 -> {
                     Cartao.menuCartao();
-                    opcao2 = Utils.opcao( 1, 4 );
+                    opcao2 = Utils.opcao( 1, 5 );
                     acoesCartao(opcao2);
                 }
                 // Opção Área de Empréstimos
@@ -371,6 +370,7 @@ public abstract class Conta {
 
         // Variáveis
         double valorPagamento;
+        int senha;
 
         // Escolha das ações para Cartão a partir do menuCartao
         switch (opcao) {
@@ -387,8 +387,21 @@ public abstract class Conta {
                 else System.out.println( "\nNenhum cartão localizado!" );
                 break;
 
-            // Opção para pagar Cartão
             case 3:
+                if( Cartao.isCartao( cartao ) ) {
+                    System.out.println( "Valor da compra: " );
+                    valorPagamento = sc.nextDouble();
+
+                    System.out.println( "Senha do cartão: " );
+                    senha = sc.nextInt();
+
+                    if( cartao.comprarAlgo( valorPagamento, senha ) ) System.out.println( "Compra efetuada" );
+                    else System.out.println( "Compra não efetuada!" );
+                }
+                break;
+
+            // Opção para pagar Cartão
+            case 4:
                 if( Cartao.isCartao( cartao ) ) {
                     System.out.println( "Valor do pagamento: " );
                     valorPagamento = sc.nextDouble();
@@ -399,7 +412,7 @@ public abstract class Conta {
                 break;
 
             // Opção de voltar à tela anterior
-            case 4:
+            case 5:
                 break;
         }
 

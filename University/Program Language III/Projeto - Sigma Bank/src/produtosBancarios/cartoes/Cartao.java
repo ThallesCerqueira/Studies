@@ -45,6 +45,7 @@ public abstract class Cartao implements Gerais {
 
         if( this.fatura >= pagamento ) {
             this.fatura -= pagamento;
+            this.limite += pagamento;
             return true;
         }
 
@@ -53,9 +54,9 @@ public abstract class Cartao implements Gerais {
     }
 
     // Método para compra com o Cartão
-    public boolean comprarAlgo( double valor ) {
+    public boolean comprarAlgo( double valor, int senha ) {
 
-        if( this.limite >= valor ) {
+        if( this.limite >= valor && this.senha == senha) {
             this.limite -= valor;
             this.fatura += valor;
             return true;
@@ -81,8 +82,9 @@ public abstract class Cartao implements Gerais {
 
         System.out.println( "1 - Novo Cartão" );
         System.out.println( "2 - Consultar cartão" );
-        System.out.println( "3 - Pagar cartão" );
-        System.out.println( "4 - Voltar" );
+        System.out.println( "3 - Comprar algo" );
+        System.out.println( "4 - Pagar cartão" );
+        System.out.println( "5 - Voltar" );
 
     }
 
