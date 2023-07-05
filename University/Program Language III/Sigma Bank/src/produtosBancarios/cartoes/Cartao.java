@@ -15,10 +15,10 @@ public abstract class Cartao implements Gerais {
     private int senha;
 
     // Construtor com 3 parâmetros
-    public Cartao( Data vencimento, double limite, int senha ) {
+    public Cartao( int dia, double limite, int senha ) {
 
-        if( validaCartao( vencimento, limite) ) {
-            this.vencimento = vencimento;
+        if( validaCartao( dia, limite) ) {
+            this.vencimento = new Data( dia, 1 );
             this.limite = limite;
         } else {
             this.vencimento = new Data(1, 1);
@@ -31,12 +31,12 @@ public abstract class Cartao implements Gerais {
 
     // Construtor com 2 parâmetros
     public Cartao( double limite, int senha ) {
-        this( null, limite, senha );
+        this( 1, limite, senha );
     }
 
     // Método para verificar se os dados são válidos
-    private boolean validaCartao( Data vencimento, double limite ) {
-        return vencimento != null && limite >= 0;
+    private boolean validaCartao( int dia, double limite ) {
+        return dia >= 1 && dia <= 31 && limite >= 0;
     }
 
     // Sobreescrita do método pagar, previsto na Interface

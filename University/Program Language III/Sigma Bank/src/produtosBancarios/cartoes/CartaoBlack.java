@@ -9,11 +9,11 @@ public class CartaoBlack extends Cartao {
 
     // Construtor com 2 parâmetros
     public CartaoBlack( double limite, int senha ) {
-        this( null, limite, senha );
+        this( 1, limite, senha );
     }
 
     // Construtor com 3 parâmetros
-    public CartaoBlack(Data vencimento, double limite, int senha ) {
+    public CartaoBlack(int vencimento, double limite, int senha ) {
 
         // Chamando construtor da Super Class
         super( vencimento, limite, senha );

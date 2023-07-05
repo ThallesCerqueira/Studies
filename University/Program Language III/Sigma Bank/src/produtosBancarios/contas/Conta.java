@@ -195,11 +195,11 @@ public abstract class Conta {
         // Verificação de qual cartão será criado. É arbitrário.
         if( limite > 10000 ) {
             System.out.println( "Cartão a ser criado: Cartão Black" );
-            this.cartao = new CartaoBlack( new Data( dia, 12 ), limite, senha );
+            this.cartao = new CartaoBlack( dia, limite, senha );
             return true;
         } else if ( limite > 0 ) {
             System.out.println( "Cartão a ser criado: Cartão Gold" );
-            this.cartao = new CartaoGold( new Data( dia, 12 ), limite, senha );
+            this.cartao = new CartaoGold( dia, limite, senha );
             return true;
         }
 

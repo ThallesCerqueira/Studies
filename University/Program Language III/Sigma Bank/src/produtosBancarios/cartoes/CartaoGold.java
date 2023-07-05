@@ -9,11 +9,11 @@ public class CartaoGold extends Cartao {
 
     // Construtor com 2 parâmetros
     public CartaoGold( double limite, int senha ) {
-        this( null, limite, senha );
+        this( 1, limite, senha );
     }
 
     // Construtor com 3 parâmetros
-    public CartaoGold(Data vencimento, double limite, int senha ) {
+    public CartaoGold(int vencimento, double limite, int senha ) {
         super( vencimento, limite, senha );
     }
 
