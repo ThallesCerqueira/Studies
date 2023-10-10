@@ -6,8 +6,9 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Assert;
 import org.junit.Test;
-import static io.restassured.RestAssured.get;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 
 public class OlaMundoTest {
 
@@ -38,6 +39,28 @@ public class OlaMundoTest {
                 .get("https://restapi.wcaquino.me/ola")
         .then()
                 .statusCode(200)
+        ;
+
+    }
+
+    @Test
+    public void devoConhecerMatchersHamcrest() {
+
+        assertThat("Maria", is("Maria"));
+
+    }
+
+    @Test
+    public void devoValidarBody() {
+
+        given()
+        .when()
+                .get("https://restapi.wcaquino.me/ola")
+        .then()
+                .statusCode(200)
+                .body(is("Ola Mundo!"))
+                .body(containsString("Mundo"))
+                .body(is(not(nullValue())))
         ;
 
     }
