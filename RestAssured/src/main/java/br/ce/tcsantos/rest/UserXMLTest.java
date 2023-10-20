@@ -1,6 +1,12 @@
 package br.ce.tcsantos.rest;
 
+import io.restassured.internal.path.xml.NodeImpl;
+import io.restassured.response.Response;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.is;
@@ -42,6 +48,24 @@ public class UserXMLTest {
                 .body("users.user.find{it.age == 25}.name", is("Maria Joaquina"))
                 .body("users.user.findAll{it.name.toString().contains('n')}.name", hasItems("Maria Joaquina", "Ana Julia"))
         ;
+
+    }
+
+    @Test
+    public void fazerPesquisasAvancadasXMLEJava() {
+
+        ArrayList<NodeImpl> names = given()
+                .when()
+                .get("https://restapi.wcaquino.me/usersXML")
+                .then()
+                .statusCode(200)
+                .extract().path("users.user.name.findAll{it.toString().contains('n')}")
+        ;
+
+        Assert.assertEquals(2, names.size());
+        Assert.assertEquals("Maria Joaquina".toUpperCase(), names.get(0).toString().toUpperCase());
+        Assert.assertTrue("Ana Julia".equalsIgnoreCase(names.get(1).toString()));
+        //Assert.assertEquals("Maria Joaquina".toUpperCase(), name.toString().toUpperCase());
 
     }
 
