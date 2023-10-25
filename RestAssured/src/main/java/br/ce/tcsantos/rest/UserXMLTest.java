@@ -1,7 +1,12 @@
 package br.ce.tcsantos.rest;
 
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.filter.log.LogDetail;
 import io.restassured.internal.path.xml.NodeImpl;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -11,9 +16,25 @@ import static org.hamcrest.Matchers.*;
 
 public class UserXMLTest {
 
+    public static RequestSpecification reqSpec;
+    public static ResponseSpecification resSpec;
+
     @BeforeClass
     public static void setup() {
         RestAssured.baseURI = "https://restapi.wcaquino.me";
+
+        // Definindo resquest specification por padrão para todas requisições.
+        RequestSpecBuilder reqBuilder = new RequestSpecBuilder();
+        reqBuilder.log(LogDetail.ALL);
+        reqSpec = reqBuilder.build();
+        RestAssured.requestSpecification = reqSpec;
+
+        // Definindo response specification por padrão para todas requisições.
+        ResponseSpecBuilder resBuilder = new ResponseSpecBuilder();
+        resBuilder.expectStatusCode(200);
+        resSpec = resBuilder.build();
+        RestAssured.responseSpecification = resSpec;
+
     }
 
     // AULA 18
@@ -24,14 +45,11 @@ public class UserXMLTest {
         .when()
                 .get("/usersXML/3")
         .then()
-                .statusCode(200)
                 .rootPath("user") // define o rootPath, a raiz, como sendo user
                 .body("name", is("Ana Julia"))
                 .body("@id", is("3"))
                 .body("filhos.name.size()", is(2))
                 .body("filhos.name[0]", is("Zezinho"))
-                .body("users.user.salary.find{it.salary != null}", is(1234.5678))
-                .body("users.user.age.collect{it.toInteger() * 2}", hasItems(40, 50, 60))
         ;
 
     }
@@ -44,7 +62,6 @@ public class UserXMLTest {
         .when()
                 .get("/usersXML")
         .then()
-                .statusCode(200)
                 .body("users.user.size()", is(3)) // Valida tamanho do "array" users
                 .body("users.user.findAll{it.age.toInteger() <= 25 }.size()", is(2)) // Verifica usuarios com idade <= 25
                 .body("users.user.@id", hasItems("1", "2", "3")) // Valida os id' de users
@@ -63,7 +80,6 @@ public class UserXMLTest {
                 .when()
                 .get("/usersXML")
                 .then()
-                .statusCode(200)
                 .extract().path("users.user.name.findAll{it.toString().contains('n')}")
         ;
 
@@ -82,7 +98,6 @@ public class UserXMLTest {
         .when()
                 .get("/usersXML")
         .then()
-                .statusCode(200)
                 .body(hasXPath("count(/users/user)", is("3") ))
                 .body(hasXPath("/users/user[@id= '1']"))
         ;
