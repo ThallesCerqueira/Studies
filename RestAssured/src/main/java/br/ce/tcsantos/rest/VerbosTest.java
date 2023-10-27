@@ -3,8 +3,7 @@ package br.ce.tcsantos.rest;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 
 public class VerbosTest {
 
@@ -27,6 +26,47 @@ public class VerbosTest {
                 .body("name", is("Jose"))
                 .body("age", is(50))
         ;
+
+    }
+
+    // AULA 26
+    @Test
+    public void naoDeveSalvarUsarioSemNome() {
+        given()
+                .log()
+                .all()
+                .header("Content-type", "application/json")
+                .body("{\"age\": 50}")
+        .when()
+                .post("https://restapi.wcaquino.me/users")
+        .then()
+                .log()
+                .all()
+                .statusCode(400)
+                .body("id", is(nullValue()))
+                .body("error", is("Name é um atributo obrigatório"))
+        ;
+
+    }
+
+    // AULA 27
+    @Test
+    public void salvarUsuarioXML() {
+
+        given()
+                .log()
+                .all()
+                .header("Content-type", "application/xml" )
+                .body("<user><name>Jose</name><age>50</age></user>")
+        .when()
+                .post("https://restapi.wcaquino.me/usersXML")
+        .then()
+                .log()
+                .all()
+                .body("user.@id", is(notNullValue()))
+                .body("user.name", is("Jose"))
+                .body("user.age", is("50"))
+                .statusCode(201);
 
     }
 
