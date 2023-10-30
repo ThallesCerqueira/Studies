@@ -70,5 +70,48 @@ public class VerbosTest {
 
     }
 
+    // AULA 28
+    @Test
+    public void alterarUsuario() {
+
+        given()
+                .log()
+                .all()
+                .header("Content-type", "application/json" )
+                .body("{\"name\": \"Jose Alterado\", \"age\": 80}")
+        .when()
+                .put("https://restapi.wcaquino.me/users/1")
+        .then()
+                .log()
+                .all()
+                .statusCode(200)
+                .body("id", is(1))
+                .body("name", is("Jose Alterado"))
+                .body("age", is(80))
+        ;
+
+    }
+
+    // AULA 29
+    @Test
+     public void customizarURL () {
+
+        given()
+                .log()
+                .all()
+                .header("Content-type", "application/json" )
+                .body("{\"name\": \"Jose Alterado\", \"age\": 80}")
+        .when()
+                .put("https://restapi.wcaquino.me/{entidade}/{userId}", "users", "1")
+        .then()
+                .log()
+                .all()
+                .statusCode(200)
+                .body("id", is(1))
+                .body("name", is("Jose Alterado"))
+                .body("age", is(80))
+        ;
+
+    }
 
 }
