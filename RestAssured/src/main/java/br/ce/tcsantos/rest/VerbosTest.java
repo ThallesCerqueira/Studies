@@ -2,6 +2,9 @@ package br.ce.tcsantos.rest;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
@@ -110,6 +113,63 @@ public class VerbosTest {
                 .body("id", is(1))
                 .body("name", is("Jose Alterado"))
                 .body("age", is(80))
+        ;
+
+    }
+
+    // AULA 30
+    @Test
+    public void deletarUsuario() {
+
+        given()
+                .log()
+                .all()
+        .when()
+                .delete("https://restapi.wcaquino.me/users/1")
+        .then()
+                .statusCode(204)
+                .log()
+                .all()
+        ;
+
+    }
+
+    // AULA 30
+    @Test
+    public void deletarUsuarioInexistente() {
+
+        given()
+                .log()
+                .all()
+        .when()
+                .delete("https://restapi.wcaquino.me/users/10")
+        .then()
+                .statusCode(400)
+                .body("error", is("Registr o inexistente"))
+                .log()
+                .all()
+        ;
+
+    }
+
+    // AULA 31
+    @Test
+    public void salvarUsuarioComMap() {
+
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("name", "Jose");
+        params.put("age", 20);
+
+        given()
+                .header("Content-type", "application/json" )
+                .body(params)
+        .when()
+                .post("https://restapi.wcaquino.me/users")
+        .then()
+                .statusCode(201)
+                .body("id", is(notNullValue()))
+                .body("name", is("Jose"))
+                .body("age", is(20))
         ;
 
     }
