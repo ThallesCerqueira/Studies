@@ -174,4 +174,24 @@ public class VerbosTest {
 
     }
 
+    // AULA 32
+    @Test
+    public void salvarUsuarioComObjeto() {
+
+        User user = new User("Thalles", 22);
+
+        given()
+                .header("Content-type", "application/json" )
+                .body(user)
+                .when()
+                .post("https://restapi.wcaquino.me/users")
+                .then()
+                .statusCode(201)
+                .body("id", is(notNullValue()))
+                .body("name", is("Thalles"))
+                .body("age", is(22))
+        ;
+
+    }
+
 }
