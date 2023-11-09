@@ -1,5 +1,6 @@
 package br.ce.tcsantos.rest;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -189,8 +190,29 @@ public class VerbosTest {
                 .statusCode(201)
                 .body("id", is(notNullValue()))
                 .body("name", is("Thalles"))
-                .body("age", is(22))
+                .body("age", is(22  ))
         ;
+
+    }
+
+    // AULA 33
+    @Test
+    public void deserializarAoSalvarUsuarioComObjeto() {
+
+        User user = new User("Thalles Cerqueira", 22);
+
+        User usarioInserido = given()
+                .header("Content-type", "application/json" )
+                .body(user)
+        .when()
+                .post("https://restapi.wcaquino.me/users")
+        .then()
+                .statusCode(201)
+                .extract().body().as(User.class)
+        ;
+
+        Assert.assertEquals("Thalles Cerqueira", usarioInserido.getName());
+        Assert.assertThat(usarioInserido.getAge(), is(22));
 
     }
 
