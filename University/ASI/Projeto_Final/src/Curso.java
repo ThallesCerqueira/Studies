@@ -50,8 +50,11 @@ public class Curso {
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i < 5; i++) {
             System.out.println(curso.getQuestao(i));
-            esc = sc.nextInt();
+            System.out.print("Opção: "); esc = sc.nextInt();
+            Utils.limparTela();
         }
+
+        System.out.println( "Parabéns! Todas as questões foram respondidas" );
     }
 
     private String getQuestao(int i) {

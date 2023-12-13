@@ -27,6 +27,8 @@ public class Utils {
             }
         } while (opcao < min || opcao > max);
 
+        limparTela();
+
         return opcao;
 
     }
@@ -40,6 +42,16 @@ public class Utils {
         System.out.println("5 - Meus dados");
         System.out.println("6 - Voltar");
 
+    }
+
+    public static void limparTela() {
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 
 }

@@ -6,13 +6,11 @@ public class Aluno extends Usuario {
     private final Utils utils = new Utils();
 
     public void getMeusCursos() {
-        System.out.println("LISTA DE CURSO: Início");
 
         for(Curso curso: meusCursos) {
             System.out.println(curso.getNome());
         }
 
-        System.out.println("LISTA DE CURSO: Fim");
     }
 
     public void hubAluno() {
@@ -50,7 +48,6 @@ public class Aluno extends Usuario {
         int qtdCursos, escolha;
         Curso curso;
 
-        System.out.println("Qual curso?");
         setMeusCurso(new CursoJava());
         setMeusCurso(new CursoPOO());
         qtdCursos = meusCursos.size();

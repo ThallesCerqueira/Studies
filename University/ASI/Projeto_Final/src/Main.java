@@ -6,7 +6,7 @@ public class Main {
         Aluno aluno = new Aluno();
         Professor professor = new Professor();
         Administrador administrador = new Administrador();
-        
+
         do {
 
             utils.menuPrincipal();
