@@ -37,4 +37,17 @@ public class EnvioDadosTest {
                 .contentType(ContentType.XML)
         ;
     }
+
+    @Test
+    public void enviarValorViaHeader() {
+        given()
+                .accept(ContentType.JSON)
+        .when()
+                .get("https://restapi.wcaquino.me/v2/users")
+        .then()
+                .statusCode(200)
+                .contentType(ContentType.HTML)
+        ;
+    }
+
 }
